@@ -1,0 +1,73 @@
+/* Layout: a forensic bank ledger. Condensed display type for headings, serif for reading, mono for figures and dates. Brass is the Master money colour; evidence tags carry the meaning. */
+:root{
+  --bg:#eceeea; --paper:#f8f9f6; --ink:#1a221e; --muted:#58635d; --line:#cbd2cc;
+  --accent:#8a6512; --accent-soft:#f0e6cb;
+  --doc:#1a221e; --alleg:#a3501a; --alleg-soft:#f8e6d7; --open:#5b4bb0; --open-soft:#e7e3f6; --no:#a11d33; --no-soft:#f7dde1;
+  --c-vorcaro:#8a6512; --c-stf:#7a2a3d; --c-gov:#c0392b; --c-pl:#1f5bb5; --c-centrao:#2b7a4b; --c-bc:#5d6b75;
+  --display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --ui:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111613; --paper:#18201c; --ink:#e5eae6; --muted:#9ba8a1; --line:#2b3530;
+  --accent:#e0b552; --accent-soft:#3a2f14;
+  --doc:#e5eae6; --alleg:#f0a066; --alleg-soft:#3a2516; --open:#ab9ff0; --open-soft:#29254a; --no:#f07a8c; --no-soft:#3d1a21;
+  --c-vorcaro:#e0b552; --c-stf:#e0899c; --c-gov:#f2796c; --c-pl:#78a8f2; --c-centrao:#6cc492; --c-bc:#a7b6c0;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111613; --paper:#18201c; --ink:#e5eae6; --muted:#9ba8a1; --line:#2b3530;
+  --accent:#e0b552; --accent-soft:#3a2f14;
+  --doc:#e5eae6; --alleg:#f0a066; --alleg-soft:#3a2516; --open:#ab9ff0; --open-soft:#29254a; --no:#f07a8c; --no-soft:#3d1a21;
+  --c-vorcaro:#e0b552; --c-stf:#e0899c; --c-gov:#f2796c; --c-pl:#78a8f2; --c-centrao:#6cc492; --c-bc:#a7b6c0;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+a{color:inherit}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px}
+.mono{font-family:var(--mono)}
+.num{font-variant-numeric:tabular-nums}
+
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(64px,16vw,148px);line-height:.84;margin:0;text-transform:uppercase;letter-spacing:-.005em;text-wrap:balance}
+h2{font-family:var(--display);font-stretch:70%;font-weight:800;font-size:clamp(36px,7.5vw,56px);line-height:.95;margin:0;text-transform:uppercase;text-wrap:balance}
+h3{font-family:var(--ui);text-wrap:balance}
+.lede{font-size:19px;max-width:62ch;margin:0}
+.sec{padding-block:48px 8px;display:grid;gap:20px}
+.sec-intro{color:var(--muted);max-width:62ch;margin:0}
+
+/* evidence tags */
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-family:var(--ui);font-size:14px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.ev{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:2px;white-space:nowrap;font-weight:500}
+.ev.doc{background:var(--doc);color:var(--paper)}
+.ev.alleg{background:var(--alleg-soft);color:var(--alleg);border:1px solid var(--alleg)}
+.ev.open{background:var(--open-soft);color:var(--open);border:1px dashed var(--open)}
+.ev.no{background:var(--no-soft);color:var(--no);border:1px solid var(--no)}
+
+/* back link + footer */
+.back{font-family:var(--mono);font-size:13px;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+.back:focus-visible,.more:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+footer{padding-block:44px 56px;color:var(--muted);font-family:var(--ui);font-size:14px;display:grid;gap:8px}
+footer p{margin:0;max-width:66ch}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 14px}
+.src a{color:var(--muted);text-underline-offset:2px}
+.src a:hover{color:var(--accent)}
+.more{font-family:var(--mono);font-size:13px;color:var(--accent);text-decoration:none;justify-self:start;border-bottom:1px solid currentColor}
+
+/* comprovado / não provado */
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.col{min-width:0;padding:18px;border-radius:4px;display:grid;gap:10px;align-content:start}
+.col.yes{background:var(--paper);border:1px solid var(--line)}
+.col.not{background:var(--open-soft);border:1px dashed var(--open)}
+.col h3{margin:0;font-size:17px}
+.col ul{margin:0;padding-left:18px;display:grid;gap:8px}
+
+/* ledger table (hero numbers, comparisons) */
+.ledger{width:100%;border-collapse:collapse;font-family:var(--ui);font-size:15px}
+.ledger th,.ledger td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.ledger th{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.scroll{overflow-x:auto}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

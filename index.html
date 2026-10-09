@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Rota Master</title>
+<meta name="description" content="Linha do tempo do caso Vorcaro e Banco Master: quem aparece, o que está comprovado e o que não tem ligação, com fontes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="estilo.css">
+<style>
+/* hero: the route map (CNF → GRU → BSB, escape to Malta cut by the PF), then the bank's closing balance sheet, stamped LIQUIDADO */
+.route{width:100%;height:auto;display:block;overflow:visible}
+.route .leg{fill:none;stroke:var(--ink);stroke-width:3;stroke-dasharray:100;stroke-dashoffset:100;animation:draw 1.4s .2s ease-out forwards}
+.route .plan{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:3 7;opacity:.5}
+.route .flee{fill:none;stroke:var(--accent);stroke-width:3;stroke-dasharray:57 100;stroke-dashoffset:57;animation:flee 1.6s 1.5s cubic-bezier(.5,0,.3,1) forwards}
+.route .stn circle{fill:var(--paper);stroke:var(--ink);stroke-width:3}
+.route .stn.miss circle{stroke:var(--muted);stroke-dasharray:3 3}
+.route text{font-family:var(--mono);font-size:14px;fill:var(--ink)}
+.route .sub{font-size:11px;fill:var(--muted)}
+.route .cut circle{fill:var(--no)}
+.route .cut path{stroke:var(--paper);stroke-width:3;stroke-linecap:round}
+.route .cut text{fill:var(--no);font-size:12px;font-weight:500;letter-spacing:.06em}
+.route .cut{opacity:0;animation:pop .4s 3s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes flee{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.route .leg,.route .flee{stroke-dashoffset:0}.route .cut{opacity:1}}
+.hero{padding-block:40px 28px;display:grid;gap:22px}
+.sheet{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:18px 18px 8px;overflow:hidden}
+.sheet .hd{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.sheet .row{display:grid;grid-template-columns:1fr auto;gap:12px;padding-block:9px;border-bottom:1px dotted var(--line);font-family:var(--ui);font-size:15px}
+.sheet .row:last-child{border-bottom:0}
+.sheet .row b{font-family:var(--mono);font-weight:500;font-size:16px;font-variant-numeric:tabular-nums;text-align:right}
+.sheet .row small{display:block;color:var(--muted);font-size:12px}
+.stamp{position:absolute;right:6%;top:42%;transform:rotate(-12deg);font-family:var(--display);font-stretch:75%;font-weight:900;font-size:clamp(28px,7vw,52px);letter-spacing:.06em;color:var(--no);border:4px solid var(--no);padding:2px 14px 0;border-radius:4px;opacity:.82;pointer-events:none;mix-blend-mode:multiply;animation:stamp .5s 1s cubic-bezier(.2,1.6,.4,1) both}
+.stamp small{display:block;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-align:center;margin-top:-4px;padding-bottom:4px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stamp{mix-blend-mode:normal}}
+:root[data-theme="dark"] .stamp{mix-blend-mode:normal}
+@keyframes stamp{from{transform:rotate(-12deg) scale(1.6);opacity:.82}to{transform:rotate(-12deg) scale(1)}}
+
+/* congress donut */
+:root{--k-dir:#1f5bb5;--k-esq:#c0392b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--k-dir:#5f93e6;--k-esq:#e8645a}}
+:root[data-theme="dark"]{--k-dir:#5f93e6;--k-esq:#e8645a}
+.cong{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:22px;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:18px}
+.pie{position:relative;display:grid;gap:12px;justify-items:center}
+.pie svg{width:100%;max-width:240px;height:auto;display:block;overflow:visible}
+.pie .slice{stroke:var(--paper);stroke-width:3;cursor:pointer;transition:opacity .2s;outline:none}
+.pie .slice:focus-visible{stroke:var(--ink)}
+.pie svg:hover .slice:not(:hover){opacity:.45}
+.pie .ctr{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:58px;fill:var(--ink);text-anchor:middle}
+.pie .ctr2{font-family:var(--mono);font-size:11px;letter-spacing:.1em;fill:var(--muted);text-anchor:middle}
+.pie .lab{font-family:var(--ui);font-weight:700;font-size:15px;fill:var(--ink);text-anchor:middle}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-family:var(--ui);font-size:13px;line-height:1.4;padding:8px 10px;border-radius:3px;max-width:220px;z-index:3}
+.plegend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--ui);font-size:14px;justify-content:center}
+.plegend span{display:inline-flex;align-items:center;gap:7px}
+.plegend i{width:11px;height:11px;border-radius:2px;background:var(--c)}
+.who{display:grid;gap:14px;min-width:0}
+.who h3{margin:0;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--c);display:flex;align-items:center;gap:8px}
+.who h3::before{content:"";width:11px;height:11px;border-radius:2px;background:var(--c)}
+.who ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.who li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;align-items:start;font-family:var(--ui);font-size:15px;padding-bottom:8px;border-bottom:1px dotted var(--line)}
+.who li:last-child{border-bottom:0;padding-bottom:0}
+.who li b{font-weight:650}
+.who li small{grid-column:1/-1;color:var(--muted);font-size:13px}
+.aside{font-family:var(--ui);font-size:14px;color:var(--muted);margin:0;max-width:72ch}
+.aside strong{color:var(--ink);font-weight:600}
+.ev.part{background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent)}
+@media (max-width:640px){.cong{grid-template-columns:1fr}}
+
+/* parallel pages */
+.par{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.par a{min-width:0;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px 18px;display:grid;gap:6px;transition:border-color .2s,transform .2s}
+.par a:hover{border-color:var(--accent);transform:translateY(-2px)}
+.par a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.par .n{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.par strong{font-family:var(--display);font-stretch:70%;font-size:32px;line-height:1;text-transform:uppercase;font-weight:800}
+.par .d{font-family:var(--ui);font-size:14px;color:var(--muted)}
+.par .go{font-family:var(--mono);font-size:13px;color:var(--accent)}
+
+/* congress donut */
+(function(){
+  const svg=document.getElementById("pie"),tip=document.getElementById("tip"),box=svg.parentNode,ns="http://www.w3.org/2000/svg";
+  const S=[{k:"Direita",v:4,c:"var(--k-dir)",n:"Ciro Nogueira (PP), Flávio Bolsonaro (PL), Nikolas Ferreira (PL), Filipe Barros (PL)"},
+           {k:"Esquerda",v:1,c:"var(--k-esq)",n:"Jaques Wagner (PT)"}];
+  const tot=S.reduce((a,b)=>a+b.v,0),R=112,r=64;let a0=-Math.PI/2;
+  const pt=(rad,a)=>[rad*Math.cos(a),rad*Math.sin(a)];
+  S.forEach(sl=>{
+    const a1=a0+sl.v/tot*2*Math.PI,big=a1-a0>Math.PI?1:0;
+    const [x0,y0]=pt(R,a0),[x1,y1]=pt(R,a1),[x2,y2]=pt(r,a1),[x3,y3]=pt(r,a0);
+    const p=document.createElementNS(ns,"path");
+    p.setAttribute("d",`M${x0} ${y0}A${R} ${R} 0 ${big} 1 ${x1} ${y1}L${x2} ${y2}A${r} ${r} 0 ${big} 0 ${x3} ${y3}Z`);
+    p.setAttribute("class","slice");p.setAttribute("fill",sl.c);p.setAttribute("tabindex","0");
+    p.setAttribute("aria-label",`${sl.k}: ${sl.v} de ${tot}. ${sl.n}`);
+    const show=e=>{tip.hidden=false;tip.innerHTML=`<b>${sl.k}: ${sl.v} de ${tot}</b><br>${sl.n}`;
+      const bb=box.getBoundingClientRect();let x,y;
+      if(e&&e.clientX){x=e.clientX-bb.left+12;y=e.clientY-bb.top+12}else{const sb=svg.getBoundingClientRect();x=sb.width/2-80;y=sb.height+4}
+      tip.style.left=Math.max(0,Math.min(x,bb.width-200))+"px";tip.style.top=y+"px"};
+    p.addEventListener("mousemove",show);p.addEventListener("focus",()=>show());
+    p.addEventListener("mouseleave",()=>tip.hidden=true);p.addEventListener("blur",()=>tip.hidden=true);
+    svg.appendChild(p);
+    const am=(a0+a1)/2,[lx,ly]=pt((R+r)/2,am),t=document.createElementNS(ns,"text");
+    t.setAttribute("x",lx);t.setAttribute("y",ly+5);t.setAttribute("class","lab");t.setAttribute("pointer-events","none");
+    t.style.fill="var(--paper)";t.textContent=sl.v;svg.appendChild(t);
+    a0=a1;
+  });
+  const c1=document.createElementNS(ns,"text");c1.setAttribute("class","ctr");c1.setAttribute("y","12");c1.textContent=tot;svg.appendChild(c1);
+  const c2=document.createElementNS(ns,"text");c2.setAttribute("class","ctr2");c2.setAttribute("y","34");c2.textContent="PARLAMENTARES";svg.appendChild(c2);
+})();
+
+/* network */
+.net{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start}
+#net{width:100%;height:auto;max-width:100%;background:var(--paper);border:1px solid var(--line);border-radius:4px}
+#net .zone{font-family:var(--mono);font-size:13px;letter-spacing:.14em;fill:var(--muted)}
+#net .edge{stroke:var(--muted);stroke-width:2;opacity:.5;transition:opacity .3s,stroke .3s,stroke-width .3s}
+#net .edge.open{stroke-dasharray:7 6}
+#net .edge.alleg{stroke-dasharray:1.5 5;stroke-linecap:round;stroke-width:2.6}
+#net .edge.fam{stroke-dasharray:2 3;opacity:.35}
+#net .edge.on{opacity:1;stroke:var(--accent);stroke-width:3.4}
+#net .edge.off{opacity:.1}
+#net .node{cursor:pointer;outline:none}
+#net .node circle.ring{fill:var(--paper);stroke:var(--c);stroke-width:3;transition:fill .3s}
+#net .node.loose circle.ring{stroke-dasharray:4 4}
+#net .node .core{fill:var(--c)}
+#net .node text{font-family:var(--ui);font-weight:600;font-size:17px;fill:var(--ink);text-anchor:middle}
+#net .node.on circle.ring{fill:color-mix(in srgb,var(--c) 22%,var(--paper))}
+#net .node.off{opacity:.3}
+#net .node:focus-visible circle.ring{stroke-width:6}
+#net .hub circle.ring{stroke-width:4}
+#net .hub text{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:22px;text-transform:uppercase}
+.netinfo{min-width:0;display:grid;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px;font-family:var(--ui)}
+.netinfo strong{font-size:17px}
+.netinfo>span{font-size:14px;color:var(--muted)}
+.netinfo ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.netinfo li{display:grid;gap:3px;padding-left:12px;border-left:3px solid var(--accent);animation:slidein .3s ease both}
+.netinfo li b{font-size:14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.netinfo li span{font-size:14px;color:var(--muted)}
+.netinfo .warn{border-left-color:var(--no)}
+.netkey{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--ui);font-size:13px;color:var(--muted)}
+.netkey svg{vertical-align:middle;margin-right:6px}
+@keyframes slidein{from{transform:translateX(8px)}to{transform:none}}
+@media (max-width:720px){.net{grid-template-columns:1fr}}
+
+/* filters */
+.filters{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:10px}
+.filters .wrap{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters .lbl{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-right:4px}
+.chip{font-family:var(--ui);font-size:14px;font-weight:500;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 12px 5px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+.chip[aria-pressed="true"]{border-color:var(--c);background:color-mix(in srgb,var(--c) 14%,var(--paper))}
+.chip:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* timeline */
+.year{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:44px;color:var(--accent);margin:28px 0 6px;line-height:1}
+.tl{position:relative;display:grid;gap:14px}
+.rail{position:absolute;left:96px;top:0;bottom:0;width:2px;background:var(--line)}
+.rail b{display:block;width:100%;background:var(--accent);height:0}
+.item{display:grid;grid-template-columns:84px 1fr;gap:24px;position:relative}
+.item .date{font-family:var(--mono);font-size:13px;color:var(--muted);text-align:right;padding-top:16px;line-height:1.3}
+.item .dot{position:absolute;left:91px;top:20px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--muted);transition:background .3s,border-color .3s}
+.item.seen .dot{background:var(--accent);border-color:var(--accent)}
+.card{min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:grid;gap:8px;transform:translateX(10px);transition:transform .45s ease}
+.item.seen .card{transform:none}
+.item.key .card{border-left:4px solid var(--accent)}
+.card .top{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;justify-content:space-between}
+.actors{display:flex;flex-wrap:wrap;gap:6px 10px}
+.actor{font-family:var(--ui);font-size:12px;font-weight:600;color:var(--c);display:inline-flex;align-items:center;gap:5px}
+.actor::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c)}
+.card h3{font-size:18px;line-height:1.3;margin:0;font-weight:650}
+.card p{margin:0;font-size:16px}
+.empty{color:var(--muted);font-style:italic}
+@media (max-width:620px){
+  .rail{left:6px}
+  .item{grid-template-columns:1fr;gap:6px;padding-left:24px}
+  .item .date{text-align:left;padding-top:0}
+  .item .dot{left:1px;top:4px}
+}
+
+/* myths */
+.myths{display:grid;gap:12px}
+.myth{background:var(--paper);border:1px solid var(--line);border-radius:4px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);overflow:hidden}
+.myth .say{padding:16px;border-right:1px solid var(--line);display:grid;gap:8px;align-content:start}
+.myth .say q{font-family:var(--display);font-stretch:80%;font-weight:700;font-size:21px;line-height:1.15;quotes:"“" "”"}
+.myth .say small{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.myth .is{padding:16px;display:grid;gap:8px;align-content:start}
+.myth .is p{margin:0;font-size:16px}
+@media (max-width:640px){.myth{grid-template-columns:1fr}.myth .say{border-right:0;border-bottom:1px solid var(--line)}}
+</style>
+</head><body>
+
+
+<style>/* barra comum das Rotas */.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/" aria-current="page">Master</a></div></nav>
+<header class="wrap hero">
+  <div class="kicker">Dossiê · Caso Banco Master · atualizado em 9 out 2026</div>
+  <h1>Rota<br>Master</h1>
+  <svg class="route" viewBox="0 0 800 230" role="img" aria-label="A rota de Vorcaro: Belo Horizonte, São Paulo, Brasília e a fuga para Malta, interrompida pela PF em 17 de novembro de 2025">
+    <path class="plan" d="M300 175 Q 520 -20 720 95"/>
+    <path class="leg" pathLength="100" d="M80 175 L300 175 L470 175"/>
+    <path class="flee" id="flee" pathLength="100" d="M300 175 Q 520 -20 720 95"/>
+    <g class="stn"><circle cx="80" cy="175" r="7"/><text x="80" y="205" text-anchor="middle">CNF</text><text class="sub" x="80" y="160" text-anchor="middle">Belo Horizonte</text></g>
+    <g class="stn"><circle cx="300" cy="175" r="7"/><text x="300" y="205" text-anchor="middle">GRU</text><text class="sub" x="300" y="222" text-anchor="middle">São Paulo · sede</text></g>
+    <g class="stn"><circle cx="470" cy="175" r="7"/><text x="470" y="205" text-anchor="middle">BSB</text><text class="sub" x="470" y="222" text-anchor="middle">Brasília · o poder</text></g>
+    <g class="stn miss"><circle cx="720" cy="95" r="7"/><text x="720" y="125" text-anchor="middle">MLA</text><text class="sub" x="720" y="142" text-anchor="middle">Malta · não chegou</text></g>
+    <g class="cut" id="cut" transform="translate(452 62)"><circle r="15"/><path d="M-6 -6 L6 6 M6 -6 L-6 6"/><text x="0" y="-24" text-anchor="middle">PF · 17 NOV 2025</text></g>
+  </svg>
+  <p class="lede">De Belo Horizonte a São Paulo, de São Paulo a Brasília, e a fuga para Malta que a PF interrompeu no aeroporto. Quem aparece nas investigações sobre Daniel Vorcaro, de que forma, e o que circula sem estar nos autos. Cada fato tem fonte e uma etiqueta que diz quanto dele está comprovado.</p>
+  <div class="sheet" aria-label="Balanço do Banco Master">
+    <div class="hd"><span>Banco Master S.A. · posição final</span><span>Liquidação extrajudicial · BC</span></div>
+    <div class="row"><span>Dívidas deixadas pelo banco<small>na liquidação, nov 2025</small></span><b>R$ 40,6 bi</b></div>
+    <div class="row"><span>Investidores atingidos<small>aproximadamente</small></span><b>800 mil</b></div>
+    <div class="row"><span>Rombo estimado no FGC<small>Fundo Garantidor de Créditos</small></span><b>até R$ 47 bi</b></div>
+    <div class="row"><span>Propostas de delação rejeitadas<small>pela PF e pela PGR</small></span><b>2</b></div>
+    <div class="row"><span>Dias de Vorcaro preso<small>desde a 2ª prisão, 4 mar 2026</small></span><b id="dias">219</b></div>
+    <div class="stamp" aria-hidden="true">Liquidado<small>18 · NOV · 2025</small></div>
+  </div>
+  <div class="legend">
+    <span><b class="ev doc">Documentado</b> registro, decisão ou declaração pública</span>
+    <span><b class="ev open">Em aberto</b> investigação em curso, sem conclusão</span>
+    <span><b class="ev alleg">Alegação</b> relato ou mensagem ainda sem prova</span>
+  </div>
+</header>
+
+<section class="wrap sec" id="congresso" aria-labelledby="h-cong" style="padding-top:8px">
+  <h2 id="h-cong">Quem, no Congresso</h2>
+  <p class="sec-intro">Deputados e senadores em exercício que são alvo de investigação no caso ou que têm ligação com Vorcaro registrada em documento público. Nomes que só aparecem na agenda de contatos do celular não entram na conta.</p>
+  <div class="cong">
+    <div class="pie">
+      <svg id="pie" viewBox="-130 -130 260 260" role="img" aria-label="Parlamentares ligados ao caso: 4 de partidos de direita, 1 de partido de esquerda"></svg>
+      <div class="plegend"><span style="--c:var(--k-dir)"><i></i>Direita · 4</span><span style="--c:var(--k-esq)"><i></i>Esquerda · 1</span></div>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <div class="who">
+      <div style="--c:var(--k-dir)">
+        <h3>Direita · PP e PL</h3>
+        <ul>
+          <li><b>Ciro Nogueira</b><span class="ev open">Em aberto</span><small>Senador, PP-PI. Alvo de buscas da PF em maio de 2026. A PF fala em mesada de Vorcaro; ele nega.</small></li>
+          <li><b>Flávio Bolsonaro</b><span class="ev open">Em aberto</span><small>Senador, PL-RJ. Inquérito sobre os repasses de Vorcaro ao filme "Dark Horse". Confirma o pedido e nega irregularidade.</small></li>
+          <li><b>Nikolas Ferreira</b><span class="ev doc">Documentado</span><small>Deputado, PL-MG. Voou no jatinho de Vorcaro na campanha de 2022. O TCU arquivou o caso.</small></li>
+          <li><b>Filipe Barros</b><span class="ev doc">Documentado</span><small>Deputado, PL-PR. Apresentou em novembro de 2024 projeto para retomar a "emenda Master", que ampliava a garantia do FGC.</small></li>
+        </ul>
+      </div>
+      <div style="--c:var(--k-esq)">
+        <h3>Esquerda · PT</h3>
+        <ul>
+          <li><b>Jaques Wagner</b><span class="ev open">Em aberto</span><small>Senador, PT-BA. Alvo de buscas da PF em junho de 2026, ligado ao ex-sócio de Vorcaro Augusto Lima. Nega.</small></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="aside"><strong>Na agenda do celular:</strong> a PF encontrou 18 deputados entre os contatos de Vorcaro: 5 do PL, 4 do PP, 3 do PSD, 2 do Republicanos, 2 do Novo, 1 do PSDB e 1 do União Brasil. Nenhum de partido de esquerda. Estar na agenda não é indício de crime.</p>
+  <p class="aside"><strong>Fora do Congresso</strong> há nomes dos dois campos. Lula recebeu Vorcaro, e o ex-ministro Guido Mantega trabalhava para ele. Ibaneis Rocha (MDB) indicou o presidente do BRB, hoje preso. O cunhado de Vorcaro doou para as campanhas de Jair Bolsonaro e Tarcísio de Freitas em 2022.</p>
+  <div class="src">
+    <a href="https://www.moneytimes.com.br/pf-ciro-nogueira-recebia-de-vorcaro-mesada-de-r-300-mil-que-pode-ter-chegado-a-r-500-mil-gaep/" target="_blank" rel="noopener">Money Times · Ciro</a>
+    <a href="https://www.moneytimes.com.br/banqueiro-e-senador-sao-alvos-da-pf-em-nova-operacao-sobre-o-banco-master-diz-jornal-igdl/" target="_blank" rel="noopener">Money Times · Wagner</a>
+    <a href="https://apublica.org/2026/01/a-bancada-do-master-e-de-direita/" target="_blank" rel="noopener">Agência Pública · Filipe Barros</a>
+    <a href="https://www.revistaoeste.com/politica/quem-sao-os-deputados-que-estao-no-whatsapp-de-vorcaro/" target="_blank" rel="noopener">Revista Oeste · agenda</a>
+    <a href="https://www.aosfatos.org/noticias/esquerda-e-direita-omitem-fatos-para-culpar-adversarios-caso-master/" target="_blank" rel="noopener">Aos Fatos · doações</a>
+  </div>
+</section>
+
+<section class="wrap" aria-label="Páginas paralelas">
+  <div class="par">
+    <a href="tres-casos.html"><span class="n">Paralelo 1 · Master, INSS, Lulinha</span><strong>Três casos, não um</strong><span class="d">O que é o caso Master, o que é a fraude do INSS e o que investigam sobre Lulinha. Onde se cruzam e onde não.</span><span class="go">Abrir página →</span></a>
+    <a href="stf.html"><span class="n">Paralelo 2 · Supremo</span><strong>O Supremo no caso</strong><span class="d">Moraes, Toffoli, Mendonça e Nunes Marques: o que a PF apontou sobre cada um e como ficou a sessão de 15 de setembro.</span><span class="go">Abrir página →</span></a>
+  </div>
+</section>
+
+<section class="wrap sec" aria-labelledby="h-net">
+  <h2 id="h-net">Quem fala com Vorcaro</h2>
+  <p class="sec-intro">Toque em um nome. O tipo de linha mostra o grau de prova de cada ligação.</p>
+  <div class="netkey" aria-hidden="true">
+    <span><svg width="34" height="6"><line x1="0" y1="3" x2="34" y2="3" stroke="currentColor" stroke-width="2"/></svg>documentada</span>
+    <span><svg width="34" height="6"><line x1="0" y1="3" x2="34" y2="3" stroke="currentColor" stroke-width="2" stroke-dasharray="7 6"/></svg>investigada</span>
+    <span><svg width="34" height="6"><line x1="1" y1="3" x2="34" y2="3" stroke="currentColor" stroke-width="2.6" stroke-dasharray="1.5 5" stroke-linecap="round"/></svg>alegação</span>
+    <span><svg width="16" height="16"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/></svg>sem ligação com Vorcaro nos autos</span>
+  </div>
+  <div class="net">
+    <svg id="net" viewBox="0 0 640 560" role="group" aria-label="Mapa de ligações com Daniel Vorcaro">
+      <text x="16" y="26" class="zone">SUPREMO</text>
+      <text x="16" y="548" class="zone">GOVERNO E PT</text>
+      <text x="624" y="548" class="zone" text-anchor="end">OPOSIÇÃO E CENTRÃO</text>
+      <g id="edges"></g><g id="nodes"></g>
+    </svg>
+    <div class="netinfo" id="netinfo" aria-live="polite"></div>
+  </div>
+</section>
+
+<nav class="filters" aria-label="Filtrar por grupo">
+  <div class="wrap" id="chips"><span class="lbl">Filtrar</span></div>
+</nav>
+
+<main class="wrap">
+  <section class="sec" aria-labelledby="h-tl">
+    <h2 id="h-tl">Linha do tempo</h2>
+    <p class="sec-intro">Da compra do Banco Máxima ao primeiro turno de 2026. Os eventos estão na data em que aconteceram, não na data em que vieram a público. Os marcos com barra lateral são os de maior peso.</p>
+    <div class="tl" id="tl"><div class="rail" aria-hidden="true"><b id="railfill"></b></div></div>
+    <p class="empty" id="empty" hidden>Nenhum evento para esse filtro.</p>
+  </section>
+
+  <section class="sec" aria-labelledby="h-myth">
+    <h2 id="h-myth">O que circula × o que consta</h2>
+    <p class="sec-intro">Frases comuns nas redes, dos dois lados, comparadas com o que está em decisões, relatórios e reportagens.</p>
+    <div class="myths" id="myths"></div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-ver">
+    <h2 id="h-ver">Onde a prova termina</h2>
+    <p class="sec-intro">O caso atinge o Supremo, o governo, a oposição e o Centrão. Mas o grau de prova é muito diferente de um nome para outro.</p>
+    <div class="verdict">
+      <div class="col yes">
+        <h3>O que está comprovado</h3>
+        <ul>
+          <li>O Banco Central liquidou o Master em novembro de 2025, e Vorcaro foi preso a caminho de Malta.</li>
+          <li>Lula recebeu Vorcaro no Planalto em 4 de dezembro de 2024, fora da agenda. Guido Mantega, que trabalhava para o banqueiro, intermediou.</li>
+          <li>Flávio Bolsonaro pediu dinheiro a Vorcaro para o filme "Dark Horse" e confirma isso.</li>
+          <li>Nikolas Ferreira voou em avião de Vorcaro na campanha de 2022.</li>
+          <li>Mendonça recebeu Vorcaro em março de 2025, antes de virar relator.</li>
+          <li>Toffoli deixou a relatoria depois que veio a público a ligação do resort de sua família com um fundo do cunhado de Vorcaro.</li>
+        </ul>
+      </div>
+      <div class="col not">
+        <h3>O que ainda não está provado</h3>
+        <ul>
+          <li>Que Moraes tenha agido como ministro em favor de Vorcaro. O STF ainda não decidiu se abre investigação.</li>
+          <li>As mesadas a Ciro Nogueira e os pagamentos ligados a Jaques Wagner. Ambos negam.</li>
+          <li>Que o dinheiro do "Dark Horse" tenha ido para Eduardo Bolsonaro.</li>
+          <li>Que Lula tenha feito algo pelo Master. Não há investigação contra ele.</li>
+          <li>Qualquer ligação de Lulinha com Vorcaro ou com o Master. Ela não aparece nos autos.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Fatos reunidos a partir de reportagens publicadas até 9 de outubro de 2026. Investigação não é condenação. Quando o citado se manifestou, a versão dele está no texto.</p>
+    <p>Segundo turno: 25 de outubro de 2026.</p>
+  </footer>
+</main>
+
+<script>
+const A={vorcaro:["Vorcaro e o Master","var(--c-vorcaro)"],stf:["STF","var(--c-stf)"],gov:["Governo Lula e PT","var(--c-gov)"],pl:["Bolsonaros e PL","var(--c-pl)"],centrao:["Centrão","var(--c-centrao)"],bc:["BC e BRB","var(--c-bc)"]};
+const E=[
+ {y:2019,d:"2º sem",a:["bc","vorcaro"],ev:"doc",t:"Banco Central autoriza Vorcaro a assumir o Banco Máxima",
+  b:"A partir daí o conglomerado cresce com aportes e com CDBs vendidos em plataformas de investimento. Em 2021 o Máxima vira Banco Master.",
+  s:[["Diário do Comércio","https://diariodocomercio.com.br/?p=570011"],["Money Times","https://www.moneytimes.com.br/caso-master-como-o-colapso-do-banco-abalou-o-sistema-financeiro-e-sacudiu-brasilia-jals/"]]},
+ {y:2021,d:"2021",a:["stf","vorcaro"],ev:"doc",t:"Empresa da família de Toffoli vende parte do resort Tayayá a fundo ligado ao cunhado de Vorcaro",
+  b:"A Maridt, da qual Toffoli é sócio, vende parte do resort no Paraná ao fundo Arleen, associado a Fabiano Zettel. O restante é vendido em 2025. Toffoli diz que declarou os valores e nunca recebeu nada de Vorcaro ou de Zettel.",
+  s:[["BP Money","https://bpmoney.com.br/?p=392918"]]},
+ {y:2022,d:"out",a:["pl"],ev:"doc",t:"Nikolas Ferreira usa jatinho de Vorcaro na campanha de Bolsonaro",
+  b:"O deputado viajou no avião durante o segundo turno. Diz que não sabia quem era o dono. O TCU arquivou o caso e disse que ele cabe à Justiça Eleitoral.",
+  s:[["O Antagonista","https://oantagonista.com.br/brasil/nikolas-se-manifesta-sobre-uso-de-aviao-de-vorcaro-nao-sabia-quem-era-o-dono/"],["Diario de Pernambuco","https://www.diariodepernambuco.com.br/tags/Nikolas%20Ferreira/"]]},
+ {y:2023,d:"dez",a:["gov","vorcaro"],ev:"doc",t:"Primeira de três entradas de Vorcaro no Planalto registradas pelo GSI",
+  b:"Os registros, obtidos pela Lei de Acesso à Informação, mostram entradas em dezembro de 2023, março e abril de 2024. Eles não dizem com quem Vorcaro se reuniu.",
+  s:[["Gazeta do Povo","https://www.gazetadopovo.com.br/economia/vorcaro-planalto-4-vezes-falado-lula-venda-master/"]]},
+ {y:2024,d:"mai–ago",a:["stf","vorcaro"],ev:"open",t:"Mensagens mostram Vorcaro cobrando aportes ao fundo do Tayayá",
+  b:"Em conversas com Zettel, Vorcaro manda pagar uma lista de repasses que inclui R$ 15 milhões ao resort. A PF soma cerca de R$ 35 milhões e suspeita que Toffoli fosse o destinatário final. Toffoli nega.",
+  s:[["Band","https://www.band.com.br/radio-bandeirantes/noticias/caso-master-vorcaro-foi-cobrado-por-repasses-milionarios-ao-resort-tayaya-202602161721"],["O Antagonista","https://oantagonista.com.br/brasil/vorcaro-relatou-pressao-por-pagamentos-ao-resort-ligado-a-toffoli/"]]},
+ {y:2024,d:"jun 2024 – ago 2025",a:["centrao","vorcaro"],ev:"open",t:"Período em que a PF aponta mesadas a Ciro Nogueira",
+  b:"Segundo a PF, foram pelo menos R$ 6 milhões, via empresas das duas famílias, em troca de atuação no Congresso, como a chamada \"emenda Master\". Ciro repudia qualquer ilação de ilicitude.",
+  s:[["Times Brasil","https://timesbrasil.com.br/brasil/politica/pf-identifica-mecanismo-para-ocultar-pagamento-de-mesada-de-r-6-milhoes-de-daniel-vorcaro-a-ciro-nogueira/"],["Congresso em Foco","https://www.congressoemfoco.com.br/noticia/119717/pf-aponta-mesada-jantares-e-viagens-de-luxo-de-ciro-pagos-por-vorcaro"]]},
+ {y:2024,d:"jul",a:["bc","vorcaro"],ev:"doc",t:"BRB começa a comprar carteiras de crédito do Master",
+  b:"O banco estatal do Distrito Federal, sob o governo de Ibaneis Rocha (MDB), passa a absorver créditos do Master. O Banco Central depois concluiria que parte deles não tinha valor.",
+  s:[["Diário do Comércio","https://diariodocomercio.com.br/?p=570011"]]},
+ {y:2024,d:"4 dez",k:1,a:["gov","vorcaro"],ev:"doc",t:"Lula recebe Vorcaro no Planalto, fora da agenda",
+  b:"O encontro foi intermediado por Guido Mantega, que trabalhava para Vorcaro. Segundo o governo, Vorcaro disse sofrer perseguição dos grandes bancos e Lula orientou que levasse eventuais denúncias ao Banco Central. Lula diz que foi o único encontro.",
+  s:[["Revista Oeste","https://revistaoeste.com/politica/lula-recebeu-uisque-de-presente-de-vorcaro/"],["Midiamax","https://midiamax.com.br/brasil/2026/advogado-disse-vorcaro-lula-agradeceu-whisky-mandou-abraco/"]]},
+ {y:2024,d:"dez",a:["pl","vorcaro"],ev:"doc",t:"Flávio Bolsonaro conhece Vorcaro",
+  b:"É a data que o próprio Flávio informa. Ele diz que, naquele momento, não havia acusação pública contra o banqueiro.",
+  s:[["Estado de Minas","https://www.em.com.br/politica/2026/05/7419330-nikolas-sobre-flavio-bolsonaro-e-vorcaro-condenacoes-precipitadas.html"]]},
+ {y:2025,d:"22 jan",a:["gov","vorcaro"],ev:"alleg",t:"Advogado diz a Vorcaro que Lula \"agradeceu o whisky\"",
+  b:"A mensagem de Walfrido Warde está no celular do banqueiro. O Planalto nega ter recebido presente. Lula depois disse que recebeu Vorcaro e questionou a credibilidade do que um advogado lobista diz.",
+  s:[["Midiamax","https://midiamax.com.br/brasil/2026/advogado-disse-vorcaro-lula-agradeceu-whisky-mandou-abraco/"],["Midiamax · resposta de Lula","https://midiamax.com.br/brasil/2026/me-deu-whisky-eu-bebi-lula-pronuncia-encontro-vorcaro-2024/"]]},
+ {y:2025,d:"mar",a:["stf","vorcaro"],ev:"doc",t:"Mendonça recebe Vorcaro em São Paulo",
+  b:"O gabinete confirmou o encontro e disse que o ministro apenas ouviu o empresário, que pediu a reunião. Um ano depois, Mendonça viraria relator do caso.",
+  s:[["BP Money","https://bpmoney.com.br/?p=420024"]]},
+ {y:2025,d:"mar",a:["stf","vorcaro"],ev:"alleg",t:"Vorcaro reserva mansão no Rio para \"KN\" no Carnaval",
+  b:"A PF entende que as iniciais se referem ao ministro Nunes Marques, hoje presidente do TSE. Ele diz que nunca trocou mensagens com Vorcaro nem pediu nada a ele.",
+  s:[["SBT News","https://sbtnews.sbt.com.br/noticia/politica/vorcaro-alugou-casa-de-r-250-mi-para-ministro-kn-no-rio"]]},
+ {y:2025,d:"mar–set",k:1,a:["bc","vorcaro"],ev:"doc",t:"BRB tenta comprar o Master; Banco Central barra",
+  b:"O anúncio de compra de 58% do Master sai em março. Em setembro, o BC encontra carteiras sem valor vendidas ao BRB por mais de US$ 2 bilhões e não aprova a operação.",
+  s:[["Diário do Comércio","https://diariodocomercio.com.br/?p=570011"],["Money Times","https://www.moneytimes.com.br/escandalo-do-banco-master-expoe-bastidores-do-poder-e-abala-credibilidade-das-instituicoes-segundo-o-the-economist-ceci/"]]},
+ {y:2025,d:"out",a:["gov","vorcaro"],ev:"doc",t:"INSS deixa de renovar o acordo de consignado do Master",
+  b:"Depois de reclamações repetidas, o INSS não renova o convênio que permitia ao banco oferecer empréstimo consignado a aposentados. Esse é o ponto em que o caso Master toca o INSS, e não tem relação com a fraude dos descontos associativos.",
+  s:[["Portal Tela","https://www.portaltela.com/noticias/economia/2026/03/23/alvo-da-cpmi-movimentou-r-700-milhoes-em-consignados-para-aposentados/"]],l:["Ver os três casos","tres-casos.html"]},
+ {y:2025,d:"15 nov",a:["stf","vorcaro"],ev:"open",t:"\"Acha que segunda já tenho que estar fora?\"",
+  b:"Segundo a PF, Vorcaro mandou essa pergunta ao contato que identifica como Moraes, dois dias antes de ser preso. Moraes nega ser o destinatário das mensagens.",
+  s:[["Midiamax","https://midiamax.com.br/brasil/2026/mendonca-pede-fachin-sessao-stf-discutir-mensagens-vorcaro-moraes-apontadas-pf/"]],l:["Ver o Supremo no caso","stf.html"]},
+ {y:2025,d:"17–18 nov",k:1,a:["vorcaro","bc"],ev:"doc",t:"Vorcaro é preso no aeroporto; Master é liquidado",
+  b:"A PF prende o banqueiro quando ele ia embarcar para Malta. No dia seguinte, o Banco Central decreta a liquidação. Ele é solto depois, com tornozeleira.",
+  s:[["Midiamax","https://midiamax.com.br/brasil/2026/mendonca-pede-fachin-sessao-stf-discutir-mensagens-vorcaro-moraes-apontadas-pf/"],["O Povo","https://www.opovo.com.br/noticias/mundo/2026/03/04/policia-federal-prende-daniel-vorcaro-em-escandalo-do-banco-master.html"]]},
+ {y:2026,d:"12 fev",k:1,a:["stf"],ev:"doc",t:"Toffoli deixa a relatoria; Mendonça assume",
+  b:"A saída vem depois de reunião dos ministros e de um relatório da PF de cerca de 200 páginas sobre a relação com Vorcaro. Fachin não autorizou investigação contra Toffoli.",
+  s:[["Bem Paraná","https://www.bemparana.com.br/noticias/politica/elos-com-vorcaro-pressionam-toffoli-no-stf-entenda-suspeitas/"]],l:["Ver o Supremo no caso","stf.html"]},
+ {y:2026,d:"23 fev",a:["vorcaro","gov"],ev:"doc",t:"Vorcaro depõe na CPMI do INSS",
+  b:"A comissão quer explicações sobre 250 mil contratos de consignado do Master suspensos pelo INSS por falta de prova de que os aposentados concordaram.",
+  s:[["Band","https://www.band.com.br/radio-bandeirantes/noticias/cpmi-do-inss-antecipa-depoimento-de-daniel-vorcaro-202602190836"]],l:["Ver os três casos","tres-casos.html"]},
+ {y:2026,d:"4 mar",k:1,a:["vorcaro","stf"],ev:"doc",t:"Segunda prisão, por ordem de Mendonça",
+  b:"A decisão fala em captação de servidores dos \"mais altos escalões da República\" e reproduz mensagens em que Vorcaro manda planejar uma agressão a um jornalista, simulando um assalto.",
+  s:[["O Povo","https://www.opovo.com.br/noticias/mundo/2026/03/04/policia-federal-prende-daniel-vorcaro-em-escandalo-do-banco-master.html"],["Diario de Pernambuco","https://www.diariodepernambuco.com.br/politica/2026/03/11709151-caso-vorcaro-trecho-de-decisao-de-ministro-do-stf-cita-envolvimento-de-altos-escaloes-da-republica.html"]]},
+ {y:2026,d:"6 mar",a:["stf"],ev:"doc",t:"Moraes nega ser o destinatário das mensagens",
+  b:"Nota do STF diz que as imagens estão ligadas a outros contatos no computador de Vorcaro. O Estadão afirma, com base em fontes do caso, que houve troca de mensagens naquele dia.",
+  s:[["DGABC","https://www.dgabc.com.br/Noticia/4289047/sem-explicar-conversa-moraes-nega-ser-destinatario-de-mensagens-de-vorcaro"]]},
+ {y:2026,d:"16 abr",a:["bc"],ev:"open",t:"Ex-presidente do BRB é preso",
+  b:"Para Mendonça, Paulo Henrique Costa pôs o BRB a serviço da liquidez do Master e recebeu vantagem estimada em R$ 146,6 milhões em imóveis. A defesa diz que a prisão é desnecessária.",
+  s:[["Poder360","https://www.poder360.com.br/poder-justica/ex-presidente-do-brb-e-preso-na-operacao-compliance-zero/"]]},
+ {y:2026,d:"7 mai",k:1,a:["centrao"],ev:"open",t:"PF faz buscas contra Ciro Nogueira",
+  b:"A decisão de Mendonça cita mesada de R$ 300 mil, viagens em jatos de Vorcaro e uma participação societária de cerca de R$ 13 milhões comprada por R$ 1 milhão. Mendonça bloqueia R$ 18,8 milhões do senador.",
+  s:[["Money Times","https://www.moneytimes.com.br/pf-ciro-nogueira-recebia-de-vorcaro-mesada-de-r-300-mil-que-pode-ter-chegado-a-r-500-mil-gaep/"],["O Povo","https://mais.opovo.com.br/jornal/politica/2026/05/08/pf-mira-ciro-nogueira-e-diz-que-senador-ganhava-mesada-de-ate-rs500-mil-de-vorcaro.html"]]},
+ {y:2026,d:"13 mai",k:1,a:["pl"],ev:"doc",t:"Áudio mostra Flávio cobrando R$ 134 milhões de Vorcaro",
+  b:"O Intercept divulga o áudio sobre o financiamento do filme \"Dark Horse\", sobre Jair Bolsonaro. Flávio confirma ter recebido recursos e nega irregularidade. Diz que o dinheiro foi para a produção.",
+  s:[["Estado de Minas","https://www.em.com.br/politica/2026/05/7419330-nikolas-sobre-flavio-bolsonaro-e-vorcaro-condenacoes-precipitadas.html"],["Itatiaia","https://www.itatiaia.com.br/politica/a-reacao-de-nikolas-ao-audio-enviado-por-flavio-bolsonaro-a-vorcaro/"]]},
+ {y:2026,d:"mai–jun",a:["vorcaro"],ev:"doc",t:"PF e PGR rejeitam as duas propostas de delação",
+  b:"Investigadores avaliaram que a segunda proposta não trazia fatos novos em relação à primeira. Nenhuma delação de Vorcaro foi homologada.",
+  s:[["BP Money","https://bpmoney.com.br/?p=404205"],["Brasil Agro","https://www.brasilagro.com.br/conteudo/gilmar-diz-que-mendonca-cometeu-erro-crasso-em-delacao-de-vorcaro.html"]]},
+ {y:2026,d:"18 jun",k:1,a:["gov"],ev:"open",t:"PF faz buscas contra Jaques Wagner",
+  b:"A suspeita é de imóvel de R$ 2,5 milhões e R$ 3,5 milhões em propina, ligados ao ex-sócio de Vorcaro Augusto Lima e ao cartão Credcesta, da Bahia. Wagner nega, chama a operação de \"patacoada\" e deixa a liderança do governo no Senado.",
+  s:[["Times Brasil","https://timesbrasil.com.br/brasil/jaques-wagner-admite-relacao-com-ex-socio-do-banco-master-e-chama-acao-da-pf-de-patacoada/"]]},
+ {y:2026,d:"30 jul – 4 ago",k:1,a:["gov"],ev:"open",t:"Lulinha passa a ser investigado em três inquéritos, nenhum sobre o Master",
+  b:"Mendonça autoriza inquéritos sobre tráfico de influência ligado ao \"Careca do INSS\" e à cannabis medicinal, e sobre contratos com a Dataprev. Dino autoriza um terceiro, sobre favorecimento a empresas. Nenhum cita Vorcaro.",
+  s:[["Correio Braziliense","https://edicao.correiobraziliense.com.br/correiobraziliense/2026/07/31/13594c/pdf/A02-POL-3107-DIG.pdf"],["Revista Cenarium","https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/"]],l:["Ver os três casos","tres-casos.html"]},
+ {y:2026,d:"ago",a:["pl"],ev:"open",t:"Mendonça abre inquérito sobre os repasses ao \"Dark Horse\"",
+  b:"A PF vai apurar os recursos do filme e o suposto envio de dinheiro para Eduardo Bolsonaro nos EUA.",
+  s:[["Portal de Prefeitura","https://portaldeprefeitura.com.br/tags/andre-mendonca/"]]},
+ {y:2026,d:"28 ago",a:["vorcaro","bc"],ev:"doc",t:"Primeiro depoimento de Vorcaro à PF desde março",
+  b:"Por cerca de quatro horas, ele responde sobre dois ex-servidores do Banco Central suspeitos de favorecer o Master. A defesa diz que ele negou corrupção.",
+  s:[["BP Money","https://bpmoney.com.br/?p=419380"]]},
+ {y:2026,d:"fim ago",a:["vorcaro","gov"],ev:"alleg",t:"Vorcaro diz querer delatar pessoas do governo e cita o diretor da PF",
+  b:"Ele afirma que Andrei Rodrigues viajou com ele a eventos, sem apresentar prova. Rodrigues diz não ter relação com Vorcaro.",
+  s:[["Midiamax","https://midiamax.com.br/brasil/2026/vorcaro-diz-quer-delatar-pessoas-atual-governo-cita-diretor-geral-pf/"]]},
+ {y:2026,d:"1º set",k:1,a:["stf"],ev:"open",t:"Mendonça tira o sigilo das mensagens de Vorcaro a Moraes",
+  b:"O relatório da PF dedica 181 de 218 páginas ao contato \"Alexandre de Moraes BRASILIA\" e cita o contrato com o escritório da esposa do ministro. A oposição protocola novos pedidos de impeachment.",
+  s:[["Movimento Econômico","https://movimentoeconomico.com.br/?p=128453"],["A Crítica","https://acritica.net/politica/oposicao-protocola-novos-pedidos-de-impeachment-contra-alexandre-de-moraes/"]],l:["Ver o Supremo no caso","stf.html"]},
+ {y:2026,d:"3 set",a:["stf","gov"],ev:"doc",t:"Relatório da PF diz que acusação contra Lulinha não tem lastro",
+  b:"O documento, citado por Moraes, diz que relatórios feitos para Mendonça trazem conclusões sem prova sobre Lulinha e afirma não haver indício de participação direta dele nas fraudes do INSS.",
+  s:[["Midiamax","https://midiamax.com.br/brasil/2026/pf-aponta-imputacao-sem-lastro-contra-lulinha-relatorio-mendonca/"]],l:["Ver os três casos","tres-casos.html"]},
+ {y:2026,d:"3 set",a:["stf"],ev:"doc",t:"Moraes pede investigação de Mendonça; Mendonça pede o afastamento de Moraes",
+  b:"Moraes acusa o colega de abuso de autoridade na condução dos casos Master e INSS. Horas depois, Mendonça pede a Fachin o afastamento cautelar de Moraes.",
+  s:[["Band","https://www.band.com.br/politica/mendonca-pede-a-fachin-afastamento-de-moraes-do-stf"],["Brasil Paralelo","https://www.brasilparalelo.com.br/noticias/mendonca-pede-afastamento-de-moraes-do-stf"]]},
+ {y:2026,d:"15 set",k:1,a:["stf"],ev:"open",t:"STF adia a decisão sobre investigar Moraes",
+  b:"Depois de seis horas, Dino pede vista. O único placar foi de 4 a 3 numa questão processual. Ele tem até 90 dias para devolver o caso.",
+  s:[["O Povo","https://mais.opovo.com.br/jornal/politica/2026/09/15/supremo-adia-definicao-sobre-moraes-mas-escancara-fraturas-em-sessao-historica.html"],["Revista Oeste","https://revistaoeste.com/politica/sessao-do-stf-acaba-sem-definicao/"]],l:["Ver o Supremo no caso","stf.html"]},
+ {y:2026,d:"25 set",a:["gov"],ev:"alleg",t:"Proposta de delação rejeitada fala em R$ 3 milhões por mês ao grupo de Wagner",
+  b:"Vorcaro diz que soube disso por Augusto Lima, que nega. Segundo a reportagem, nenhum documento mostra o dinheiro chegando a Wagner. A defesa do senador chama as afirmações de falsas.",
+  s:[["Times Brasil","https://timesbrasil.com.br/brasil/vorcaro-disse-que-grupo-de-jaques-wagner-recebia-r-3-milhoes-por-mes-em-propina/"]]},
+ {y:2026,d:"4 out",a:["pl","gov"],ev:"doc",t:"Primeiro turno: Flávio 47,03%, Lula 45,16%",
+  b:"A diferença é de cerca de 2,2 milhões de votos. Os dois disputam o segundo turno em 25 de outubro. O novo depoimento de Vorcaro à PF ficou para depois da eleição.",
+  s:[["Portal de Prefeitura","https://portaldeprefeitura.com.br/bastidores-da-politica/eleicoes-2026-com-100-das-secoes-totalizadas-flavio-tem-4703-e/633498/"],["Times Brasil","https://timesbrasil.com.br/brasil/operacoes-da-pf/exclusivo-depoimento-de-vorcaro-a-pf-sera-somente-apos-as-eleicoes/"]]}
+];
+const EVL={doc:"Documentado",alleg:"Alegação",open:"Em aberto",no:"Não consta"};
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+
+/* cut marker sits where the escape line stops */
+(function(){const p=document.getElementById("flee"),c=document.getElementById("cut");if(!p||!p.getTotalLength)return;const q=p.getPointAtLength(p.getTotalLength()*.57);c.setAttribute("transform",`translate(${q.x.toFixed(1)} ${q.y.toFixed(1)})`)})();
+/* days in custody since 4 Mar 2026 */
+(function(){const d=Math.floor((Date.now()-Date.UTC(2026,2,4,3))/864e5);if(d>0)document.getElementById("dias").textContent=d})();
+
+/* timeline */
+const tl=document.getElementById("tl");let lastY=null;
+E.forEach(e=>{
+  if(e.y!==lastY){const y=document.createElement("div");y.className="year";y.textContent=e.y;y.dataset.year=e.y;tl.appendChild(y);lastY=e.y}
+  const el=document.createElement("article");
+  el.className="item"+(e.k?" key":"");el.dataset.a=e.a.join(" ");el.dataset.y=e.y;
+  el.innerHTML=`<div class="date">${e.d}<br>${e.y}</div><span class="dot" aria-hidden="true"></span>
+  <div class="card"><div class="top"><div class="actors">${e.a.map(k=>`<span class="actor" style="--c:${A[k][1]}">${A[k][0]}</span>`).join("")}</div><span class="ev ${e.ev}">${EVL[e.ev]}</span></div>
+  <h3>${esc(e.t)}</h3><p>${esc(e.b)}</p>
+  <div class="src">${e.s.map(s=>`<a href="${s[1]}" target="_blank" rel="noopener">${s[0]}</a>`).join("")}</div>${e.l?`<a class="more" href="${e.l[1]}">${e.l[0]} →</a>`:""}</div>`;
+  tl.appendChild(el);
+});
+const chips=document.getElementById("chips"),active=new Set();
+Object.entries(A).forEach(([k,[n,c]])=>{
+  const b=document.createElement("button");b.className="chip";b.id="f-"+k;b.type="button";b.style.setProperty("--c",c);b.setAttribute("aria-pressed","false");
+  b.innerHTML=`<i></i>${n}`;b.onclick=()=>{active.has(k)?active.delete(k):active.add(k);b.setAttribute("aria-pressed",active.has(k));apply()};
+  chips.appendChild(b);
+});
+function apply(){
+  let shown=0;const ys={};
+  tl.querySelectorAll(".item").forEach(it=>{const ok=!active.size||it.dataset.a.split(" ").some(a=>active.has(a));it.hidden=!ok;if(ok){shown++;ys[it.dataset.y]=1}});
+  tl.querySelectorAll(".year").forEach(y=>y.hidden=!ys[y.dataset.year]);
+  document.getElementById("empty").hidden=shown>0;rail();
+}
+const fill=document.getElementById("railfill");
+function rail(){
+  const r=tl.getBoundingClientRect(),vh=innerHeight;
+  fill.style.height=Math.min(1,Math.max(0,(vh*.6-r.top)/r.height))*100+"%";
+  tl.querySelectorAll(".item:not([hidden])").forEach(it=>{if(it.getBoundingClientRect().top<vh*.75)it.classList.add("seen")});
+}
+addEventListener("scroll",rail,{passive:true});addEventListener("resize",rail);rail();
+
+/* myths */
+const M=[
+ ["Lulinha está envolvido no caso Master.","Redes sociais","no","Lulinha é investigado em três inquéritos: tráfico de influência ligado ao \"Careca do INSS\" e à cannabis medicinal, contratos com a Dataprev e favorecimento a empresas. Nenhum deles cita Vorcaro ou o Master. Um relatório da PF diz não haver indício de que ele tenha participado diretamente das fraudes do INSS.",[["Revista Cenarium","https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/"],["Midiamax","https://midiamax.com.br/brasil/2026/pf-aponta-imputacao-sem-lastro-contra-lulinha-relatorio-mendonca/"]]],
+ ["A fraude do INSS faz parte do caso Master.","Redes sociais","no","São casos diferentes. A fraude do INSS são descontos de associações nas aposentadorias, sem autorização, investigados pela Operação Sem Desconto desde abril de 2025. O Master entra na CPMI do INSS por outro motivo: 250 mil contratos de consignado suspensos por falta de prova de consentimento.",[["Band","https://www.band.com.br/radio-bandeirantes/noticias/cpmi-do-inss-antecipa-depoimento-de-daniel-vorcaro-202602190836"],["O Povo / BBC","https://www.opovo.com.br/agencia/bbc/2025/04/23/o-que-se-sabe-sobre-fraude-no-inss-que-levou-lula-a-demitir-presidente-do-orgao.html"]]],
+ ["Lula nunca recebeu Vorcaro.","Redes sociais","doc","Recebeu. O encontro de 4 de dezembro de 2024 foi fora da agenda, intermediado por Guido Mantega, e o próprio Lula confirma. O GSI registra outras três entradas de Vorcaro no Planalto entre 2023 e 2024, sem dizer com quem.",[["Gazeta do Povo","https://www.gazetadopovo.com.br/economia/vorcaro-planalto-4-vezes-falado-lula-venda-master/"],["Midiamax","https://midiamax.com.br/brasil/2026/me-deu-whisky-eu-bebi-lula-pronuncia-encontro-vorcaro-2024/"]]],
+ ["Lula é sócio do Master.","Campanha de Flávio","no","Não há investigação contra Lula nem documento que mostre sociedade ou pagamento. O \"whisky\" é relato de um advogado em mensagem, negado pelo Planalto.",[["O Liberal","https://www.oliberal.com/politica/flavio-bolsonaro-associa-lula-a-vorcaro-pergunta-se-era-amigo-conselheiro-ou-socio-do-master-1.1172107"],["Revista Oeste","https://revistaoeste.com/politica/lula-recebeu-uisque-de-presente-de-vorcaro/"]]],
+ ["O escândalo é só da direita.","Redes sociais","part","No Congresso, a maior parte é de direita: dos cinco parlamentares investigados ou com ligação documentada, quatro são do PP e do PL, e um é do PT, Jaques Wagner. Os 18 deputados na agenda de Vorcaro são todos de partidos de centro e de direita. No governo, Lula recebeu Vorcaro e Mantega trabalhava para ele. No Supremo, quatro ministros aparecem em relatórios da PF.",[["Times Brasil","https://timesbrasil.com.br/brasil/jaques-wagner-admite-relacao-com-ex-socio-do-banco-master-e-chama-acao-da-pf-de-patacoada/"],["Agência Pública","https://apublica.org/2026/01/a-bancada-do-master-e-de-direita/"],["Ver o gráfico","#congresso"]]],
+ ["A fraude do INSS começou no governo Lula.","Redes sociais","no","Começou antes e explodiu depois. Os descontos existem desde uma lei de 1991 e já cresciam em 2017 e 2018. A CGU contou 4 situações de alto volume entre 2019 e 2022 e 39 entre 2023 e agosto de 2024.",[["Congresso em Foco","https://www.congressoemfoco.com.br/noticia/108480/lula-ou-bolsonaro-descontos-no-inss-antecedem-dois-ultimos-governos"]]],
+ ["Flávio só pediu patrocínio, não tem nada ilegal.","Campanha de Flávio","open","Flávio confirma o pedido. A legalidade é o que está em investigação: Mendonça abriu inquérito sobre os repasses ao filme e o possível envio de dinheiro para Eduardo Bolsonaro.",[["Itatiaia","https://www.itatiaia.com.br/politica/a-reacao-de-nikolas-ao-audio-enviado-por-flavio-bolsonaro-a-vorcaro/"],["Portal de Prefeitura","https://portaldeprefeitura.com.br/tags/andre-mendonca/"]]],
+ ["Vorcaro já delatou Lula, Moraes e Toffoli.","Vídeo viral","no","O vídeo foi gerado por IA. As duas propostas de delação foram rejeitadas, e nenhuma foi homologada.",[["Aos Fatos","https://www.aosfatos.org/noticias/video-ia-engana-vorcaro-delatou-moraes-toffoli-lula/"]]]
+];
+const ML={no:"Não consta",doc:"Documentado",open:"Em aberto",part:"Em grande parte"};
+document.getElementById("myths").innerHTML=M.map(m=>`<article class="myth"><div class="say"><small>${m[1]}</small><q>${esc(m[0])}</q></div><div class="is"><span class="ev ${m[2]}" style="justify-self:start">${ML[m[2]]}</span><p>${esc(m[3])}</p><div class="src">${m[4].map(s=>s[1][0]==="#"?`<a href="${s[1]}">${s[0]} ↑</a>`:`<a href="${s[1]}" target="_blank" rel="noopener">${s[0]}</a>`).join("")}</div></div></article>`).join("");
+
+/* network */
+(function(){
+  const N={
+    vorcaro:{n:"Vorcaro",x:320,y:275,c:"var(--c-vorcaro)",hub:1},
+    moraes:{n:"Moraes",x:105,y:80,c:"var(--c-stf)"},toffoli:{n:"Toffoli",x:250,y:62,c:"var(--c-stf)"},mendonca:{n:"Mendonça",x:395,y:62,c:"var(--c-stf)"},nunes:{n:"Nunes Marques",x:535,y:80,c:"var(--c-stf)"},
+    bc:{n:"Servidores do BC",x:140,y:200,c:"var(--c-bc)"},brb:{n:"BRB",x:510,y:195,c:"var(--c-bc)"},
+    lula:{n:"Lula",x:70,y:300,c:"var(--c-gov)"},mantega:{n:"Mantega",x:180,y:420,c:"var(--c-gov)"},wagner:{n:"J. Wagner",x:300,y:470,c:"var(--c-gov)"},lulinha:{n:"Lulinha",x:70,y:470,c:"var(--c-gov)",loose:1},
+    flavio:{n:"Flávio",x:575,y:300,c:"var(--c-pl)"},nikolas:{n:"Nikolas",x:565,y:425,c:"var(--c-pl)"},ciro:{n:"Ciro Nogueira",x:430,y:470,c:"var(--c-centrao)"}
+  };
+  const L=[
+    ["moraes","vorcaro","open","Mensagens e encontros","A PF conta oito encontros em 2024–2025 e mais de 50 mensagens, e cita o contrato com o escritório da esposa. Moraes nega ser o destinatário. O STF ainda não decidiu se o investiga."],
+    ["toffoli","vorcaro","open","Resort Tayayá","Fundo do cunhado de Vorcaro foi sócio da empresa da família do ministro. Ele deixou a relatoria e nega ter recebido valores."],
+    ["mendonca","vorcaro","doc","Encontro em março de 2025","Confirmado pelo gabinete, que diz que o ministro só ouviu Vorcaro. Hoje é o relator do caso."],
+    ["nunes","vorcaro","alleg","Mansão no Carnaval de 2025","A PF lê as iniciais \"KN\" como Nunes Marques. Ele diz que nunca falou com Vorcaro."],
+    ["bc","vorcaro","open","Consultores dentro do BC","Dois ex-servidores da supervisão bancária são suspeitos de orientar o banco. Vorcaro nega corrupção."],
+    ["brb","vorcaro","open","Compra barrada","Ex-presidente do BRB preso. A PF aponta vantagem de R$ 146,6 milhões em imóveis."],
+    ["lula","vorcaro","doc","Reunião fora da agenda","4 dez 2024. Lula confirma. Não há investigação contra ele."],
+    ["mantega","vorcaro","doc","Trabalhava para Vorcaro","O ex-ministro intermediou a reunião com Lula."],
+    ["mantega","lula","doc","Ex-ministro de Lula","Levou Vorcaro ao Planalto."],
+    ["wagner","vorcaro","open","Credcesta e Augusto Lima","Alvo da 9ª fase em jun 2026. Nega e diz que o Master só entrou no negócio em 2019."],
+    ["flavio","vorcaro","doc","Dinheiro para o \"Dark Horse\"","Áudio pede R$ 134 milhões. Flávio confirma o pedido e nega irregularidade. Há inquérito."],
+    ["nikolas","vorcaro","doc","Voos na campanha de 2022","Usou o jatinho. Diz que não sabia quem era o dono."],
+    ["ciro","vorcaro","open","Mesada, segundo a PF","Ao menos R$ 6 milhões entre 2024 e 2025. Ciro nega."],
+    ["nikolas","flavio","fam","Mesmo partido","Ambos do PL."],
+    ["lulinha","lula","fam","Filho do presidente","Investigado em outros casos. Nenhum cita Vorcaro."]
+  ];
+  const EVN={doc:"Documentado",open:"Em aberto",alleg:"Alegação",fam:""};
+  const ns="http://www.w3.org/2000/svg",eg=document.getElementById("edges"),ng=document.getElementById("nodes"),info=document.getElementById("netinfo");
+  const mk=(t,a)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);return e};
+  L.forEach(l=>{const a=N[l[0]],b=N[l[1]];const e=mk("line",{x1:a.x,y1:a.y,x2:b.x,y2:b.y,class:"edge "+l[2]});e.dataset.a=l[0];e.dataset.b=l[1];eg.appendChild(e)});
+  let sel=null;
+  Object.entries(N).forEach(([k,v])=>{
+    const g=mk("g",{class:"node"+(v.hub?" hub":"")+(v.loose?" loose":""),tabindex:"0",role:"button","aria-label":v.n});g.style.setProperty("--c",v.c);g.dataset.k=k;
+    const r=v.hub?32:22;
+    g.appendChild(mk("circle",{cx:v.x,cy:v.y,r:r,class:"ring"}));
+    g.appendChild(mk("circle",{cx:v.x,cy:v.y,r:v.hub?10:6,class:"core"}));
+    const t=mk("text",{x:v.x,y:v.y+r+20});t.textContent=v.n;g.appendChild(t);
+    const go=()=>pick(sel===k?null:k);g.addEventListener("click",go);g.addEventListener("keydown",ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();go()}});
+    ng.appendChild(g);
+  });
+  const idle='<strong>12 pessoas e instituições ligadas a Vorcaro.</strong><span>Toque em um nome no mapa para ver o que liga cada um ao banqueiro e quanto disso está provado. Lulinha aparece solto porque não há ligação dele com Vorcaro nos autos.</span>';
+  function pick(k){sel=k;
+    const linked=new Set([k]);
+    eg.querySelectorAll(".edge").forEach(e=>{const on=k&&(e.dataset.a===k||e.dataset.b===k);e.classList.toggle("on",!!on);e.classList.toggle("off",!!k&&!on);if(on){linked.add(e.dataset.a);linked.add(e.dataset.b)}});
+    ng.querySelectorAll(".node").forEach(g=>{g.classList.toggle("on",g.dataset.k===k);g.classList.toggle("off",!!k&&!linked.has(g.dataset.k))});
+    if(!k){info.innerHTML=idle;return}
+    let rows=L.filter(l=>l[0]===k||l[1]===k).map(l=>{const o=l[0]===k?l[1]:l[0];return `<li><b>${N[o].n}: ${esc(l[3])}${EVN[l[2]]?` <span class="ev ${l[2]}">${EVN[l[2]]}</span>`:""}</b><span>${esc(l[4])}</span></li>`}).join("");
+    if(k==="lulinha")rows+='<li class="warn"><b>Vorcaro: nenhuma ligação nos autos <span class="ev no">Não consta</span></b><span>Os inquéritos sobre Lulinha tratam do INSS, da cannabis medicinal e da Dataprev.</span></li>';
+    info.innerHTML=`<strong>${N[k].n}</strong><ul>${rows}</ul>${k==="lulinha"?'<a class="more" href="tres-casos.html">Ver os três casos →</a>':""}`;
+  }
+  info.innerHTML=idle;
+})();
+</script>
+
+</body></html>

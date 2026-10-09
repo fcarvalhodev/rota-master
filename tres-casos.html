@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Três casos, não um</title>
+<meta name="description" content="Caso Master, fraude do INSS e inquéritos de Lulinha: o que é cada um, onde se cruzam e onde não.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="estilo.css">
+<style>
+.hero{padding-block:32px 8px;display:grid;gap:18px}
+h1{font-size:clamp(54px,13vw,116px)}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.case{min-width:0;background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:4px;padding:16px;display:grid;gap:12px;align-content:start}
+.case h3{font-family:var(--display);font-stretch:70%;font-weight:800;font-size:30px;line-height:1;text-transform:uppercase;margin:0}
+.case dl{margin:0;display:grid;gap:10px}
+.case dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.case dd{margin:0;font-size:15px;line-height:1.5}
+.case dd.hl{font-weight:600}
+@media (max-width:760px){.cases{grid-template-columns:1fr}}
+.cross{display:grid;gap:12px}
+.x{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px;display:grid;gap:8px}
+.x .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.x h3{margin:0;font-size:18px;line-height:1.3}
+.x p{margin:0;font-size:16px}
+.chart{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:12px}
+.chart svg{display:block;width:100%;height:auto}
+.chart .ax{font-family:var(--mono);font-size:12px;fill:var(--muted)}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .bar{fill:var(--accent)}
+.chart .bar.proj{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5;stroke-dasharray:5 4}
+.chart .val{font-family:var(--mono);font-size:13px;fill:var(--ink);text-anchor:middle;font-weight:500}
+.chart .yr{font-family:var(--mono);font-size:13px;fill:var(--ink);text-anchor:middle}
+.chart .gap{font-family:var(--ui);font-size:11px;fill:var(--muted);text-anchor:middle}
+.chart .band{fill:var(--line);opacity:.35}
+.chart .gov{font-family:var(--ui);font-size:12px;fill:var(--muted);font-weight:600}
+.note{font-family:var(--ui);font-size:13px;color:var(--muted);margin:6px 4px 0}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/" aria-current="page">Master</a></div></nav>
+
+
+<header class="wrap hero">
+  <a class="back" href="./">← Rota Master</a>
+  <div class="kicker">Paralelo 1 · Master, INSS, Lulinha</div>
+  <h1>Três casos,<br>não um</h1>
+  <p class="lede">Nas redes, o caso Master, a fraude do INSS e as investigações sobre o filho de Lula aparecem como um escândalo só. São três apurações diferentes, com alvos, valores e períodos diferentes. Esta página mostra cada uma e os poucos pontos em que elas se tocam.</p>
+</header>
+
+<main class="wrap">
+  <section class="sec" aria-labelledby="h-cmp">
+    <h2 id="h-cmp">Lado a lado</h2>
+    <div class="cases">
+      <article class="case" style="--c:var(--c-vorcaro)">
+        <h3>Caso Master</h3>
+        <dl>
+          <div><dt>O que é</dt><dd>Fraude no Banco Master, de Daniel Vorcaro, e a rede de influência montada para salvar o banco.</dd></div>
+          <div><dt>Operação</dt><dd>Compliance Zero, da PF. Primeira fase em novembro de 2025.</dd></div>
+          <div><dt>Valores</dt><dd class="num">R$ 40,6 bilhões em dívidas deixadas; rombo de até R$ 47 bilhões no FGC.</dd></div>
+          <div><dt>Relator no STF</dt><dd>André Mendonça, desde fevereiro de 2026.</dd></div>
+          <div><dt>Alvos e citados</dt><dd>Vorcaro, ex-presidente do BRB, servidores do BC, Ciro Nogueira, Jaques Wagner. Flávio Bolsonaro tem inquérito sobre o "Dark Horse". Ministros do STF aparecem em relatórios.</dd></div>
+          <div><dt>Ligação com Lula</dt><dd>Reunião com Vorcaro em dezembro de 2024. Não há investigação contra Lula.</dd></div>
+          <div><dt>Ligação com Lulinha</dt><dd class="hl">Nenhuma nos autos.</dd></div>
+        </dl>
+      </article>
+      <article class="case" style="--c:var(--c-centrao)">
+        <h3>Fraude do INSS</h3>
+        <dl>
+          <div><dt>O que é</dt><dd>Associações descontavam mensalidades de aposentados sem autorização. 97% dos entrevistados pela CGU disseram não ter autorizado.</dd></div>
+          <div><dt>Operação</dt><dd>Sem Desconto, da PF e da CGU, em 23 de abril de 2025. Lula demitiu o presidente do INSS no mesmo dia.</dd></div>
+          <div><dt>Valores</dt><dd class="num">R$ 6,3 bilhões descontados de 2019 a 2024, entre legais e ilegais.</dd></div>
+          <div><dt>Relator no STF</dt><dd>André Mendonça.</dd></div>
+          <div><dt>Alvos e citados</dt><dd>Associações, ex-dirigentes do INSS e o lobista Antônio Carlos Camilo Antunes, o "Careca do INSS".</dd></div>
+          <div><dt>Ligação com Vorcaro</dt><dd class="hl">Nenhuma nos descontos. O Master aparece por outro produto, o consignado.</dd></div>
+          <div><dt>Ligação com Lulinha</dt><dd>Citado por ser amigo de uma empresária que recebeu dinheiro do Careca. A PF diz não haver indício de participação direta dele na fraude.</dd></div>
+        </dl>
+      </article>
+      <article class="case" style="--c:var(--c-gov)">
+        <h3>Inquéritos de Lulinha</h3>
+        <dl>
+          <div><dt>O que é</dt><dd>Suspeitas de tráfico de influência de Fábio Luís Lula da Silva no governo do pai.</dd></div>
+          <div><dt>Abertos</dt><dd>30 e 31 de julho de 2026 (Mendonça) e 4 de agosto de 2026 (Dino).</dd></div>
+          <div><dt>Valores</dt><dd class="num">A PF investiga cinco repasses de R$ 300 mil do Careca à empresa de uma amiga de Lulinha. Não há valor atribuído a ele.</dd></div>
+          <div><dt>Relatores</dt><dd>Mendonça em dois, Flávio Dino em um.</dd></div>
+          <div><dt>O que apuram</dt><dd>Cannabis medicinal no Ministério da Saúde, contratos com a Dataprev e uso de órgãos para favorecer empresas.</dd></div>
+          <div><dt>Ligação com Vorcaro</dt><dd class="hl">Nenhuma nos autos.</dd></div>
+          <div><dt>Situação</dt><dd>Em andamento. Lula diz que o filho será inocentado e que, se for culpado, terá de pagar.</dd></div>
+        </dl>
+      </article>
+    </div>
+    <div class="src">
+      <a href="https://www.opovo.com.br/agencia/bbc/2025/04/23/o-que-se-sabe-sobre-fraude-no-inss-que-levou-lula-a-demitir-presidente-do-orgao.html" target="_blank" rel="noopener">O Povo / BBC</a>
+      <a href="https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/" target="_blank" rel="noopener">Revista Cenarium</a>
+      <a href="https://edicao.correiobraziliense.com.br/correiobraziliense/2026/07/31/13594c/pdf/A02-POL-3107-DIG.pdf" target="_blank" rel="noopener">Correio Braziliense</a>
+      <a href="https://www.gazetadopovo.com.br/republica/pf-aponta-repasses-do-careca-para-empresa-de-amiga-de-lulinha/" target="_blank" rel="noopener">Gazeta do Povo</a>
+      <a href="https://www.portaltela.com/brasil/2026/08/28/vorcaro-presta-depoimento-por-4h30-a-policia-federal-sobre-caso-master/" target="_blank" rel="noopener">Portal Tela</a>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-x">
+    <h2 id="h-x">Onde se cruzam</h2>
+    <p class="sec-intro">Os pontos de contato são reais, mas estreitos. Nenhum deles liga Lulinha a Vorcaro.</p>
+    <div class="cross">
+      <article class="x"><span class="tag">Master × INSS</span><h3>Os consignados do Master</h3>
+        <p>O Master emprestava a aposentados com desconto em folha. Entre janeiro de 2023 e novembro de 2025, foram cerca de R$ 701 milhões. O INSS deixou de renovar o convênio em outubro de 2025 e suspendeu 250 mil contratos por falta de prova de que os aposentados concordaram. Foi por isso que Vorcaro depôs na CPMI do INSS, em fevereiro de 2026. É outro produto, distinto dos descontos de associações.</p>
+        <div class="src"><a href="https://www.portaltela.com/noticias/economia/2026/03/23/alvo-da-cpmi-movimentou-r-700-milhoes-em-consignados-para-aposentados/" target="_blank" rel="noopener">Portal Tela</a><a href="https://www.band.com.br/radio-bandeirantes/noticias/cpmi-do-inss-antecipa-depoimento-de-daniel-vorcaro-202602190836" target="_blank" rel="noopener">Band</a></div></article>
+      <article class="x"><span class="tag">Master × INSS × Lulinha</span><h3>O mesmo relator no Supremo</h3>
+        <p>Mendonça cuida das operações Compliance Zero e Sem Desconto e autorizou dois inquéritos sobre Lulinha. Um relatório da PF citado por Moraes diz que documentos feitos para Mendonça reuniram referências a Lulinha sem prova e tratou os investigados de forma desigual conforme o lado político. Moraes pediu investigação de Mendonça por isso. É uma disputa em curso dentro do STF.</p>
+        <div class="src"><a href="https://midiamax.com.br/brasil/2026/pf-aponta-imputacao-sem-lastro-contra-lulinha-relatorio-mendonca/" target="_blank" rel="noopener">Midiamax</a><a href="https://tribunadosertao.com.br/poder-e-governo/2026/08/01/950970-inquerito-de-lulinha-eleva-atrito-entre-pf-e-mendonca-relator-de-casos-de-impacto-antes-das-eleicoes" target="_blank" rel="noopener">Tribuna do Sertão</a></div></article>
+      <article class="x"><span class="tag">INSS × Lulinha</span><h3>O Careca e a amiga de Lulinha</h3>
+        <p>A PF investiga cinco repasses de R$ 300 mil de uma consultoria do Careca do INSS para a empresa de Roberta Luchsinger, amiga de Lulinha. A defesa dela diz que nunca teve relação com os descontos do INSS. A PF diz que não consegue provar que ela sabia da origem do dinheiro. Lulinha não é alvo formal no inquérito da fraude.</p>
+        <div class="src"><a href="https://www.gazetadopovo.com.br/republica/pf-aponta-repasses-do-careca-para-empresa-de-amiga-de-lulinha/" target="_blank" rel="noopener">Gazeta do Povo</a><a href="https://midiamax.com.br/brasil/2026/pf-aponta-imputacao-sem-lastro-contra-lulinha-relatorio-mendonca/" target="_blank" rel="noopener">Midiamax</a></div></article>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-inss">
+    <h2 id="h-inss">Os descontos ano a ano</h2>
+    <p class="sec-intro">Valores descontados por associações nas aposentadorias, segundo a CGU. A fraude não começou em um governo só, mas o volume explodiu a partir de 2023.</p>
+    <figure class="chart" style="margin:0">
+      <svg viewBox="0 0 640 300" role="img" aria-label="Descontos de associações no INSS: R$ 173 milhões em 2019, R$ 536 milhões em 2021, R$ 1,3 bilhão em 2023 e projeção de R$ 2,6 bilhões em 2024">
+        <rect class="band" x="70" y="30" width="300" height="220"/>
+        <text class="gov" x="80" y="46">Governo Bolsonaro</text>
+        <text class="gov" x="384" y="46">Governo Lula</text>
+        <line class="grid" x1="60" x2="630" y1="250" y2="250"/>
+        <line class="grid" x1="60" x2="630" y1="183.3" y2="183.3"/>
+        <line class="grid" x1="60" x2="630" y1="116.7" y2="116.7"/>
+        <line class="grid" x1="60" x2="630" y1="50" y2="50"/>
+        <text class="ax" x="54" y="254" text-anchor="end">0</text>
+        <text class="ax" x="54" y="187" text-anchor="end">1 bi</text>
+        <text class="ax" x="54" y="121" text-anchor="end">2 bi</text>
+        <text class="ax" x="54" y="54" text-anchor="end">3 bi</text>
+        <rect class="bar" x="95" y="238.5" width="50" height="11.5"/><text class="val" x="120" y="231">173 mi</text><text class="yr" x="120" y="272">2019</text>
+        <text class="gap" x="195" y="240">sem dado</text><text class="yr" x="195" y="272">2020</text>
+        <rect class="bar" x="245" y="214.2" width="50" height="35.8"/><text class="val" x="270" y="207">536 mi</text><text class="yr" x="270" y="272">2021</text>
+        <text class="gap" x="345" y="240">sem dado</text><text class="yr" x="345" y="272">2022</text>
+        <rect class="bar" x="420" y="163.3" width="50" height="86.7"/><text class="val" x="445" y="156">1,3 bi</text><text class="yr" x="445" y="272">2023</text>
+        <rect class="bar proj" x="545" y="76.7" width="50" height="173.3"/><text class="val" x="570" y="69">2,6 bi</text><text class="yr" x="570" y="272">2024*</text>
+      </svg>
+      <figcaption class="note">* Projeção para o ano inteiro feita pela CGU com dados até agosto. A reportagem não traz os valores de 2020 e 2022. Em 2017 e 2018, cinco entidades já tinham passado de R$ 41 milhões para R$ 195 milhões.</figcaption>
+    </figure>
+    <div class="src"><a href="https://www.congressoemfoco.com.br/noticia/108480/lula-ou-bolsonaro-descontos-no-inss-antecedem-dois-ultimos-governos" target="_blank" rel="noopener">Congresso em Foco · dados da CGU</a></div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-lul">
+    <h2 id="h-lul">Os inquéritos sobre Lulinha</h2>
+    <div class="scroll">
+      <table class="ledger">
+        <thead><tr><th>Aberto em</th><th>Relator</th><th>O que apura</th><th>Cita Vorcaro?</th></tr></thead>
+        <tbody>
+          <tr><td class="mono num">30 jul 2026</td><td>Mendonça</td><td>Se Lulinha ajudou o Careca do INSS a ter acesso ao governo, no caso da cannabis medicinal no Ministério da Saúde.</td><td><span class="ev no">Não</span></td></tr>
+          <tr><td class="mono num">31 jul 2026</td><td>Mendonça</td><td>Intermediação de contratos com a Dataprev e outros órgãos em favor de empresários.</td><td><span class="ev no">Não</span></td></tr>
+          <tr><td class="mono num">4 ago 2026</td><td>Flávio Dino</td><td>Uso de ministérios para favorecer empresas ligadas a ele. No mesmo ato, Dino mandou investigar vazamentos do caso.</td><td><span class="ev no">Não</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="src"><a href="https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/" target="_blank" rel="noopener">Revista Cenarium</a><a href="https://muitainformacao.com.br/politica/flavio-dino-autoriza-terceiro-inquerito-contra-lulinha-apos-pedido-da-policia-federal/" target="_blank" rel="noopener">Muita Informação</a></div>
+  </section>
+
+  <footer>
+    <p>Fatos reunidos a partir de reportagens publicadas até 9 de outubro de 2026. Investigação não é condenação.</p>
+    <p><a class="back" href="./">← Voltar para a Rota Master</a></p>
+  </footer>
+</main>
+</body></html>
