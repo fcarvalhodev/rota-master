@@ -187,14 +187,15 @@
 .myth .is p{margin:0;font-size:16px}
 @media (max-width:640px){.myth{grid-template-columns:1fr}.myth .say{border-right:0;border-bottom:1px solid var(--line)}}
 </style>
+<style>.ev.unproven{background:var(--open-soft);color:var(--open)}</style>
 </head><body>
 
 
 <style>/* barra comum das Rotas */.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><style>/* padrão das Rotas: formato detalhado */body{font-size:17px;line-height:1.6}h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(60px,15vw,140px);line-height:.86;text-transform:uppercase;overflow-wrap:anywhere}h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/" aria-current="page">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a></div></nav>
 <header class="wrap hero">
-  <div class="kicker">Dossiê · Caso Banco Master · atualizado em 9 out 2026</div>
+  <div class="kicker">Dossiê · Caso Banco Master · atualizado em 10 out 2026</div>
   <h1>Rota<br>Master</h1>
-  <svg class="route" viewBox="0 0 800 230" role="img" aria-label="A rota de Vorcaro: Belo Horizonte, São Paulo, Brasília e a fuga para Malta, interrompida pela PF em 17 de novembro de 2025">
+  <svg class="route" viewBox="0 0 800 230" role="img" aria-label="A rota de Vorcaro: Belo Horizonte, São Paulo, Brasília e a viagem para Malta, tratada como suspeita de fuga pela PF, interrompida pela PF em 17 de novembro de 2025">
     <path class="plan" d="M300 175 Q 520 -20 720 95"/>
     <path class="leg" pathLength="100" d="M80 175 L300 175 L470 175"/>
     <path class="flee" id="flee" pathLength="100" d="M300 175 Q 520 -20 720 95"/>
@@ -204,12 +205,12 @@
     <g class="stn miss"><circle cx="720" cy="95" r="7"/><text x="720" y="125" text-anchor="middle">MLA</text><text class="sub" x="720" y="142" text-anchor="middle">Malta · não chegou</text></g>
     <g class="cut" id="cut" transform="translate(452 62)"><circle r="15"/><path d="M-6 -6 L6 6 M6 -6 L-6 6"/><text x="0" y="-24" text-anchor="middle">PF · 17 NOV 2025</text></g>
   </svg>
-  <p class="lede">De Belo Horizonte a São Paulo, de São Paulo a Brasília, e a fuga para Malta que a PF interrompeu no aeroporto. Quem aparece nas investigações sobre Daniel Vorcaro, de que forma, e o que circula sem estar nos autos. Cada fato tem fonte e uma etiqueta que diz quanto dele está comprovado.</p>
+  <p class="lede">De Belo Horizonte a São Paulo e Brasília, até a viagem a Malta interrompida pela PF, que suspeitava de fuga; a defesa apresentou outra explicação. Quem aparece nas investigações sobre Daniel Vorcaro, de que forma, e o que circula sem comprovação. Cada item identifica a fonte e distingue evento, alegação e conclusão.</p>
   <div class="sheet" aria-label="Balanço do Banco Master">
     <div class="hd"><span>Banco Master S.A. · posição final</span><span>Liquidação extrajudicial · BC</span></div>
     <div class="row"><span>Dívidas deixadas pelo banco<small>na liquidação, nov 2025</small></span><b>R$ 40,6 bi</b></div>
     <div class="row"><span>Investidores atingidos<small>aproximadamente</small></span><b>800 mil</b></div>
-    <div class="row"><span>Rombo estimado no FGC<small>Fundo Garantidor de Créditos</small></span><b>até R$ 47 bi</b></div>
+    <div class="row"><span>Garantias estimadas do FGC<small>Não são perda líquida após recuperações</small></span><b>até R$ 47 bi</b></div>
     <div class="row"><span>Propostas de delação rejeitadas<small>pela PF e pela PGR</small></span><b>2</b></div>
     <div class="row"><span>Dias de Vorcaro preso<small>desde a 2ª prisão, 4 mar 2026</small></span><b id="dias">219</b></div>
     <div class="stamp" aria-hidden="true">Liquidado<small>18 · NOV · 2025</small></div>
@@ -274,7 +275,7 @@
     <span><svg width="34" height="6"><line x1="0" y1="3" x2="34" y2="3" stroke="currentColor" stroke-width="2"/></svg>documentada</span>
     <span><svg width="34" height="6"><line x1="0" y1="3" x2="34" y2="3" stroke="currentColor" stroke-width="2" stroke-dasharray="7 6"/></svg>investigada</span>
     <span><svg width="34" height="6"><line x1="1" y1="3" x2="34" y2="3" stroke="currentColor" stroke-width="2.6" stroke-dasharray="1.5 5" stroke-linecap="round"/></svg>alegação</span>
-    <span><svg width="16" height="16"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/></svg>sem ligação com Vorcaro nos autos</span>
+    <span><svg width="16" height="16"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/></svg>sem ligação com Vorcaro nas fontes citadas</span>
   </div>
   <div class="net">
     <svg id="net" viewBox="0 0 640 560" role="group" aria-label="Mapa de ligações com Daniel Vorcaro">
@@ -326,17 +327,24 @@
           <li>Que Moraes tenha agido como ministro em favor de Vorcaro. O STF ainda não decidiu se abre investigação.</li>
           <li>As mesadas a Ciro Nogueira e os pagamentos ligados a Jaques Wagner. Ambos negam.</li>
           <li>Que o dinheiro do "Dark Horse" tenha ido para Eduardo Bolsonaro.</li>
-          <li>Que Lula tenha feito algo pelo Master. Não há investigação contra ele.</li>
-          <li>Qualquer ligação de Lulinha com Vorcaro ou com o Master. Ela não aparece nos autos.</li>
+          <li>Que Lula tenha feito algo pelo Master. Não identificamos investigação pública contra ele nas fontes citadas até a data desta revisão.</li>
+          <li>Qualquer ligação de Lulinha com Vorcaro ou com o Master. Não foi identificada nas fontes públicas citadas.</li>
         </ul>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>Fatos reunidos a partir de reportagens publicadas até 9 de outubro de 2026. Investigação não é condenação. Quando o citado se manifestou, a versão dele está no texto.</p>
+    <p>Fatos reunidos a partir de reportagens publicadas até 10 de outubro de 2026. Investigação não é condenação. Quando o citado se manifestou, a versão dele está no texto.</p>
     <p>Segundo turno: 25 de outubro de 2026.</p>
   </footer>
+
+<section id="fontes-revisao" aria-labelledby="h-fontes-revisao" style="margin-block:32px;padding:20px;border:1px solid var(--line);border-radius:6px">
+<h2 id="h-fontes-revisao">Fontes e limites da leitura</h2>
+<p>O gráfico político é um recorte de cinco nomes, não uma amostra representativa de toda a investigação. As cifras de dívida, garantias e pagamentos do FGC têm bases e datas diferentes; não devem ser somadas como perda líquida final. Relação pessoal, viagem e reunião não equivalem a indiciamento ou crime. Mensagens e relatórios divulgados pela imprensa são atribuídos às fontes, sem certificação de autos sigilosos.</p>
+<div class="src"><a href="https://www12.senado.leg.br/noticias/materias/2026/02/20/com-negativa-de-vorcaro-cpmi-do-inss-vai-ouvir-investigada-ligada-a-conafer" target="_blank" rel="noopener">Senado: cancelamento da oitiva</a><a href="https://www.bcb.gov.br/detalhenoticia/20936/nota/undefined" target="_blank" rel="noopener">BC: liquidação</a></div>
+<p style="font-size:14px"><a href="https://fcarvalhodev.github.io/rotas/metodologia.html">Como distinguimos fatos, alegações e interpretações</a> · Revisão editorial: 10 de outubro de 2026.</p>
+</section>
 </main>
 
 <script>
@@ -405,9 +413,9 @@ const E=[
  {y:2026,d:"12 fev",k:1,a:["stf"],ev:"doc",t:"Toffoli deixa a relatoria; Mendonça assume",
   b:"A saída vem depois de reunião dos ministros e de um relatório da PF de cerca de 200 páginas sobre a relação com Vorcaro. Fachin não autorizou investigação contra Toffoli.",
   s:[["Bem Paraná","https://www.bemparana.com.br/noticias/politica/elos-com-vorcaro-pressionam-toffoli-no-stf-entenda-suspeitas/"]],l:["Ver o Supremo no caso","stf.html"]},
- {y:2026,d:"23 fev",a:["vorcaro","gov"],ev:"doc",t:"Vorcaro depõe na CPMI do INSS",
-  b:"A comissão quer explicações sobre 250 mil contratos de consignado do Master suspensos pelo INSS por falta de prova de que os aposentados concordaram.",
-  s:[["Band","https://www.band.com.br/radio-bandeirantes/noticias/cpmi-do-inss-antecipa-depoimento-de-daniel-vorcaro-202602190836"]],l:["Ver os três casos","tres-casos.html"]},
+ {y:2026,d:"23 fev",a:["vorcaro","gov"],ev:"doc",t:"Oitiva de Vorcaro na CPMI é cancelada",
+  b:"O Senado registrou o cancelamento em 20 de fevereiro. Em 23 de fevereiro, a comissão não conseguiu ouvi-lo; o presidente anunciou que contestaria a dispensa. A pauta envolvia também contratos de consignado do Master.",
+  s:[["Senado: oitiva cancelada","https://www12.senado.leg.br/noticias/materias/2026/02/20/com-negativa-de-vorcaro-cpmi-do-inss-vai-ouvir-investigada-ligada-a-conafer"]],l:["Ver os três casos","tres-casos.html"]},
  {y:2026,d:"4 mar",k:1,a:["vorcaro","stf"],ev:"doc",t:"Segunda prisão, por ordem de Mendonça",
   b:"A decisão fala em captação de servidores dos \"mais altos escalões da República\" e reproduz mensagens em que Vorcaro manda planejar uma agressão a um jornalista, simulando um assalto.",
   s:[["O Povo","https://www.opovo.com.br/noticias/mundo/2026/03/04/policia-federal-prende-daniel-vorcaro-em-escandalo-do-banco-master.html"],["Diario de Pernambuco","https://www.diariodepernambuco.com.br/politica/2026/03/11709151-caso-vorcaro-trecho-de-decisao-de-ministro-do-stf-cita-envolvimento-de-altos-escaloes-da-republica.html"]]},
@@ -436,7 +444,7 @@ const E=[
   b:"A suspeita é de imóvel de R$ 2,5 milhões e R$ 3,5 milhões em propina, ligados ao ex-sócio de Vorcaro Augusto Lima e ao cartão Credcesta, da Bahia. Wagner nega, chama a operação de \"patacoada\" e deixa a liderança do governo no Senado.",
   s:[["Times Brasil","https://timesbrasil.com.br/brasil/jaques-wagner-admite-relacao-com-ex-socio-do-banco-master-e-chama-acao-da-pf-de-patacoada/"]]},
  {y:2026,d:"30 jul – 4 ago",k:1,a:["gov"],ev:"open",t:"Lulinha passa a ser investigado em três inquéritos, nenhum sobre o Master",
-  b:"Mendonça autoriza inquéritos sobre tráfico de influência ligado ao \"Careca do INSS\" e à cannabis medicinal, e sobre contratos com a Dataprev. Dino autoriza um terceiro, sobre favorecimento a empresas. Nenhum cita Vorcaro.",
+  b:"Mendonça autoriza inquéritos sobre tráfico de influência ligado ao \"Careca do INSS\" e à cannabis medicinal, e sobre contratos com a Dataprev. Dino autoriza um terceiro, sobre favorecimento a empresas. As reportagens citadas não identificam vínculo com Vorcaro.",
   s:[["Correio Braziliense","https://edicao.correiobraziliense.com.br/correiobraziliense/2026/07/31/13594c/pdf/A02-POL-3107-DIG.pdf"],["Revista Cenarium","https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/"]],l:["Ver os três casos","tres-casos.html"]},
  {y:2026,d:"ago",a:["pl"],ev:"open",t:"Mendonça abre inquérito sobre os repasses ao \"Dark Horse\"",
   b:"A PF vai apurar os recursos do filme e o suposto envio de dinheiro para Eduardo Bolsonaro nos EUA.",
@@ -514,18 +522,18 @@ addEventListener("scroll",rail,{passive:true});addEventListener("resize",rail);r
 
 /* myths */
 const M=[
- ["Lulinha está envolvido no caso Master.","Redes sociais","no","Lulinha é investigado em três inquéritos: tráfico de influência ligado ao \"Careca do INSS\" e à cannabis medicinal, contratos com a Dataprev e favorecimento a empresas. Nenhum deles cita Vorcaro ou o Master. Um relatório da PF diz não haver indício de que ele tenha participado diretamente das fraudes do INSS.",[["Revista Cenarium","https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/"],["Midiamax","https://midiamax.com.br/brasil/2026/pf-aponta-imputacao-sem-lastro-contra-lulinha-relatorio-mendonca/"]]],
+ ["Lulinha está envolvido no caso Master.","Redes sociais","unproven","Lulinha é investigado em três inquéritos: tráfico de influência ligado ao \"Careca do INSS\" e à cannabis medicinal, contratos com a Dataprev e favorecimento a empresas. As reportagens citadas não identificam vínculo desses procedimentos com Vorcaro ou o Master. Um relatório da PF diz não haver indício de que ele tenha participado diretamente das fraudes do INSS.",[["Revista Cenarium","https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/"],["Midiamax","https://midiamax.com.br/brasil/2026/pf-aponta-imputacao-sem-lastro-contra-lulinha-relatorio-mendonca/"]]],
  ["A fraude do INSS faz parte do caso Master.","Redes sociais","no","São casos diferentes. A fraude do INSS são descontos de associações nas aposentadorias, sem autorização, investigados pela Operação Sem Desconto desde abril de 2025. O Master entra na CPMI do INSS por outro motivo: 250 mil contratos de consignado suspensos por falta de prova de consentimento.",[["Band","https://www.band.com.br/radio-bandeirantes/noticias/cpmi-do-inss-antecipa-depoimento-de-daniel-vorcaro-202602190836"],["O Povo / BBC","https://www.opovo.com.br/agencia/bbc/2025/04/23/o-que-se-sabe-sobre-fraude-no-inss-que-levou-lula-a-demitir-presidente-do-orgao.html"]]],
  ["Lula nunca recebeu Vorcaro.","Redes sociais","doc","Recebeu. O encontro de 4 de dezembro de 2024 foi fora da agenda, intermediado por Guido Mantega, e o próprio Lula confirma. O GSI registra outras três entradas de Vorcaro no Planalto entre 2023 e 2024, sem dizer com quem.",[["Gazeta do Povo","https://www.gazetadopovo.com.br/economia/vorcaro-planalto-4-vezes-falado-lula-venda-master/"],["Midiamax","https://midiamax.com.br/brasil/2026/me-deu-whisky-eu-bebi-lula-pronuncia-encontro-vorcaro-2024/"]]],
- ["Lula é sócio do Master.","Campanha de Flávio","no","Não há investigação contra Lula nem documento que mostre sociedade ou pagamento. O \"whisky\" é relato de um advogado em mensagem, negado pelo Planalto.",[["O Liberal","https://www.oliberal.com/politica/flavio-bolsonaro-associa-lula-a-vorcaro-pergunta-se-era-amigo-conselheiro-ou-socio-do-master-1.1172107"],["Revista Oeste","https://revistaoeste.com/politica/lula-recebeu-uisque-de-presente-de-vorcaro/"]]],
- ["O escândalo é só da direita.","Redes sociais","part","No Congresso, a maior parte é de direita: dos cinco parlamentares investigados ou com ligação documentada, quatro são do PP e do PL, e um é do PT, Jaques Wagner. Os 18 deputados na agenda de Vorcaro são todos de partidos de centro e de direita. No governo, Lula recebeu Vorcaro e Mantega trabalhava para ele. No Supremo, quatro ministros aparecem em relatórios da PF.",[["Times Brasil","https://timesbrasil.com.br/brasil/jaques-wagner-admite-relacao-com-ex-socio-do-banco-master-e-chama-acao-da-pf-de-patacoada/"],["Agência Pública","https://apublica.org/2026/01/a-bancada-do-master-e-de-direita/"],["Ver o gráfico","#congresso"]]],
+ ["Lula é sócio do Master.","Campanha de Flávio","unproven","As fontes citadas não apresentam documento de sociedade ou pagamento ilegal a Lula. O relato sobre whisky deve ser lido junto da manifestação posterior de Lula, citada na cronologia; receber presente não comprova sociedade ou crime.",[["O Liberal","https://www.oliberal.com/politica/flavio-bolsonaro-associa-lula-a-vorcaro-pergunta-se-era-amigo-conselheiro-ou-socio-do-master-1.1172107"],["Revista Oeste","https://revistaoeste.com/politica/lula-recebeu-uisque-de-presente-de-vorcaro/"]]],
+ ["O escândalo é só da direita.","Redes sociais","part","No recorte de cinco parlamentares desta página, com situações distintas de investigação ou contato documentado, quatro são do PP e do PL, e um é do PT, Jaques Wagner. Os 18 deputados na agenda de Vorcaro são todos de partidos de centro e de direita. No governo, Lula recebeu Vorcaro e Mantega trabalhava para ele. No Supremo, quatro ministros aparecem em relatórios da PF.",[["Times Brasil","https://timesbrasil.com.br/brasil/jaques-wagner-admite-relacao-com-ex-socio-do-banco-master-e-chama-acao-da-pf-de-patacoada/"],["Agência Pública","https://apublica.org/2026/01/a-bancada-do-master-e-de-direita/"],["Ver o gráfico","#congresso"]]],
  ["A fraude do INSS começou no governo Lula.","Redes sociais","no","Começou antes e explodiu depois. Os descontos existem desde uma lei de 1991 e já cresciam em 2017 e 2018. A CGU contou 4 situações de alto volume entre 2019 e 2022 e 39 entre 2023 e agosto de 2024.",[["Congresso em Foco","https://www.congressoemfoco.com.br/noticia/108480/lula-ou-bolsonaro-descontos-no-inss-antecedem-dois-ultimos-governos"]]],
- ["A Lagoinha é investigada no caso Master.","Redes sociais","no","Não há investigação formal contra a igreja. O que está nos relatórios é a conta de uma unidade, presidida pelo cunhado de Vorcaro, e pessoas da família ligadas a ela.",[["Portal de Prefeitura","https://portaldeprefeitura.com.br/cotidiano/lagoinha-afastou-cunhado-vorcaro-nega-vinculo-banco-master/616843/"],["Diário do Comércio","https://diariodocomercio.com.br/legislacao/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro/"]]],
- ["Não tenho vínculo pessoal, comercial ou institucional com Vorcaro.","Nikolas, em março de 2026","part","Não há prova de vínculo comercial nem de dinheiro. Mas houve contato direto: voou no jato ligado a Vorcaro em 2022, e em 2025 o chamava de \"Dani\" em áudios. Ele mesmo admite os contatos. Não há investigação contra ele.",[["Correio da Manhã","https://www.correiodamanha.com.br/politica/2026/09/316681-em-audios-nikolas-chama-vorcaro-de-dani-e-pede-ajuda-para-ex-assessor.html"],["Poder360","https://www.poder360.com.br/poder-congresso/nao-recebi-um-tostao-de-vorcaro-e-nem-o-encontrei-diz-nikolas/"]]],
+ ["A Lagoinha é investigada no caso Master.","Redes sociais","unproven","Não identificamos investigação pública formal contra a igreja como instituição nas fontes citadas. O que está nos relatórios é a conta de uma unidade, presidida pelo cunhado de Vorcaro, e pessoas da família ligadas a ela.",[["Portal de Prefeitura","https://portaldeprefeitura.com.br/cotidiano/lagoinha-afastou-cunhado-vorcaro-nega-vinculo-banco-master/616843/"],["Diário do Comércio","https://diariodocomercio.com.br/legislacao/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro/"]]],
+ ["Não tenho vínculo pessoal, comercial ou institucional com Vorcaro.","Nikolas, em março de 2026","part","Não há prova de vínculo comercial nem de dinheiro. Mas houve contato direto: voou no jato ligado a Vorcaro em 2022, e em 2025 o chamava de \"Dani\" em áudios. Ele mesmo admite os contatos. Não identificamos investigação pública contra ele nas fontes citadas até a data desta revisão.",[["Correio da Manhã","https://www.correiodamanha.com.br/politica/2026/09/316681-em-audios-nikolas-chama-vorcaro-de-dani-e-pede-ajuda-para-ex-assessor.html"],["Poder360","https://www.poder360.com.br/poder-congresso/nao-recebi-um-tostao-de-vorcaro-e-nem-o-encontrei-diz-nikolas/"]]],
  ["Flávio só pediu patrocínio, não tem nada ilegal.","Campanha de Flávio","open","Flávio confirma o pedido. A legalidade é o que está em investigação: Mendonça abriu inquérito sobre os repasses ao filme e o possível envio de dinheiro para Eduardo Bolsonaro.",[["Itatiaia","https://www.itatiaia.com.br/politica/a-reacao-de-nikolas-ao-audio-enviado-por-flavio-bolsonaro-a-vorcaro/"],["Portal de Prefeitura","https://portaldeprefeitura.com.br/tags/andre-mendonca/"]]],
  ["Vorcaro já delatou Lula, Moraes e Toffoli.","Vídeo viral","no","O vídeo foi gerado por IA. As duas propostas de delação foram rejeitadas, e nenhuma foi homologada.",[["Aos Fatos","https://www.aosfatos.org/noticias/video-ia-engana-vorcaro-delatou-moraes-toffoli-lula/"]]]
 ];
-const ML={no:"Falso",part:"Meia verdade",doc:"Verdade",open:"Em aberto"};
+const ML={unproven:"Não demonstrado",no:"Falso",part:"Meia verdade",doc:"Verdade",open:"Em aberto"};
 document.getElementById("myths").innerHTML=M.map(m=>`<article class="myth"><div class="say"><small>${m[1]}</small><q>${esc(m[0])}</q></div><div class="is"><span class="ev ${m[2]}" style="justify-self:start">${ML[m[2]]}</span><p>${esc(m[3])}</p><div class="src">${m[4].map(s=>s[1][0]==="#"?`<a href="${s[1]}">${s[0]} ↑</a>`:`<a href="${s[1]}" target="_blank" rel="noopener">${s[0]}</a>`).join("")}</div></div></article>`).join("");
 
 /* network */
@@ -544,7 +552,7 @@ document.getElementById("myths").innerHTML=M.map(m=>`<article class="myth"><div 
     ["nunes","vorcaro","alleg","Mansão no Carnaval de 2025","A PF lê as iniciais \"KN\" como Nunes Marques. Ele diz que nunca falou com Vorcaro."],
     ["bc","vorcaro","open","Consultores dentro do BC","Dois ex-servidores da supervisão bancária são suspeitos de orientar o banco. Vorcaro nega corrupção."],
     ["brb","vorcaro","open","Compra barrada","Ex-presidente do BRB preso. A PF aponta vantagem de R$ 146,6 milhões em imóveis."],
-    ["lula","vorcaro","doc","Reunião fora da agenda","4 dez 2024. Lula confirma. Não há investigação contra ele."],
+    ["lula","vorcaro","doc","Reunião fora da agenda","4 dez 2024. Lula confirma. Não identificamos investigação pública contra ele nas fontes citadas até a data desta revisão."],
     ["mantega","vorcaro","doc","Trabalhava para Vorcaro","O ex-ministro intermediou a reunião com Lula."],
     ["mantega","lula","doc","Ex-ministro de Lula","Levou Vorcaro ao Planalto."],
     ["wagner","vorcaro","open","Credcesta e Augusto Lima","Alvo da 9ª fase em jun 2026. Nega e diz que o Master só entrou no negócio em 2019."],
@@ -552,7 +560,7 @@ document.getElementById("myths").innerHTML=M.map(m=>`<article class="myth"><div 
     ["nikolas","vorcaro","doc","Voos em 2022 e áudios em 2025","Usou o jatinho em 2022. Em 2025, chamava Vorcaro de \"Dani\" e ofereceu apresentar um ex-assessor. André Valadão, da Lagoinha, aproximou os dois. Nega ter recebido dinheiro."],
     ["ciro","vorcaro","open","Mesada, segundo a PF","Ao menos R$ 6 milhões entre 2024 e 2025. Ciro nega."],
     ["nikolas","flavio","fam","Mesmo partido","Ambos do PL."],
-    ["lulinha","lula","fam","Filho do presidente","Investigado em outros casos. Nenhum cita Vorcaro."]
+    ["lulinha","lula","fam","Filho do presidente","Investigado em outros casos. As reportagens citadas não identificam vínculo com Vorcaro."]
   ];
   const EVN={doc:"Documentado",open:"Em aberto",alleg:"Alegação",fam:""};
   const ns="http://www.w3.org/2000/svg",eg=document.getElementById("edges"),ng=document.getElementById("nodes"),info=document.getElementById("netinfo");
@@ -568,14 +576,14 @@ document.getElementById("myths").innerHTML=M.map(m=>`<article class="myth"><div 
     const go=()=>pick(sel===k?null:k);g.addEventListener("click",go);g.addEventListener("keydown",ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();go()}});
     ng.appendChild(g);
   });
-  const idle='<strong>12 pessoas e instituições ligadas a Vorcaro.</strong><span>Toque em um nome no mapa para ver o que liga cada um ao banqueiro e quanto disso está provado. Lulinha aparece solto porque não há ligação dele com Vorcaro nos autos.</span>';
+  const idle='<strong>12 pessoas e instituições ligadas a Vorcaro.</strong><span>Toque em um nome no mapa para ver o que liga cada um ao banqueiro e quanto disso está provado. Lulinha aparece solto porque não identificamos ligação dele com Vorcaro nas fontes públicas citadas.</span>';
   function pick(k){sel=k;
     const linked=new Set([k]);
     eg.querySelectorAll(".edge").forEach(e=>{const on=k&&(e.dataset.a===k||e.dataset.b===k);e.classList.toggle("on",!!on);e.classList.toggle("off",!!k&&!on);if(on){linked.add(e.dataset.a);linked.add(e.dataset.b)}});
     ng.querySelectorAll(".node").forEach(g=>{g.classList.toggle("on",g.dataset.k===k);g.classList.toggle("off",!!k&&!linked.has(g.dataset.k))});
     if(!k){info.innerHTML=idle;return}
     let rows=L.filter(l=>l[0]===k||l[1]===k).map(l=>{const o=l[0]===k?l[1]:l[0];return `<li><b>${N[o].n}: ${esc(l[3])}${EVN[l[2]]?` <span class="ev ${l[2]}">${EVN[l[2]]}</span>`:""}</b><span>${esc(l[4])}</span></li>`}).join("");
-    if(k==="lulinha")rows+='<li class="warn"><b>Vorcaro: nenhuma ligação nos autos <span class="ev no">Não consta</span></b><span>Os inquéritos sobre Lulinha tratam do INSS, da cannabis medicinal e da Dataprev.</span></li>';
+    if(k==="lulinha")rows+='<li class="warn"><b>Vorcaro: ligação não identificada nas fontes citadas <span class="ev no">Não consta</span></b><span>Os inquéritos sobre Lulinha tratam do INSS, da cannabis medicinal e da Dataprev.</span></li>';
     info.innerHTML=`<strong>${N[k].n}</strong><ul>${rows}</ul>${k==="lulinha"?'<a class="more" href="tres-casos.html">Ver os três casos →</a>':""}${k==="nikolas"?'<a class="more" href="lagoinha.html">Ver o braço da Lagoinha →</a>':""}`;
   }
   info.innerHTML=idle;
