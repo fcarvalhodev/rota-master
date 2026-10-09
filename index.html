@@ -38,7 +38,9 @@
 @keyframes stamp{from{transform:rotate(-12deg) scale(1.6);opacity:.82}to{transform:rotate(-12deg) scale(1)}}
 
 /* congress donut */
-:root{--k-dir:#1f5bb5;--k-esq:#c0392b}
+:root{--k-dir:#1f5bb5;--k-esq:#c0392b;--c-ig:#6b4fa0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-ig:#b39ae8}}
+:root[data-theme="dark"]{--c-ig:#b39ae8}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--k-dir:#5f93e6;--k-esq:#e8645a}}
 :root[data-theme="dark"]{--k-dir:#5f93e6;--k-esq:#e8645a}
 .cong{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:22px;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:18px}
@@ -234,7 +236,7 @@
         <ul>
           <li><b>Ciro Nogueira</b><span class="ev open">Em aberto</span><small>Senador, PP-PI. Alvo de buscas da PF em maio de 2026. A PF fala em mesada de Vorcaro; ele nega.</small></li>
           <li><b>Flávio Bolsonaro</b><span class="ev open">Em aberto</span><small>Senador, PL-RJ. Inquérito sobre os repasses de Vorcaro ao filme "Dark Horse". Confirma o pedido e nega irregularidade.</small></li>
-          <li><b>Nikolas Ferreira</b><span class="ev doc">Documentado</span><small>Deputado, PL-MG. Voou no jatinho de Vorcaro na campanha de 2022. O TCU arquivou o caso.</small></li>
+          <li><b>Nikolas Ferreira</b><span class="ev doc">Documentado</span><small>Deputado, PL-MG. Voou no jatinho de Vorcaro na campanha de 2022. Em áudios de 2025, chama o banqueiro de "Dani" e oferece apresentar um ex-assessor para um negócio de minério. Nega ter recebido dinheiro. O TCU arquivou o caso do avião. <a href="lagoinha.html">Ver a sequência</a></small></li>
           <li><b>Filipe Barros</b><span class="ev doc">Documentado</span><small>Deputado, PL-PR. Apresentou em novembro de 2024 projeto para retomar a "emenda Master", que ampliava a garantia do FGC.</small></li>
         </ul>
       </div>
@@ -261,6 +263,7 @@
   <div class="par">
     <a href="tres-casos.html"><span class="n">Paralelo 1 · Master, INSS, Lulinha</span><strong>Três casos, não um</strong><span class="d">O que é o caso Master, o que é a fraude do INSS e o que investigam sobre Lulinha. Onde se cruzam e onde não.</span><span class="go">Abrir página →</span></a>
     <a href="stf.html"><span class="n">Paralelo 2 · Supremo</span><strong>O Supremo no caso</strong><span class="d">Moraes, Toffoli, Mendonça e Nunes Marques: o que a PF apontou sobre cada um e como ficou a sessão de 15 de setembro.</span><span class="go">Abrir página →</span></a>
+    <a href="lagoinha.html"><span class="n">Paralelo 3 · Igreja Batista da Lagoinha</span><strong>O braço da Lagoinha</strong><span class="d">O cunhado pastor, o pai convertido, os R$ 57 milhões na conta de uma unidade e como André Valadão aproximou Vorcaro e Nikolas.</span><span class="go">Abrir página →</span></a>
   </div>
 </section>
 
@@ -337,7 +340,7 @@
 </main>
 
 <script>
-const A={vorcaro:["Vorcaro e o Master","var(--c-vorcaro)"],stf:["STF","var(--c-stf)"],gov:["Governo Lula e PT","var(--c-gov)"],pl:["Bolsonaros e PL","var(--c-pl)"],centrao:["Centrão","var(--c-centrao)"],bc:["BC e BRB","var(--c-bc)"]};
+const A={vorcaro:["Vorcaro e o Master","var(--c-vorcaro)"],stf:["STF","var(--c-stf)"],gov:["Governo Lula e PT","var(--c-gov)"],pl:["Bolsonaros e PL","var(--c-pl)"],centrao:["Centrão","var(--c-centrao)"],bc:["BC e BRB","var(--c-bc)"],ig:["Lagoinha","var(--c-ig)"]};
 const E=[
  {y:2019,d:"2º sem",a:["bc","vorcaro"],ev:"doc",t:"Banco Central autoriza Vorcaro a assumir o Banco Máxima",
   b:"A partir daí o conglomerado cresce com aportes e com CDBs vendidos em plataformas de investimento. Em 2021 o Máxima vira Banco Master.",
@@ -351,6 +354,9 @@ const E=[
  {y:2023,d:"dez",a:["gov","vorcaro"],ev:"doc",t:"Primeira de três entradas de Vorcaro no Planalto registradas pelo GSI",
   b:"Os registros, obtidos pela Lei de Acesso à Informação, mostram entradas em dezembro de 2023, março e abril de 2024. Eles não dizem com quem Vorcaro se reuniu.",
   s:[["Gazeta do Povo","https://www.gazetadopovo.com.br/economia/vorcaro-planalto-4-vezes-falado-lula-venda-master/"]]},
+ {y:2024,d:"27 abr",a:["pl","ig","vorcaro"],ev:"doc",t:"Nikolas critica o Master; Valadão pede que ele converse com Vorcaro",
+  b:"Vorcaro encaminha o post a André Valadão, líder da Lagoinha. Em áudios, Valadão pede ao deputado que fale com Vorcaro antes de criticá-lo e relata que ele vai \"contornar tudo\". Vorcaro diz nas mensagens que tinha pago os voos de Nikolas.",
+  s:[["BP Money / ICL","https://bpmoney.com.br/?p=420296"],["Diario de Pernambuco","https://www.diariodepernambuco.com.br/politica/2026/09/11723152-andre-valadao-explica-relacao-de-vorcaro-com-nikolas.html"]],l:["Ver o braço da Lagoinha","lagoinha.html"]},
  {y:2024,d:"mai–ago",a:["stf","vorcaro"],ev:"open",t:"Mensagens mostram Vorcaro cobrando aportes ao fundo do Tayayá",
   b:"Em conversas com Zettel, Vorcaro manda pagar uma lista de repasses que inclui R$ 15 milhões ao resort. A PF soma cerca de R$ 35 milhões e suspeita que Toffoli fosse o destinatário final. Toffoli nega.",
   s:[["Band","https://www.band.com.br/radio-bandeirantes/noticias/caso-master-vorcaro-foi-cobrado-por-repasses-milionarios-ao-resort-tayaya-202602161721"],["O Antagonista","https://oantagonista.com.br/brasil/vorcaro-relatou-pressao-por-pagamentos-ao-resort-ligado-a-toffoli/"]]},
@@ -360,6 +366,9 @@ const E=[
  {y:2024,d:"jul",a:["bc","vorcaro"],ev:"doc",t:"BRB começa a comprar carteiras de crédito do Master",
   b:"O banco estatal do Distrito Federal, sob o governo de Ibaneis Rocha (MDB), passa a absorver créditos do Master. O Banco Central depois concluiria que parte deles não tinha valor.",
   s:[["Diário do Comércio","https://diariodocomercio.com.br/?p=570011"]]},
+ {y:2024,d:"set",a:["ig"],ev:"doc",t:"Abre o templo da Lagoinha no Belvedere, presidido por Zettel",
+  b:"São 14,4 mil m² e aluguel de cerca de R$ 420 mil por mês, voltado a empresários e à elite de Belo Horizonte. Zettel, cunhado de Vorcaro, liderou a obra.",
+  s:[["Gazeta do Povo","https://www.gazetadopovo.com.br/ideias/por-que-lider-lagoinha-pediu-perdao-igreja-fechou-templo-luxo/"]],l:["Ver o braço da Lagoinha","lagoinha.html"]},
  {y:2024,d:"4 dez",k:1,a:["gov","vorcaro"],ev:"doc",t:"Lula recebe Vorcaro no Planalto, fora da agenda",
   b:"O encontro foi intermediado por Guido Mantega, que trabalhava para Vorcaro. Segundo o governo, Vorcaro disse sofrer perseguição dos grandes bancos e Lula orientou que levasse eventuais denúncias ao Banco Central. Lula diz que foi o único encontro.",
   s:[["Revista Oeste","https://revistaoeste.com/politica/lula-recebeu-uisque-de-presente-de-vorcaro/"],["Midiamax","https://midiamax.com.br/brasil/2026/advogado-disse-vorcaro-lula-agradeceu-whisky-mandou-abraco/"]]},
@@ -375,12 +384,18 @@ const E=[
  {y:2025,d:"mar",a:["stf","vorcaro"],ev:"alleg",t:"Vorcaro reserva mansão no Rio para \"KN\" no Carnaval",
   b:"A PF entende que as iniciais se referem ao ministro Nunes Marques, hoje presidente do TSE. Ele diz que nunca trocou mensagens com Vorcaro nem pediu nada a ele.",
   s:[["SBT News","https://sbtnews.sbt.com.br/noticia/politica/vorcaro-alugou-casa-de-r-250-mi-para-ministro-kn-no-rio"]]},
+ {y:2025,d:"mar–abr",a:["pl","vorcaro"],ev:"doc",t:"Nos áudios, Nikolas chama Vorcaro de \"Dani\"",
+  b:"Pede desculpas pelo post de 2024, dizendo que não sabia que o banco era dele, e oferece apresentar o ex-assessor Thiago Faria para tratar de um ativo de minério. Nikolas nega irregularidade e diz que o negócio não andou.",
+  s:[["Correio da Manhã","https://www.correiodamanha.com.br/politica/2026/09/316681-em-audios-nikolas-chama-vorcaro-de-dani-e-pede-ajuda-para-ex-assessor.html"],["Poder360","https://www.poder360.com.br/poder-congresso/nao-recebi-um-tostao-de-vorcaro-e-nem-o-encontrei-diz-nikolas/"]],l:["Ver o braço da Lagoinha","lagoinha.html"]},
  {y:2025,d:"mar–set",k:1,a:["bc","vorcaro"],ev:"doc",t:"BRB tenta comprar o Master; Banco Central barra",
   b:"O anúncio de compra de 58% do Master sai em março. Em setembro, o BC encontra carteiras sem valor vendidas ao BRB por mais de US$ 2 bilhões e não aprova a operação.",
   s:[["Diário do Comércio","https://diariodocomercio.com.br/?p=570011"],["Money Times","https://www.moneytimes.com.br/escandalo-do-banco-master-expoe-bastidores-do-poder-e-abala-credibilidade-das-instituicoes-segundo-o-the-economist-ceci/"]]},
  {y:2025,d:"out",a:["gov","vorcaro"],ev:"doc",t:"INSS deixa de renovar o acordo de consignado do Master",
   b:"Depois de reclamações repetidas, o INSS não renova o convênio que permitia ao banco oferecer empréstimo consignado a aposentados. Esse é o ponto em que o caso Master toca o INSS, e não tem relação com a fraude dos descontos associativos.",
   s:[["Portal Tela","https://www.portaltela.com/noticias/economia/2026/03/23/alvo-da-cpmi-movimentou-r-700-milhoes-em-consignados-para-aposentados/"]],l:["Ver os três casos","tres-casos.html"]},
+ {y:2025,d:"dez 2024 – dez 2025",a:["ig","vorcaro"],ev:"open",t:"Conta da Lagoinha Belvedere movimenta R$ 57 milhões",
+  b:"Segundo o Coaf, é 60 vezes a receita anual presumida da unidade. Zettel depositou R$ 19,2 milhões, e o pai e a ex-mulher de Vorcaro também fizeram depósitos. A Lagoinha diz que o dinheiro era para obras e que não sabia do volume.",
+  s:[["Diário do Comércio","https://diariodocomercio.com.br/legislacao/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro/"],["Bahia Notícias","https://www.bahianoticias.com.br/noticia/321160-cunhado-pai-e-ex-de-vorcaro-enviaram-r-194-mi-a-igreja-da-lagoinha-aponta-coaf"]],l:["Ver o braço da Lagoinha","lagoinha.html"]},
  {y:2025,d:"15 nov",a:["stf","vorcaro"],ev:"open",t:"\"Acha que segunda já tenho que estar fora?\"",
   b:"Segundo a PF, Vorcaro mandou essa pergunta ao contato que identifica como Moraes, dois dias antes de ser preso. Moraes nega ser o destinatário das mensagens.",
   s:[["Midiamax","https://midiamax.com.br/brasil/2026/mendonca-pede-fachin-sessao-stf-discutir-mensagens-vorcaro-moraes-apontadas-pf/"]],l:["Ver o Supremo no caso","stf.html"]},
@@ -399,6 +414,9 @@ const E=[
  {y:2026,d:"6 mar",a:["stf"],ev:"doc",t:"Moraes nega ser o destinatário das mensagens",
   b:"Nota do STF diz que as imagens estão ligadas a outros contatos no computador de Vorcaro. O Estadão afirma, com base em fontes do caso, que houve troca de mensagens naquele dia.",
   s:[["DGABC","https://www.dgabc.com.br/Noticia/4289047/sem-explicar-conversa-moraes-nega-ser-destinatario-de-mensagens-de-vorcaro"]]},
+ {y:2026,d:"mar",a:["ig","vorcaro"],ev:"open",t:"Zettel é preso; a Lagoinha fecha o templo do Belvedere",
+  b:"O cunhado de Vorcaro é preso na mesma operação. A unidade fecha em 15 de março, e André Valadão pede perdão aos fiéis em vídeo.",
+  s:[["Portal de Prefeitura","https://portaldeprefeitura.com.br/religiao/crise-na-lagoinha-igreja-comandada-por-cunhado-de-vorcaro-e-fechada/617255/"],["Gazeta do Povo","https://www.gazetadopovo.com.br/ideias/por-que-lider-lagoinha-pediu-perdao-igreja-fechou-templo-luxo/"]],l:["Ver o braço da Lagoinha","lagoinha.html"]},
  {y:2026,d:"16 abr",a:["bc"],ev:"open",t:"Ex-presidente do BRB é preso",
   b:"Para Mendonça, Paulo Henrique Costa pôs o BRB a serviço da liquidez do Master e recebeu vantagem estimada em R$ 146,6 milhões em imóveis. A defesa diz que a prisão é desnecessária.",
   s:[["Poder360","https://www.poder360.com.br/poder-justica/ex-presidente-do-brb-e-preso-na-operacao-compliance-zero/"]]},
@@ -408,6 +426,9 @@ const E=[
  {y:2026,d:"13 mai",k:1,a:["pl"],ev:"doc",t:"Áudio mostra Flávio cobrando R$ 134 milhões de Vorcaro",
   b:"O Intercept divulga o áudio sobre o financiamento do filme \"Dark Horse\", sobre Jair Bolsonaro. Flávio confirma ter recebido recursos e nega irregularidade. Diz que o dinheiro foi para a produção.",
   s:[["Estado de Minas","https://www.em.com.br/politica/2026/05/7419330-nikolas-sobre-flavio-bolsonaro-e-vorcaro-condenacoes-precipitadas.html"],["Itatiaia","https://www.itatiaia.com.br/politica/a-reacao-de-nikolas-ao-audio-enviado-por-flavio-bolsonaro-a-vorcaro/"]]},
+ {y:2026,d:"14 mai",a:["vorcaro"],ev:"open",t:"Pai de Vorcaro é preso",
+  b:"Para Mendonça, Henrique Vorcaro era operador financeiro do grupo que vigiava e intimidava desafetos do filho. A PF liga a ele uma conta com mais de R$ 2,2 bilhões. A defesa nega que a conta seja dele.",
+  s:[["Gazeta do Povo","https://www.gazetadopovo.com.br/republica/quem-henrique-moura-pai-banqueiro-daniel-vorcaro-preso-pf/"]]},
  {y:2026,d:"mai–jun",a:["vorcaro"],ev:"doc",t:"PF e PGR rejeitam as duas propostas de delação",
   b:"Investigadores avaliaram que a segunda proposta não trazia fatos novos em relação à primeira. Nenhuma delação de Vorcaro foi homologada.",
   s:[["BP Money","https://bpmoney.com.br/?p=404205"],["Brasil Agro","https://www.brasilagro.com.br/conteudo/gilmar-diz-que-mendonca-cometeu-erro-crasso-em-delacao-de-vorcaro.html"]]},
@@ -493,6 +514,8 @@ const M=[
  ["Lula é sócio do Master.","Campanha de Flávio","no","Não há investigação contra Lula nem documento que mostre sociedade ou pagamento. O \"whisky\" é relato de um advogado em mensagem, negado pelo Planalto.",[["O Liberal","https://www.oliberal.com/politica/flavio-bolsonaro-associa-lula-a-vorcaro-pergunta-se-era-amigo-conselheiro-ou-socio-do-master-1.1172107"],["Revista Oeste","https://revistaoeste.com/politica/lula-recebeu-uisque-de-presente-de-vorcaro/"]]],
  ["O escândalo é só da direita.","Redes sociais","part","No Congresso, a maior parte é de direita: dos cinco parlamentares investigados ou com ligação documentada, quatro são do PP e do PL, e um é do PT, Jaques Wagner. Os 18 deputados na agenda de Vorcaro são todos de partidos de centro e de direita. No governo, Lula recebeu Vorcaro e Mantega trabalhava para ele. No Supremo, quatro ministros aparecem em relatórios da PF.",[["Times Brasil","https://timesbrasil.com.br/brasil/jaques-wagner-admite-relacao-com-ex-socio-do-banco-master-e-chama-acao-da-pf-de-patacoada/"],["Agência Pública","https://apublica.org/2026/01/a-bancada-do-master-e-de-direita/"],["Ver o gráfico","#congresso"]]],
  ["A fraude do INSS começou no governo Lula.","Redes sociais","no","Começou antes e explodiu depois. Os descontos existem desde uma lei de 1991 e já cresciam em 2017 e 2018. A CGU contou 4 situações de alto volume entre 2019 e 2022 e 39 entre 2023 e agosto de 2024.",[["Congresso em Foco","https://www.congressoemfoco.com.br/noticia/108480/lula-ou-bolsonaro-descontos-no-inss-antecedem-dois-ultimos-governos"]]],
+ ["A Lagoinha é investigada no caso Master.","Redes sociais","no","Não há investigação formal contra a igreja. O que está nos relatórios é a conta de uma unidade, presidida pelo cunhado de Vorcaro, e pessoas da família ligadas a ela.",[["Portal de Prefeitura","https://portaldeprefeitura.com.br/cotidiano/lagoinha-afastou-cunhado-vorcaro-nega-vinculo-banco-master/616843/"],["Diário do Comércio","https://diariodocomercio.com.br/legislacao/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro/"]]],
+ ["Não tenho vínculo pessoal, comercial ou institucional com Vorcaro.","Nikolas, em março de 2026","part","Não há prova de vínculo comercial nem de dinheiro. Mas houve contato direto: voou no jato ligado a Vorcaro em 2022, e em 2025 o chamava de \"Dani\" em áudios. Ele mesmo admite os contatos. Não há investigação contra ele.",[["Correio da Manhã","https://www.correiodamanha.com.br/politica/2026/09/316681-em-audios-nikolas-chama-vorcaro-de-dani-e-pede-ajuda-para-ex-assessor.html"],["Poder360","https://www.poder360.com.br/poder-congresso/nao-recebi-um-tostao-de-vorcaro-e-nem-o-encontrei-diz-nikolas/"]]],
  ["Flávio só pediu patrocínio, não tem nada ilegal.","Campanha de Flávio","open","Flávio confirma o pedido. A legalidade é o que está em investigação: Mendonça abriu inquérito sobre os repasses ao filme e o possível envio de dinheiro para Eduardo Bolsonaro.",[["Itatiaia","https://www.itatiaia.com.br/politica/a-reacao-de-nikolas-ao-audio-enviado-por-flavio-bolsonaro-a-vorcaro/"],["Portal de Prefeitura","https://portaldeprefeitura.com.br/tags/andre-mendonca/"]]],
  ["Vorcaro já delatou Lula, Moraes e Toffoli.","Vídeo viral","no","O vídeo foi gerado por IA. As duas propostas de delação foram rejeitadas, e nenhuma foi homologada.",[["Aos Fatos","https://www.aosfatos.org/noticias/video-ia-engana-vorcaro-delatou-moraes-toffoli-lula/"]]]
 ];
@@ -520,7 +543,7 @@ document.getElementById("myths").innerHTML=M.map(m=>`<article class="myth"><div 
     ["mantega","lula","doc","Ex-ministro de Lula","Levou Vorcaro ao Planalto."],
     ["wagner","vorcaro","open","Credcesta e Augusto Lima","Alvo da 9ª fase em jun 2026. Nega e diz que o Master só entrou no negócio em 2019."],
     ["flavio","vorcaro","doc","Dinheiro para o \"Dark Horse\"","Áudio pede R$ 134 milhões. Flávio confirma o pedido e nega irregularidade. Há inquérito."],
-    ["nikolas","vorcaro","doc","Voos na campanha de 2022","Usou o jatinho. Diz que não sabia quem era o dono."],
+    ["nikolas","vorcaro","doc","Voos em 2022 e áudios em 2025","Usou o jatinho em 2022. Em 2025, chamava Vorcaro de \"Dani\" e ofereceu apresentar um ex-assessor. André Valadão, da Lagoinha, aproximou os dois. Nega ter recebido dinheiro."],
     ["ciro","vorcaro","open","Mesada, segundo a PF","Ao menos R$ 6 milhões entre 2024 e 2025. Ciro nega."],
     ["nikolas","flavio","fam","Mesmo partido","Ambos do PL."],
     ["lulinha","lula","fam","Filho do presidente","Investigado em outros casos. Nenhum cita Vorcaro."]
@@ -547,7 +570,7 @@ document.getElementById("myths").innerHTML=M.map(m=>`<article class="myth"><div 
     if(!k){info.innerHTML=idle;return}
     let rows=L.filter(l=>l[0]===k||l[1]===k).map(l=>{const o=l[0]===k?l[1]:l[0];return `<li><b>${N[o].n}: ${esc(l[3])}${EVN[l[2]]?` <span class="ev ${l[2]}">${EVN[l[2]]}</span>`:""}</b><span>${esc(l[4])}</span></li>`}).join("");
     if(k==="lulinha")rows+='<li class="warn"><b>Vorcaro: nenhuma ligação nos autos <span class="ev no">Não consta</span></b><span>Os inquéritos sobre Lulinha tratam do INSS, da cannabis medicinal e da Dataprev.</span></li>';
-    info.innerHTML=`<strong>${N[k].n}</strong><ul>${rows}</ul>${k==="lulinha"?'<a class="more" href="tres-casos.html">Ver os três casos →</a>':""}`;
+    info.innerHTML=`<strong>${N[k].n}</strong><ul>${rows}</ul>${k==="lulinha"?'<a class="more" href="tres-casos.html">Ver os três casos →</a>':""}${k==="nikolas"?'<a class="more" href="lagoinha.html">Ver o braço da Lagoinha →</a>':""}`;
   }
   info.innerHTML=idle;
 })();
