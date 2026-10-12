@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rota Master em ícones</title>
+<meta name="description" content="O caso Banco Master em uma tela: quem aparece, com que grau de prova, os valores do rombo, a Lagoinha, o INSS e o que é verdade ou não.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/visual/visual.css">
+<style>
+:root{--accent:#8a6512;--hero:#6e500e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#e0b552;--hero:#6e500e}}
+:root[data-theme="dark"]{--accent:#e0b552;--hero:#6e500e}
+.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><style>/* padrão das Rotas: formato detalhado */body{font-size:17px;line-height:1.6}h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(60px,15vw,140px);line-height:.86;text-transform:uppercase;overflow-wrap:anywhere}h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/" aria-current="page">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a></div></nav>
+
+
+<main class="rv" id="rv" aria-label="Rota Master em ícones"></main>
+<script>
+window.RV_DATA={
+ kicker:"Rota Master · em ícones",
+ title:"Quem aparece no caso Master?",
+ answer:"Nomes do Supremo, do governo, da oposição e do Centrão. Mas o <b>grau de prova</b> muda muito de um nome para outro. <b>Investigação não é condenação.</b>",
+ heroIcons:["iso-banco","iso-cedula-real","iso-martelo","iso-doc","iso-lupa","iso-aviao","iso-igreja","iso-cadeado","iso-moeda","iso-pessoa"],
+ full:"index.html",
+ updated:"Fatos até 10 de outubro de 2026 · atualizado em 12 de outubro de 2026 · ícones próprios e Tabler Icons (MIT)",
+ cards:[
+  {type:"hero",span:"s4",rows:2},
+  {type:"iso",span:"s8",label:"Ligações com Vorcaro, no mapa da página completa",title:"Quem aparece, e com que grau de prova",size:30,
+   rows:[
+    {name:"Supremo: Mendonça · Moraes, Toffoli · Nunes Marques",value:"1 · 2 · 1",parts:[{icon:"iso-pessoa",n:1,color:"var(--accent)"},{icon:"iso-pessoa",n:2,color:"var(--a)"},{icon:"iso-pessoa",n:1,color:"var(--c)"}]},
+    {name:"Governo e PT: Lula, Mantega · Jaques Wagner · Lulinha",value:"2 · 1 · 0",parts:[{icon:"iso-pessoa",n:2,color:"var(--accent)"},{icon:"iso-pessoa",n:1,color:"var(--a)"}],icon:"iso-pessoa",ghost:1},
+    {name:"Oposição e Centrão: Flávio, Nikolas · Ciro Nogueira",value:"2 · 1 · 0",parts:[{icon:"iso-pessoa",n:2,color:"var(--accent)"},{icon:"iso-pessoa",n:1,color:"var(--a)"}]},
+    {name:"BC e BRB: servidores do BC, BRB",value:"0 · 2 · 0",parts:[{icon:"iso-banco",n:2,color:"var(--a)"}]}],
+   key:[{icon:"iso-pessoa",text:"ligação Documentada",color:"var(--accent)"},{icon:"iso-pessoa",text:"Em aberto",color:"var(--a)"},{icon:"iso-pessoa",text:"Alegação",color:"var(--c)"},{icon:"iso-pessoa",text:"sem ligação nas fontes (Lulinha)",color:"var(--soft)"}],
+   text:"Cada ícone é uma pessoa ou instituição. Ligação documentada não é crime: Lula e Mendonça, por exemplo, receberam Vorcaro.",
+   src:[["Mapa de ligações","index.html#h-net"],["Página do Supremo","stf.html"]]},
+  {type:"iso",span:"s4",label:"Parlamentares no caso",title:"No Congresso: 4 da direita, 1 da esquerda",size:30,
+   rows:[
+    {name:"Direita · PP e PL",value:"4",parts:[{icon:"iso-pessoa",n:2,color:"var(--accent)"},{icon:"iso-pessoa",n:2,color:"var(--a)"}]},
+    {name:"Esquerda · PT",value:"1",parts:[{icon:"iso-pessoa",n:1,color:"var(--a)"}]}],
+   key:[{icon:"iso-pessoa",text:"1 parlamentar, Documentado",color:"var(--accent)"},{icon:"iso-pessoa",text:"Em aberto",color:"var(--a)"}],
+   text:"Fora do Congresso há nomes dos dois campos, como Lula, Mantega e Ibaneis Rocha.",
+   src:[["Money Times · Ciro","https://www.moneytimes.com.br/pf-ciro-nogueira-recebia-de-vorcaro-mesada-de-r-300-mil-que-pode-ter-chegado-a-r-500-mil-gaep/"],["Money Times · Wagner","https://www.moneytimes.com.br/banqueiro-e-senador-sao-alvos-da-pf-em-nova-operacao-sobre-o-banco-master-diz-jornal-igdl/"],["Agência Pública","https://apublica.org/2026/01/a-bancada-do-master-e-de-direita/"],["Aos Fatos","https://www.aosfatos.org/noticias/esquerda-e-direita-omitem-fatos-para-culpar-adversarios-caso-master/"]]},
+  {type:"iso",span:"s4",label:"Contatos no celular de Vorcaro",title:"18 deputados na agenda",size:24,
+   rows:[
+    {name:"Partidos de centro e de direita",icon:"iso-pessoa",n:18,value:"18",color:"var(--d)"},
+    {name:"Partidos de esquerda",icon:"iso-pessoa",n:0,value:"0",color:"var(--d)"}],
+   key:{icon:"iso-pessoa",text:"1 deputado"},
+   text:"PL 5, PP 4, PSD 3, Republicanos 2, Novo 2, PSDB 1, União Brasil 1. Estar na agenda não é indício de crime.",
+   src:[["Revista Oeste","https://www.revistaoeste.com/politica/quem-sao-os-deputados-que-estao-no-whatsapp-de-vorcaro/"]]},
+  {type:"iso",span:"s6",label:"Valores, em bilhões de reais",title:"Master e INSS: casos e tamanhos diferentes",size:20,
+   rows:[
+    {head:"Caso Master"},
+    {name:"Garantias estimadas do FGC",icon:"iso-moeda",n:47,value:"até R$ 47 bi",color:"var(--accent)"},
+    {name:"Dívidas deixadas na liquidação",icon:"iso-moeda",n:40.6,value:"R$ 40,6 bi",color:"var(--accent)"},
+    {name:"Consignado do Master a aposentados, 2023–2025",icon:"iso-moeda",n:.7,value:"R$ 701 mi",color:"var(--a)"},
+    {head:"Fraude do INSS"},
+    {name:"Descontos de associações, 2019–2024",icon:"iso-moeda",n:6.3,value:"R$ 6,3 bi",color:"var(--b)"}],
+   key:{icon:"iso-moeda",text:"R$ 1 bilhão"},
+   text:"As garantias do FGC não são perda final. Os descontos incluem legais e ilegais. O consignado é outro produto, sem ligação com a fraude dos descontos.",
+   src:[["Página Três casos","tres-casos.html"],["BC: liquidação","https://www.bcb.gov.br/detalhenoticia/20936/nota/undefined"],["Portal Tela","https://www.portaltela.com/noticias/economia/2026/03/23/alvo-da-cpmi-movimentou-r-700-milhoes-em-consignados-para-aposentados/"],["O Povo / BBC","https://www.opovo.com.br/agencia/bbc/2025/04/23/o-que-se-sabe-sobre-fraude-no-inss-que-levou-lula-a-demitir-presidente-do-orgao.html"]]},
+  {type:"iso",span:"s6",label:"Fraude do INSS: descontos por ano, segundo a CGU",title:"Começou antes, explodiu depois",size:20,
+   rows:[
+    {head:"Governo Bolsonaro"},
+    {name:"2019",icon:"iso-moeda",n:1.73,value:"R$ 173 mi",color:"var(--d)"},
+    {name:"2021",icon:"iso-moeda",n:5.36,value:"R$ 536 mi",color:"var(--d)"},
+    {head:"Governo Lula"},
+    {name:"2023",icon:"iso-moeda",n:13,value:"R$ 1,3 bi",color:"var(--b)"},
+    {name:"2024, projeção",icon:"iso-moeda",n:26,value:"R$ 2,6 bi",color:"var(--b)"}],
+   key:{icon:"iso-moeda",text:"R$ 100 milhões"},
+   text:"Não há dado de 2020 e 2022. Os descontos existem desde uma lei de 1991.",
+   src:[["Congresso em Foco · dados da CGU","https://www.congressoemfoco.com.br/noticia/108480/lula-ou-bolsonaro-descontos-no-inss-antecedem-dois-ultimos-governos"]]},
+  {type:"iso",span:"s6",label:"O braço da Lagoinha, em milhões de reais",title:"O dinheiro que passou por uma unidade da igreja",size:20,
+   rows:[
+    {name:"Lucros de Zettel em fundo ligado ao Master, 2023–2024",icon:"iso-cedula-real",n:38.04,value:"R$ 190,2 mi",color:"var(--accent)"},
+    {name:"Conta pessoal de Zettel, em 7 meses",icon:"iso-cedula-real",n:19.84,value:"R$ 99,2 mi",color:"var(--accent)"},
+    {name:"Conta da Lagoinha Belvedere, dez. 2024 a dez. 2025",icon:"iso-cedula-real",n:11.42,value:"R$ 57,1 mi",color:"var(--b)"},
+    {name:"Depósitos da família e de aliados",icon:"iso-cedula-real",n:3.88,value:"R$ 19,4 mi",color:"var(--b)"},
+    {name:"Receita anual presumida da unidade",icon:"iso-cedula-real",n:.19,value:"R$ 950 mil",color:"var(--d)"}],
+   key:{icon:"iso-cedula-real",text:"R$ 5 milhões"},
+   text:"A igreja como instituição não é investigada. Relatório do Coaf aponta movimentação estranha, não prova crime.",
+   src:[["Página da Lagoinha","lagoinha.html"],["Diário do Comércio","https://diariodocomercio.com.br/legislacao/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro/"],["Bahia Notícias","https://www.bahianoticias.com.br/noticia/321160-cunhado-pai-e-ex-de-vorcaro-enviaram-r-194-mi-a-igreja-da-lagoinha-aponta-coaf"],["Times Brasil","https://timesbrasil.com.br/empresas-e-negocios/quem-e-fabiano-zettel/"],["Portal de Prefeitura / O Globo","https://portaldeprefeitura.com.br/cotidiano/ex-pastor-fabiano-zettel-movimentou-r-99-milhoes-em-sete-meses/616969/"]]},
+  {type:"flow",span:"s6",label:"Do Máxima à prisão",title:"Como o banco caiu",
+   steps:[
+    {icon:"iso-banco",name:"BC autoriza",sub:"Vorcaro assume o Máxima, 2019"},
+    {icon:"iso-escudo-x",name:"BC barra a venda",sub:"ao BRB, set. 2025"},
+    {icon:"iso-aviao",name:"Preso a caminho de Malta",sub:"17 nov. 2025",hot:true},
+    {icon:"iso-cadeado",name:"Master liquidado",sub:"18 nov. 2025 · cerca de 800 mil investidores"},
+    {icon:"iso-martelo",name:"2ª prisão",sub:"4 mar. 2026"}],
+   text:"As duas propostas de delação foram rejeitadas pela PF e pela PGR.",
+   src:[["Diário do Comércio","https://diariodocomercio.com.br/?p=570011"],["O Povo","https://www.opovo.com.br/noticias/mundo/2026/03/04/policia-federal-prende-daniel-vorcaro-em-escandalo-do-banco-master.html"],["BC: liquidação","https://www.bcb.gov.br/detalhenoticia/20936/nota/undefined"],["BP Money: delações","https://bpmoney.com.br/?p=404205"]]},
+  {type:"iso",span:"s6",label:"Inquéritos sobre Lulinha",title:"Três inquéritos, nenhum sobre o Master",size:30,
+   rows:[
+    {name:"Inquéritos abertos, jul. e ago. 2026",icon:"iso-lupa",n:3,value:"3",color:"var(--a)"},
+    {name:"Que citam Vorcaro",icon:"iso-lupa",n:0,ghost:3,value:"0"}],
+   key:{icon:"iso-lupa",text:"1 inquérito",color:"var(--a)"},
+   text:"Apuram cannabis medicinal, contratos com a Dataprev e favorecimento a empresas. Lula diz que o filho será inocentado.",
+   src:[["Revista Cenarium","https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/"],["Muita Informação","https://muitainformacao.com.br/politica/flavio-dino-autoriza-terceiro-inquerito-contra-lulinha-apos-pedido-da-policia-federal/"],["Correio Braziliense","https://edicao.correiobraziliense.com.br/correiobraziliense/2026/07/31/13594c/pdf/A02-POL-3107-DIG.pdf"]]},
+  {type:"iso",span:"s6",label:"Onde a prova termina",title:"O que está comprovado e o que não está",size:30,
+   rows:[
+    {name:"Comprovado",icon:"iso-check",n:6,value:"6 pontos",color:"var(--ok)"},
+    {name:"Ainda não provado",icon:"iso-lupa",n:5,value:"5 pontos",color:"var(--b)"}],
+   key:[{icon:"iso-check",text:"1 ponto comprovado",color:"var(--ok)"},{icon:"iso-lupa",text:"1 ponto sem prova",color:"var(--b)"}],
+   text:"Comprovado: Lula recebeu Vorcaro; Flávio pediu dinheiro para o filme; Nikolas voou no avião dele. Sem prova: que Moraes agiu por Vorcaro; as mesadas a Ciro e a Wagner.",
+   src:[["Página completa: onde a prova termina","index.html#h-ver"]]},
+  {type:"verdicts",span:"s12",label:"É verdade?",
+   items:[["u","“Lulinha está envolvido no caso Master.”"],["f","“A fraude do INSS faz parte do caso Master.”"],["f","“Lula nunca recebeu Vorcaro.”"],["u","“Lula é sócio do Master.”"],["m","“O escândalo é só da direita.”"],["f","“A fraude do INSS começou no governo Lula.”"],["u","“A Lagoinha é investigada no caso Master.”"],["m","“Não tenho vínculo pessoal, comercial ou institucional com Vorcaro.”"],["o","“Flávio só pediu patrocínio, não tem nada ilegal.”"],["f","“Vorcaro já delatou Lula, Moraes e Toffoli.”"]],
+   src:[["Página completa: É verdade?","index.html#h-myth"]]}
+ ]};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://fcarvalhodev.github.io/rotas/visual/icons.js"></script>
+<script src="https://fcarvalhodev.github.io/rotas/visual/visual.js"></script>
+</body></html>
