@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Three cases, not one</title>
+<meta name="description" content="The Master case, the INSS fraud and the Lulinha inquiries: what each one is, where they intersect and where they do not.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../estilo.css">
+<style>
+.hero{padding-block:32px 8px;display:grid;gap:18px}
+h1{font-size:clamp(54px,13vw,116px)}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.case{min-width:0;background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:4px;padding:16px;display:grid;gap:12px;align-content:start}
+.case h3{font-family:var(--display);font-stretch:70%;font-weight:800;font-size:30px;line-height:1;text-transform:uppercase;margin:0}
+.case dl{margin:0;display:grid;gap:10px}
+.case dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.case dd{margin:0;font-size:15px;line-height:1.5}
+.case dd.hl{font-weight:600}
+@media (max-width:760px){.cases{grid-template-columns:1fr}}
+.cross{display:grid;gap:12px}
+.x{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px;display:grid;gap:8px}
+.x .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.x h3{margin:0;font-size:18px;line-height:1.3}
+.x p{margin:0;font-size:16px}
+.chart{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:12px}
+.chart svg{display:block;width:100%;height:auto}
+.chart .ax{font-family:var(--mono);font-size:12px;fill:var(--muted)}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .bar{fill:var(--accent)}
+.chart .bar.proj{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5;stroke-dasharray:5 4}
+.chart .val{font-family:var(--mono);font-size:13px;fill:var(--ink);text-anchor:middle;font-weight:500}
+.chart .yr{font-family:var(--mono);font-size:13px;fill:var(--ink);text-anchor:middle}
+.chart .gap{font-family:var(--ui);font-size:11px;fill:var(--muted);text-anchor:middle}
+.chart .band{fill:var(--line);opacity:.35}
+.chart .gov{font-family:var(--ui);font-size:12px;fill:var(--muted);font-weight:600}
+.note{font-family:var(--ui);font-size:13px;color:var(--muted);margin:6px 4px 0}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><style>/* padrão das Rotas: formato detalhado */body{font-size:17px;line-height:1.6}h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(60px,15vw,140px);line-height:.86;text-transform:uppercase;overflow-wrap:anywhere}h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}</style><nav class="rotas-bar" aria-label="Routes"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/en/">Routes</a><a href="https://fcarvalhodev.github.io/rota-washington/en/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/en/" aria-current="page">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/en/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/en/">Faith</a><a href="https://fcarvalhodev.github.io/rota-esplanada/en/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/en/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/en/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/en/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/en/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/en/">Treasury</a><a href="https://fcarvalhodev.github.io/rota-rouanet/en/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/en/">Winds</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/en/">Algorithm</a><a class="rb-lang" href="../tres-casos.html" hreflang="pt-BR" lang="pt-BR">PT</a></div></nav>
+
+
+<header class="wrap hero">
+  <a class="back" href="./">← Master Route</a>
+  <div class="kicker">Parallel 1 · Master, INSS, Lulinha</div>
+  <h1>Three cases,<br>not one</h1>
+  <p class="lede">On social media, the Master case, the INSS fraud and the investigations into Lula's son appear as a single scandal. They are three different investigations, with different targets, amounts and periods. This page shows each one and the few points where they touch.</p>
+</header>
+
+<main class="wrap">
+  <section class="sec" aria-labelledby="h-cmp">
+    <h2 id="h-cmp">Side by side</h2>
+    <div class="cases">
+      <article class="case" style="--c:var(--c-vorcaro)">
+        <h3>Master case</h3>
+        <dl>
+          <div><dt>What it is</dt><dd>Fraud at Daniel Vorcaro's Banco Master, and the influence network built to save the bank.</dd></div>
+          <div><dt>Operation</dt><dd>Compliance Zero, by the Federal Police. First phase in November 2025.</dd></div>
+          <div><dt>Amounts</dt><dd class="num">R$40.6 billion in debts left behind; a hole of up to R$47 billion at the FGC.</dd></div>
+          <div><dt>Supreme Court rapporteur</dt><dd>André Mendonça, since February 2026.</dd></div>
+          <div><dt>Targets and people cited</dt><dd>Vorcaro, the former BRB president, Central Bank employees, Ciro Nogueira, Jaques Wagner. Flávio Bolsonaro is the subject of an inquiry on "Dark Horse". Supreme Court justices appear in reports.</dd></div>
+          <div><dt>Link to Lula</dt><dd>Meeting with Vorcaro in December 2024. We found no public investigation against Lula in the sources cited as of this review.</dd></div>
+          <div><dt>Link to Lulinha</dt><dd class="hl">None in the case files.</dd></div>
+        </dl>
+      </article>
+      <article class="case" style="--c:var(--c-centrao)">
+        <h3>INSS fraud</h3>
+        <dl>
+          <div><dt>What it is</dt><dd>Associations deducted monthly fees from retirees' pensions without authorization. 97% of those interviewed by the CGU said they had not authorized it.</dd></div>
+          <div><dt>Operation</dt><dd>Sem Desconto, by the Federal Police and the CGU, on April 23, 2025. Lula fired the INSS president the same day.</dd></div>
+          <div><dt>Amounts</dt><dd class="num">R$6.3 billion deducted from 2019 to 2024, legal and illegal.</dd></div>
+          <div><dt>Supreme Court rapporteur</dt><dd>André Mendonça.</dd></div>
+          <div><dt>Targets and people cited</dt><dd>Associations, former INSS officials and lobbyist Antônio Carlos Camilo Antunes, known as "Careca do INSS".</dd></div>
+          <div><dt>Link to Vorcaro</dt><dd class="hl">None in the deductions. Master appears through another product, payroll loans.</dd></div>
+          <div><dt>Link to Lulinha</dt><dd>Cited for being a friend of a businesswoman who received money from Careca. The Federal Police says there is no sign of his direct participation in the fraud.</dd></div>
+        </dl>
+      </article>
+      <article class="case" style="--c:var(--c-gov)">
+        <h3>Lulinha inquiries</h3>
+        <dl>
+          <div><dt>What it is</dt><dd>Suspicions of influence peddling by Fábio Luís Lula da Silva in his father's government.</dd></div>
+          <div><dt>Opened</dt><dd>July 30 and 31, 2026 (Mendonça) and August 4, 2026 (Dino).</dd></div>
+          <div><dt>Amounts</dt><dd class="num">The Federal Police is investigating five transfers of R$300,000 from Careca to the company of a friend of Lulinha's. No amount is attributed to him.</dd></div>
+          <div><dt>Rapporteurs</dt><dd>Mendonça in two, Flávio Dino in one.</dd></div>
+          <div><dt>What they investigate</dt><dd>Medical cannabis at the Health Ministry, contracts with Dataprev and the use of public bodies to favor companies.</dd></div>
+          <div><dt>Link to Vorcaro</dt><dd class="hl">None in the case files.</dd></div>
+          <div><dt>Status</dt><dd>Ongoing. Lula says his son will be cleared and that, if he is guilty, he will have to pay.</dd></div>
+        </dl>
+      </article>
+    </div>
+    <div class="src">
+      <a href="https://www.opovo.com.br/agencia/bbc/2025/04/23/o-que-se-sabe-sobre-fraude-no-inss-que-levou-lula-a-demitir-presidente-do-orgao.html" target="_blank" rel="noopener">O Povo / BBC</a> <a href="https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/" target="_blank" rel="noopener">Revista Cenarium</a> <a href="https://edicao.correiobraziliense.com.br/correiobraziliense/2026/07/31/13594c/pdf/A02-POL-3107-DIG.pdf" target="_blank" rel="noopener">Correio Braziliense</a> <a href="https://www.gazetadopovo.com.br/republica/pf-aponta-repasses-do-careca-para-empresa-de-amiga-de-lulinha/" target="_blank" rel="noopener">Gazeta do Povo</a> <a href="https://www.portaltela.com/brasil/2026/08/28/vorcaro-presta-depoimento-por-4h30-a-policia-federal-sobre-caso-master/" target="_blank" rel="noopener">Portal Tela</a>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-x">
+    <h2 id="h-x">Where they intersect</h2>
+    <p class="sec-intro">The points of contact are real, but narrow. None of them links Lulinha to Vorcaro.</p>
+    <div class="cross">
+      <article class="x"><span class="tag">Master × INSS</span><h3>Master's payroll loans</h3>
+        <p>Master lent to retirees with payments deducted from their pensions. Between January 2023 and November 2025, that came to about R$701 million. The INSS stopped renewing the agreement in October 2025 and suspended 250,000 contracts for lack of proof that the retirees had agreed. That is why Vorcaro testified at the INSS CPMI in February 2026. It is a different product from the association deductions.</p>
+        <div class="src"><a href="https://www.portaltela.com/noticias/economia/2026/03/23/alvo-da-cpmi-movimentou-r-700-milhoes-em-consignados-para-aposentados/" target="_blank" rel="noopener">Portal Tela</a><a href="https://www.band.com.br/radio-bandeirantes/noticias/cpmi-do-inss-antecipa-depoimento-de-daniel-vorcaro-202602190836" target="_blank" rel="noopener">Band</a></div></article>
+      <article class="x"><span class="tag">Master × INSS × Lulinha</span><h3>The same rapporteur at the Supreme Court</h3>
+        <p>Justice Mendonça oversees the Compliance Zero and Sem Desconto operations and authorized two inquiries into Lulinha. A Federal Police report cited by Moraes says documents prepared for Mendonça gathered references to Lulinha without proof and treated those investigated unequally depending on their political side. Moraes asked for Mendonça to be investigated for this. It is an ongoing dispute inside the Supreme Court.</p>
+        <div class="src"><a href="https://midiamax.com.br/brasil/2026/pf-aponta-imputacao-sem-lastro-contra-lulinha-relatorio-mendonca/" target="_blank" rel="noopener">Midiamax</a><a href="https://tribunadosertao.com.br/poder-e-governo/2026/08/01/950970-inquerito-de-lulinha-eleva-atrito-entre-pf-e-mendonca-relator-de-casos-de-impacto-antes-das-eleicoes" target="_blank" rel="noopener">Tribuna do Sertão</a></div></article>
+      <article class="x"><span class="tag">INSS × Lulinha</span><h3>Careca and Lulinha's friend</h3>
+        <p>The Federal Police is investigating five transfers of R$300,000 from a consultancy of Careca do INSS to the company of Roberta Luchsinger, a friend of Lulinha's. Her defense says she never had anything to do with the INSS deductions. The Federal Police says it cannot prove she knew where the money came from. Lulinha is not a formal target in the fraud inquiry.</p>
+        <div class="src"><a href="https://www.gazetadopovo.com.br/republica/pf-aponta-repasses-do-careca-para-empresa-de-amiga-de-lulinha/" target="_blank" rel="noopener">Gazeta do Povo</a><a href="https://midiamax.com.br/brasil/2026/pf-aponta-imputacao-sem-lastro-contra-lulinha-relatorio-mendonca/" target="_blank" rel="noopener">Midiamax</a></div></article>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-inss">
+    <h2 id="h-inss">The deductions year by year</h2>
+    <p class="sec-intro">Amounts deducted by associations from pensions, according to the CGU. The fraud did not begin under a single government, but the volume exploded from 2023 on.</p>
+    <figure class="chart" style="margin:0">
+      <svg viewBox="0 0 640 300" role="img" aria-label="Association deductions at the INSS: R$173 million in 2019, R$536 million in 2021, R$1.3 billion in 2023 and a projected R$2.6 billion in 2024">
+        <rect class="band" x="70" y="30" width="300" height="220"/>
+        <text class="gov" x="80" y="46">Bolsonaro government</text>
+        <text class="gov" x="384" y="46">Lula government</text>
+        <line class="grid" x1="60" x2="630" y1="250" y2="250"/>
+        <line class="grid" x1="60" x2="630" y1="183.3" y2="183.3"/>
+        <line class="grid" x1="60" x2="630" y1="116.7" y2="116.7"/>
+        <line class="grid" x1="60" x2="630" y1="50" y2="50"/>
+        <text class="ax" x="54" y="254" text-anchor="end">0</text>
+        <text class="ax" x="54" y="187" text-anchor="end">1 bn</text>
+        <text class="ax" x="54" y="121" text-anchor="end">2 bn</text>
+        <text class="ax" x="54" y="54" text-anchor="end">3 bn</text>
+        <rect class="bar" x="95" y="238.5" width="50" height="11.5"/><text class="val" x="120" y="231">173 M</text><text class="yr" x="120" y="272">2019</text>
+        <text class="gap" x="195" y="240">no data</text><text class="yr" x="195" y="272">2020</text>
+        <rect class="bar" x="245" y="214.2" width="50" height="35.8"/><text class="val" x="270" y="207">536 M</text><text class="yr" x="270" y="272">2021</text>
+        <text class="gap" x="345" y="240">no data</text><text class="yr" x="345" y="272">2022</text>
+        <rect class="bar" x="420" y="163.3" width="50" height="86.7"/><text class="val" x="445" y="156">1.3 bn</text><text class="yr" x="445" y="272">2023</text>
+        <rect class="bar proj" x="545" y="76.7" width="50" height="173.3"/><text class="val" x="570" y="69">2.6 bn</text><text class="yr" x="570" y="272">2024*</text>
+      </svg>
+      <figcaption class="note">* Full-year projection made by the CGU with data through August. The report does not give the 2020 and 2022 values. In 2017 and 2018, five entities had already gone from R$41 million to R$195 million.</figcaption>
+    </figure>
+    <div class="src"><a href="https://www.congressoemfoco.com.br/noticia/108480/lula-ou-bolsonaro-descontos-no-inss-antecedem-dois-ultimos-governos" target="_blank" rel="noopener">Congresso em Foco · CGU data</a></div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-lul">
+    <h2 id="h-lul">The inquiries into Lulinha</h2>
+    <div class="scroll">
+      <table class="ledger">
+        <thead><tr><th>Opened on</th><th>Rapporteur</th><th>What it investigates</th><th>Does it cite Vorcaro?</th></tr></thead>
+        <tbody>
+          <tr><td class="mono num">Jul 30, 2026</td><td>Mendonça</td><td>Whether Lulinha helped Careca do INSS gain access to the government, in the medical cannabis case at the Health Ministry.</td><td><span class="ev no">No</span></td></tr>
+          <tr><td class="mono num">Jul 31, 2026</td><td>Mendonça</td><td>Brokering contracts with Dataprev and other bodies on behalf of businesspeople.</td><td><span class="ev no">No</span></td></tr>
+          <tr><td class="mono num">Aug 4, 2026</td><td>Flávio Dino</td><td>Use of ministries to favor companies linked to him. In the same order, Dino ordered an investigation into leaks in the case.</td><td><span class="ev no">No</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="src"><a href="https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/" target="_blank" rel="noopener">Revista Cenarium</a><a href="https://muitainformacao.com.br/politica/flavio-dino-autoriza-terceiro-inquerito-contra-lulinha-apos-pedido-da-policia-federal/" target="_blank" rel="noopener">Muita Informação</a></div>
+  </section>
+
+  <footer>
+    <p>Facts gathered from news reports published up to October 10, 2026. Investigation is not conviction.</p>
+    <p><a class="back" href="./">← Back to the Master Route</a></p>
+  </footer>
+
+<section id="fontes-revisao" aria-labelledby="h-fontes-revisao" style="margin-block:32px;padding:20px;border:1px solid var(--line);border-radius:6px">
+<h2 id="h-fontes-revisao">Sources and limits of this reading</h2>
+<p>The CGU survey cited refers to the beneficiaries interviewed, not the whole INSS universe. Total deductions are not automatically proven fraud. Payroll loans, association deductions and financial investigation have different subjects.</p>
+<div class="src"><a href="https://agenciagov.ebc.com.br/noticias/202504/relatorio-da-cgu-indica-que-97-6-de-aposentados-e-pensionistas-do-inss-entrevistados-nao-autorizaram-descontos-de-associacoes-na-folha-de-pagamento" target="_blank" rel="noopener">Agência Gov/CGU: universe interviewed</a><a href="https://www12.senado.leg.br/noticias/materias/2026/02/20/com-negativa-de-vorcaro-cpmi-do-inss-vai-ouvir-investigada-ligada-a-conafer" target="_blank" rel="noopener">Senate: testimony not held</a></div>
+<p style="font-size:14px"><a href="https://fcarvalhodev.github.io/rotas/en/metodologia.html">How we tell facts, allegations and interpretations apart</a> · Editorial review: October 10, 2026.</p>
+</section>
+</main>
+</body></html>

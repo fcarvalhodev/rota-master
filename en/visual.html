@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Master Route in icons</title>
+<meta name="description" content="The Banco Master case on one screen: who appears, with what level of proof, the size of the hole, Lagoinha, the INSS and what is true or not.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/visual/visual.css">
+<style>
+:root{--accent:#8a6512;--hero:#6e500e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#e0b552;--hero:#6e500e}}
+:root[data-theme="dark"]{--accent:#e0b552;--hero:#6e500e}
+.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><style>/* padrão das Rotas: formato detalhado */body{font-size:17px;line-height:1.6}h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(60px,15vw,140px);line-height:.86;text-transform:uppercase;overflow-wrap:anywhere}h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}</style><nav class="rotas-bar" aria-label="Routes"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/en/">Routes</a><a href="https://fcarvalhodev.github.io/rota-washington/en/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/en/" aria-current="page">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/en/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/en/">Faith</a><a href="https://fcarvalhodev.github.io/rota-esplanada/en/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/en/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/en/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/en/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/en/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/en/">Treasury</a><a href="https://fcarvalhodev.github.io/rota-rouanet/en/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/en/">Winds</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/en/">Algorithm</a><a class="rb-lang" href="../visual.html" hreflang="pt-BR" lang="pt-BR">PT</a></div></nav>
+
+
+<main class="rv" id="rv" aria-label="Master Route in icons"></main>
+<script>
+window.RV_DATA={lang:"en",
+ kicker:"Master Route · in icons",
+ title:"Who appears in the Master case?",
+ answer:"Names from the Supreme Court, the government, the opposition and the Centrão. But the <b>level of proof</b> changes a lot from one name to another. <b>Investigation is not conviction.</b>",
+ heroIcons:["iso-banco","iso-cedula-real","iso-martelo","iso-doc","iso-lupa","iso-aviao","iso-igreja","iso-cadeado","iso-moeda","iso-pessoa"],
+ full:"index.html",
+ updated:"Facts through October 10, 2026 · updated October 12, 2026 · original icons and Tabler Icons (MIT)",
+ cards:[
+  {type:"hero",span:"s4",rows:2},
+  {type:"iso",span:"s8",label:"Links to Vorcaro, on the full page's map",title:"Who appears, and with what level of proof",size:30,
+   rows:[
+    {name:"Supreme Court: Mendonça · Moraes, Toffoli · Nunes Marques",value:"1 · 2 · 1",parts:[{icon:"iso-pessoa",n:1,color:"var(--accent)"},{icon:"iso-pessoa",n:2,color:"var(--a)"},{icon:"iso-pessoa",n:1,color:"var(--c)"}]},
+    {name:"Government and PT: Lula, Mantega · Jaques Wagner · Lulinha",value:"2 · 1 · 0",parts:[{icon:"iso-pessoa",n:2,color:"var(--accent)"},{icon:"iso-pessoa",n:1,color:"var(--a)"}],icon:"iso-pessoa",ghost:1},
+    {name:"Opposition and Centrão: Flávio, Nikolas · Ciro Nogueira",value:"2 · 1 · 0",parts:[{icon:"iso-pessoa",n:2,color:"var(--accent)"},{icon:"iso-pessoa",n:1,color:"var(--a)"}]},
+    {name:"Central Bank and BRB: Central Bank staff, BRB",value:"0 · 2 · 0",parts:[{icon:"iso-banco",n:2,color:"var(--a)"}]}],
+   key:[{icon:"iso-pessoa",text:"Documented link",color:"var(--accent)"},{icon:"iso-pessoa",text:"Open",color:"var(--a)"},{icon:"iso-pessoa",text:"Allegation",color:"var(--c)"},{icon:"iso-pessoa",text:"no link in the sources (Lulinha)",color:"var(--soft)"}],
+   text:"Each icon is a person or institution. A documented link is not a crime: Lula and Mendonça, for example, received Vorcaro.",
+   src:[["Map of links","index.html#h-net"],["Supreme Court page","stf.html"]]},
+  {type:"iso",span:"s4",label:"Lawmakers in the case",title:"In Congress: 4 from the right, 1 from the left",size:30,
+   rows:[
+    {name:"Right · PP and PL",value:"4",parts:[{icon:"iso-pessoa",n:2,color:"var(--accent)"},{icon:"iso-pessoa",n:2,color:"var(--a)"}]},
+    {name:"Left · PT",value:"1",parts:[{icon:"iso-pessoa",n:1,color:"var(--a)"}]}],
+   key:[{icon:"iso-pessoa",text:"1 lawmaker, Documented",color:"var(--accent)"},{icon:"iso-pessoa",text:"Open",color:"var(--a)"}],
+   text:"Outside Congress there are names from both camps, such as Lula, Mantega and Ibaneis Rocha.",
+   src:[["Money Times · Ciro","https://www.moneytimes.com.br/pf-ciro-nogueira-recebia-de-vorcaro-mesada-de-r-300-mil-que-pode-ter-chegado-a-r-500-mil-gaep/"],["Money Times · Wagner","https://www.moneytimes.com.br/banqueiro-e-senador-sao-alvos-da-pf-em-nova-operacao-sobre-o-banco-master-diz-jornal-igdl/"],["Agência Pública","https://apublica.org/2026/01/a-bancada-do-master-e-de-direita/"],["Aos Fatos","https://www.aosfatos.org/noticias/esquerda-e-direita-omitem-fatos-para-culpar-adversarios-caso-master/"]]},
+  {type:"iso",span:"s4",label:"Contacts on Vorcaro's phone",title:"18 deputies in the contacts",size:24,
+   rows:[
+    {name:"Center and right-wing parties",icon:"iso-pessoa",n:18,value:"18",color:"var(--d)"},
+    {name:"Left-wing parties",icon:"iso-pessoa",n:0,value:"0",color:"var(--d)"}],
+   key:{icon:"iso-pessoa",text:"1 deputy"},
+   text:"PL 5, PP 4, PSD 3, Republicanos 2, Novo 2, PSDB 1, União Brasil 1. Being in the contacts is not evidence of a crime.",
+   src:[["Revista Oeste","https://www.revistaoeste.com/politica/quem-sao-os-deputados-que-estao-no-whatsapp-de-vorcaro/"]]},
+  {type:"iso",span:"s6",label:"Amounts, in billions of reais",title:"Master and INSS: different cases and sizes",size:20,
+   rows:[
+    {head:"Master case"},
+    {name:"FGC estimated guarantees",icon:"iso-moeda",n:47,value:"up to R$47 bn",color:"var(--accent)"},
+    {name:"Debts left at liquidation",icon:"iso-moeda",n:40.6,value:"R$40.6 bn",color:"var(--accent)"},
+    {name:"Master payroll loans to retirees, 2023–2025",icon:"iso-moeda",n:.7,value:"R$701 M",color:"var(--a)"},
+    {head:"INSS fraud"},
+    {name:"Association deductions, 2019–2024",icon:"iso-moeda",n:6.3,value:"R$6.3 bn",color:"var(--b)"}],
+   key:{icon:"iso-moeda",text:"R$1 billion"},
+   text:"FGC guarantees are not a final loss. The deductions include legal and illegal ones. Payroll loans are a different product, unrelated to the deductions fraud.",
+   src:[["Three cases page","tres-casos.html"],["Central Bank: liquidation","https://www.bcb.gov.br/detalhenoticia/20936/nota/undefined"],["Portal Tela","https://www.portaltela.com/noticias/economia/2026/03/23/alvo-da-cpmi-movimentou-r-700-milhoes-em-consignados-para-aposentados/"],["O Povo / BBC","https://www.opovo.com.br/agencia/bbc/2025/04/23/o-que-se-sabe-sobre-fraude-no-inss-que-levou-lula-a-demitir-presidente-do-orgao.html"]]},
+  {type:"iso",span:"s6",label:"INSS fraud: deductions per year, according to the CGU",title:"It began earlier, exploded later",size:20,
+   rows:[
+    {head:"Bolsonaro government"},
+    {name:"2019",icon:"iso-moeda",n:1.73,value:"R$173 M",color:"var(--d)"},
+    {name:"2021",icon:"iso-moeda",n:5.36,value:"R$536 M",color:"var(--d)"},
+    {head:"Lula government"},
+    {name:"2023",icon:"iso-moeda",n:13,value:"R$1.3 bn",color:"var(--b)"},
+    {name:"2024, projection",icon:"iso-moeda",n:26,value:"R$2.6 bn",color:"var(--b)"}],
+   key:{icon:"iso-moeda",text:"R$100 million"},
+   text:"There are no data for 2020 and 2022. The deductions have existed since a 1991 law.",
+   src:[["Congresso em Foco · CGU data","https://www.congressoemfoco.com.br/noticia/108480/lula-ou-bolsonaro-descontos-no-inss-antecedem-dois-ultimos-governos"]]},
+  {type:"iso",span:"s6",label:"The Lagoinha branch, in millions of reais",title:"The money that passed through one of the church's congregations",size:20,
+   rows:[
+    {name:"Zettel's profits from a fund linked to Master, 2023–2024",icon:"iso-cedula-real",n:38.04,value:"R$190.2 M",color:"var(--accent)"},
+    {name:"Zettel's personal account, in 7 months",icon:"iso-cedula-real",n:19.84,value:"R$99.2 M",color:"var(--accent)"},
+    {name:"Lagoinha Belvedere account, Dec 2024 to Dec 2025",icon:"iso-cedula-real",n:11.42,value:"R$57.1 M",color:"var(--b)"},
+    {name:"Deposits from family and allies",icon:"iso-cedula-real",n:3.88,value:"R$19.4 M",color:"var(--b)"},
+    {name:"The congregation's presumed annual revenue",icon:"iso-cedula-real",n:.19,value:"R$950,000",color:"var(--d)"}],
+   key:{icon:"iso-cedula-real",text:"R$5 million"},
+   text:"The church as an institution is not under investigation. A Coaf report flags unusual movement; it does not prove a crime.",
+   src:[["Lagoinha page","lagoinha.html"],["Diário do Comércio","https://diariodocomercio.com.br/legislacao/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro/"],["Bahia Notícias","https://www.bahianoticias.com.br/noticia/321160-cunhado-pai-e-ex-de-vorcaro-enviaram-r-194-mi-a-igreja-da-lagoinha-aponta-coaf"],["Times Brasil","https://timesbrasil.com.br/empresas-e-negocios/quem-e-fabiano-zettel/"],["Portal de Prefeitura / O Globo","https://portaldeprefeitura.com.br/cotidiano/ex-pastor-fabiano-zettel-movimentou-r-99-milhoes-em-sete-meses/616969/"]]},
+  {type:"flow",span:"s6",label:"From Máxima to prison",title:"How the bank fell",
+   steps:[
+    {icon:"iso-banco",name:"Central Bank authorizes",sub:"Vorcaro takes over Máxima, 2019"},
+    {icon:"iso-escudo-x",name:"Central Bank blocks the sale",sub:"to BRB, Sep 2025"},
+    {icon:"iso-aviao",name:"Arrested on his way to Malta",sub:"Nov 17, 2025",hot:true},
+    {icon:"iso-cadeado",name:"Master liquidated",sub:"Nov 18, 2025 · about 800,000 investors"},
+    {icon:"iso-martelo",name:"2nd arrest",sub:"Mar 4, 2026"}],
+   text:"Both plea deal proposals were rejected by the Federal Police and the PGR.",
+   src:[["Diário do Comércio","https://diariodocomercio.com.br/?p=570011"],["O Povo","https://www.opovo.com.br/noticias/mundo/2026/03/04/policia-federal-prende-daniel-vorcaro-em-escandalo-do-banco-master.html"],["Central Bank: liquidation","https://www.bcb.gov.br/detalhenoticia/20936/nota/undefined"],["BP Money: plea deals","https://bpmoney.com.br/?p=404205"]]},
+  {type:"iso",span:"s6",label:"Inquiries into Lulinha",title:"Three inquiries, none about Master",size:30,
+   rows:[
+    {name:"Inquiries opened, Jul and Aug 2026",icon:"iso-lupa",n:3,value:"3",color:"var(--a)"},
+    {name:"That cite Vorcaro",icon:"iso-lupa",n:0,ghost:3,value:"0"}],
+   key:{icon:"iso-lupa",text:"1 inquiry",color:"var(--a)"},
+   text:"They investigate medical cannabis, contracts with Dataprev and favoring companies. Lula says his son will be cleared.",
+   src:[["Revista Cenarium","https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/"],["Muita Informação","https://muitainformacao.com.br/politica/flavio-dino-autoriza-terceiro-inquerito-contra-lulinha-apos-pedido-da-policia-federal/"],["Correio Braziliense","https://edicao.correiobraziliense.com.br/correiobraziliense/2026/07/31/13594c/pdf/A02-POL-3107-DIG.pdf"]]},
+  {type:"iso",span:"s6",label:"Where the proof ends",title:"What is proven and what is not",size:30,
+   rows:[
+    {name:"Proven",icon:"iso-check",n:6,value:"6 points",color:"var(--ok)"},
+    {name:"Not yet proven",icon:"iso-lupa",n:5,value:"5 points",color:"var(--b)"}],
+   key:[{icon:"iso-check",text:"1 proven point",color:"var(--ok)"},{icon:"iso-lupa",text:"1 point without proof",color:"var(--b)"}],
+   text:"Proven: Lula received Vorcaro; Flávio asked for money for the film; Nikolas flew on his plane. Without proof: that Moraes acted for Vorcaro; the allowances to Ciro and Wagner.",
+   src:[["Full page: where the proof ends","index.html#h-ver"]]},
+  {type:"verdicts",span:"s12",label:"Is it true?",
+   items:[["u","“Lulinha is involved in the Master case.”"],["f","“The INSS fraud is part of the Master case.”"],["f","“Lula never received Vorcaro.”"],["u","“Lula is a partner in Master.”"],["m","“The scandal belongs only to the right.”"],["f","“The INSS fraud began under the Lula government.”"],["u","“The Lagoinha church is under investigation in the Master case.”"],["m","“I have no personal, business or institutional link with Vorcaro.”"],["o","“Flávio only asked for sponsorship, there is nothing illegal.”"],["f","“Vorcaro has already informed on Lula, Moraes and Toffoli.”"]],
+   src:[["Full page: Is it true?","index.html#h-myth"]]}
+ ]};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://fcarvalhodev.github.io/rotas/visual/icons.js"></script>
+<script src="https://fcarvalhodev.github.io/rotas/visual/visual.js"></script>
+</body></html>
