@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plea Deal or Tall Tale?</title>
+<meta name="description" content="You are the detective. Another pile of social-media “plea deals” about the Master case just arrived. Some are fact, some are tall tales. Sort them before they become headlines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/jogos/jogo.css">
+<style>
+:root{--accent:#8a6512;--hero:#6e500e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#e0b552;--hero:#6e500e}}
+:root[data-theme="dark"]{--accent:#e0b552;--hero:#6e500e}
+.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><style>/* padrão das Rotas: formato detalhado */body{font-size:17px;line-height:1.6}h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(60px,15vw,140px);line-height:.86;text-transform:uppercase;overflow-wrap:anywhere}h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}</style><nav class="rotas-bar" aria-label="Routes"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/en/">Routes</a><a href="https://fcarvalhodev.github.io/rota-washington/en/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/en/" aria-current="page">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/en/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/en/">Faith</a><a href="https://fcarvalhodev.github.io/rota-esplanada/en/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/en/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/en/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/en/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/en/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/en/">Treasury</a><a href="https://fcarvalhodev.github.io/rota-rouanet/en/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/en/">Winds</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/en/">Algorithm</a><a href="https://fcarvalhodev.github.io/rota-do-posto/en/">Pump</a><a href="https://fcarvalhodev.github.io/rota-das-queimadas/en/">Fires</a><a href="https://fcarvalhodev.github.io/rota-dos-games/en/">Games</a><a href="https://fcarvalhodev.github.io/rota-do-contracheque/en/">Paycheck</a><a href="https://fcarvalhodev.github.io/rota-palantir/en/">Palantir</a><a class="rb-lang" href="../quiz.html" hreflang="pt-BR" lang="pt-BR">PT</a></div></nav>
+<main class="jg" id="jg" aria-live="polite"><noscript>This game needs JavaScript. <a href="index.html">Read the route</a>.</noscript></main>
+<script>
+window.JG_DATA={
+ "kicker": "Rota Master · game",
+ "title": "Plea Deal or Tall Tale?",
+ "host": [
+  "🕵️",
+  "Duty detective"
+ ],
+ "emo": "💼",
+ "intro": "You are the detective. Another pile of social-media “plea deals” about the Master case just arrived. Some are fact, some are tall tales. Sort them before they become headlines.",
+ "rounds": [
+  {
+   "type": "boato",
+   "title": "Pile of plea deals",
+   "how": "read the claim going around and say whether it is True, Half true, False or No proof.",
+   "n": 7,
+   "items": [
+    {
+     "c": "Lulinha is involved in the Master case.",
+     "v": "u",
+     "e": "Lulinha is the subject of three inquiries: influence peddling linked to \"Careca do INSS\" and medical cannabis, contracts with Dataprev and favoring companies. The reports cited do not identify any link between these proceedings and Vorcaro or Master. A Federal Police report says there is no sign that he took direct part in the INSS frauds.",
+     "s": [
+      [
+       "Revista Cenarium",
+       "https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/"
+      ],
+      [
+       "Midiamax",
+       "https://midiamax.com.br/brasil/2026/pf-aponta-imputacao-sem-lastro-contra-lulinha-relatorio-mendonca/"
+      ]
+     ],
+     "who": "Social media"
+    },
+    {
+     "c": "The INSS fraud is part of the Master case.",
+     "v": "f",
+     "e": "They are different cases. The INSS fraud involves association fees deducted from pensions without authorization, investigated by Operation Sem Desconto since April 2025. Master enters the INSS CPMI for another reason: 250,000 payroll loan contracts suspended for lack of proof of consent. In October 2026 an indirect point of contact emerged: a jet used by Flávio is co-owned by a company of Willer Tomaz, investigated in the INSS case, and a company linked to Vorcaro. That does not merge the two investigations.",
+     "s": [
+      [
+       "Brasil de Fato: emails and jet",
+       "https://www.brasildefato.com.br/2026/10/10/flavio-bolsonaro-dividia-conta-com-investigado-por-desvios-no-inss-indicam-e-mails/"
+      ],
+      [
+       "Band",
+       "https://www.band.com.br/radio-bandeirantes/noticias/cpmi-do-inss-antecipa-depoimento-de-daniel-vorcaro-202602190836"
+      ],
+      [
+       "O Povo / BBC",
+       "https://www.opovo.com.br/agencia/bbc/2025/04/23/o-que-se-sabe-sobre-fraude-no-inss-que-levou-lula-a-demitir-presidente-do-orgao.html"
+      ]
+     ],
+     "who": "Social media"
+    },
+    {
+     "c": "Lula never received Vorcaro.",
+     "v": "f",
+     "e": "He did. The December 4, 2024 meeting was off the official schedule, arranged by Guido Mantega, and Lula himself confirms it. The GSI records three other entries by Vorcaro at the presidential palace between 2023 and 2024, without saying with whom.",
+     "s": [
+      [
+       "Gazeta do Povo",
+       "https://www.gazetadopovo.com.br/economia/vorcaro-planalto-4-vezes-falado-lula-venda-master/"
+      ],
+      [
+       "Midiamax",
+       "https://midiamax.com.br/brasil/2026/me-deu-whisky-eu-bebi-lula-pronuncia-encontro-vorcaro-2024/"
+      ]
+     ],
+     "who": "Social media"
+    },
+    {
+     "c": "Lula is a partner in Master.",
+     "v": "u",
+     "e": "The sources cited present no document of a partnership or illegal payment to Lula. The whisky account should be read together with Lula's later statement, cited in the timeline; receiving a gift does not prove a partnership or a crime.",
+     "s": [
+      [
+       "O Liberal",
+       "https://www.oliberal.com/politica/flavio-bolsonaro-associa-lula-a-vorcaro-pergunta-se-era-amigo-conselheiro-ou-socio-do-master-1.1172107"
+      ],
+      [
+       "Revista Oeste",
+       "https://revistaoeste.com/politica/lula-recebeu-uisque-de-presente-de-vorcaro/"
+      ]
+     ],
+     "who": "Flávio's campaign"
+    },
+    {
+     "c": "The scandal belongs only to the right.",
+     "v": "m",
+     "e": "In this page's selection of five lawmakers, with different situations of investigation or documented contact, four are from the PP and the PL, and one is from the PT, Jaques Wagner. The 18 deputies in Vorcaro's contacts are all from center and right-wing parties. In the government, Lula received Vorcaro and Mantega worked for him. At the Supreme Court, four justices appear in Federal Police reports.",
+     "s": [
+      [
+       "Times Brasil",
+       "https://timesbrasil.com.br/brasil/jaques-wagner-admite-relacao-com-ex-socio-do-banco-master-e-chama-acao-da-pf-de-patacoada/"
+      ],
+      [
+       "Agência Pública",
+       "https://apublica.org/2026/01/a-bancada-do-master-e-de-direita/"
+      ],
+      [
+       "See the chart",
+       "#congresso"
+      ]
+     ],
+     "who": "Social media"
+    },
+    {
+     "c": "The INSS fraud began under the Lula government.",
+     "v": "f",
+     "e": "It began earlier and exploded later. The deductions have existed since a 1991 law and were already growing in 2017 and 2018. The CGU, the federal comptroller, counted 4 high-volume situations between 2019 and 2022 and 39 between 2023 and August 2024.",
+     "s": [
+      [
+       "Congresso em Foco",
+       "https://www.congressoemfoco.com.br/noticia/108480/lula-ou-bolsonaro-descontos-no-inss-antecedem-dois-ultimos-governos"
+      ]
+     ],
+     "who": "Social media"
+    },
+    {
+     "c": "The Lagoinha church is under investigation in the Master case.",
+     "v": "u",
+     "e": "We found no formal public investigation against the church as an institution in the sources cited. What is in the reports is the account of one congregation, presided over by Vorcaro's brother-in-law, and family members linked to it.",
+     "s": [
+      [
+       "Portal de Prefeitura",
+       "https://portaldeprefeitura.com.br/cotidiano/lagoinha-afastou-cunhado-vorcaro-nega-vinculo-banco-master/616843/"
+      ],
+      [
+       "Diário do Comércio",
+       "https://diariodocomercio.com.br/legislacao/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro/"
+      ]
+     ],
+     "who": "Social media"
+    },
+    {
+     "c": "I have no personal, business or institutional link with Vorcaro.",
+     "v": "m",
+     "e": "There is no proof of a business link or of money. But there was direct contact: he flew on the jet linked to Vorcaro in 2022, and in 2025 called him \"Dani\" in audio recordings. He himself admits the contacts. We found no public investigation against him in the sources cited as of the date of this review.",
+     "s": [
+      [
+       "Correio da Manhã",
+       "https://www.correiodamanha.com.br/politica/2026/09/316681-em-audios-nikolas-chama-vorcaro-de-dani-e-pede-ajuda-para-ex-assessor.html"
+      ],
+      [
+       "Poder360",
+       "https://www.poder360.com.br/poder-congresso/nao-recebi-um-tostao-de-vorcaro-e-nem-o-encontrei-diz-nikolas/"
+      ]
+     ],
+     "who": "Nikolas, in March 2026"
+    },
+    {
+     "c": "Flávio only asked for sponsorship, there is nothing illegal.",
+     "v": "o",
+     "e": "Flávio confirms the request. Its legality is what is under investigation: Justice Mendonça opened an inquiry into the payments to the film and the possible sending of money to Eduardo Bolsonaro.",
+     "s": [
+      [
+       "Itatiaia",
+       "https://www.itatiaia.com.br/politica/a-reacao-de-nikolas-ao-audio-enviado-por-flavio-bolsonaro-a-vorcaro/"
+      ],
+      [
+       "Portal de Prefeitura",
+       "https://portaldeprefeitura.com.br/tags/andre-mendonca/"
+      ]
+     ],
+     "who": "Flávio's campaign"
+    },
+    {
+     "c": "Vorcaro has already informed on Lula, Moraes and Toffoli.",
+     "v": "f",
+     "e": "The video was generated by AI. Both plea deal proposals were rejected, and none was ratified.",
+     "s": [
+      [
+       "Aos Fatos",
+       "https://www.aosfatos.org/noticias/video-ia-engana-vorcaro-delatou-moraes-toffoli-lula/"
+      ]
+     ],
+     "who": "Viral video"
+    },
+    {
+     "c": "Flávio Bolsonaro is not under investigation.",
+     "v": "f",
+     "e": "He is under investigation in two STF inquiries: the \"Dark Horse\" film one, with André Mendonça, and, since October 2026, one on suspected money laundering linked to lawyer Willer Tomaz, with Alexandre de Moraes. Investigation is not conviction, and Flávio denies wrongdoing in both cases.",
+     "s": [
+      [
+       "CartaCapital",
+       "https://www.cartacapital.com.br/politica/flavio-bolsonaro-e-alvo-de-segundo-inquerito-no-stf-por-suspeita-de-lavagem-de-dinheiro/"
+      ]
+     ],
+     "who": "Social media"
+    },
+    {
+     "c": "\"Dark Horse\" received no public money.",
+     "v": "u",
+     "e": "It can be neither confirmed nor denied. Vorcaro's money that reached the film, at least R$ 61 million, went through private companies, and it is not known whether it came from the coffers of Master, which is under investigation for defrauding BRB, a public bank. The Federal Police are also investigating budget amendments from congressman Mario Frias that went to an institute owned by the producer, but have not proven that this money reached the film. We found no record of Rouanet Law or Ancine funding in the production.",
+     "s": [
+      [
+       "CNN Brasil",
+       "https://www.cnnbrasil.com.br/eleicoes/flavio-diz-que-dinheiro-de-vorcaro-para-dark-horse-era-licito-e-privado/"
+      ],
+      [
+       "Piranot: Operation Make Up",
+       "https://www.piranot.com.br/2026/09/11/noticias/politica/pf-investiga-mario-frias-emendas/"
+      ],
+      [
+       "Correio Braziliense",
+       "https://www.correiobraziliense.com.br/politica/2026/06/7437756-documentos-indicam-caminho-de-rs-61-milhoes-de-vorcaro-a-filme.html"
+      ]
+     ],
+     "who": "Flávio Bolsonaro"
+    },
+    {
+     "c": "Vorcaro gave Lula a R$ 500,000 whisky.",
+     "v": "m",
+     "e": "Half of it is documented. Messages on Vorcaro's phone show that, in October 2024, he ordered a bottle of Macallan 1945 costing about 80,000 euros, close to R$ 500,000, and wrote \"I need to give it to Lula\". There is no proof the bottle reached Lula: the only clue is a lawyer saying Lula \"thanked him for the whisky\". The Planalto denies receiving it, and Lula says he does not remember. Getting a gift, even if proven, does not prove a favour to Master.",
+     "s": [
+      [
+       "Metrópoles, citing Veja",
+       "https://www.metropoles.com/brasil/vorcaro-encomendou-uisque-de-r-500-mil-para-presentear-lula-diz-revista"
+      ],
+      [
+       "Poder360 · Lula's response",
+       "https://www.poder360.com.br/poder-governo/se-me-deu-whisky-ja-bebi-diz-lula-sobre-advogado-de-vorcaro/"
+      ]
+     ],
+     "who": "Social media"
+    },
+    {
+     "c": "The Federal Police found cash in the secret room linked to Flávio's friend.",
+     "v": "f",
+     "e": "The police found the room, with suitcases and a banknote-counting machine, but no money. The suspicion that it held cash is not proven, and Willer Tomaz's defence says it serves cash-in-transit clients.",
+     "s": [
+      [
+       "Rádio Pampa, with Estadão and TV Globo",
+       "https://www.radiopampa.com.br/advogado-amigo-de-flavio-bolsonaro-tinha-sala-secreta-para-dinheiro-vivo-no-aeroporto-de-brasilia-diz-a-policia-federal/"
+      ]
+     ],
+     "who": "Social media"
+    }
+   ]
+  }
+ ],
+ "ranks": [
+  [
+   0,
+   "Plea rejected: you believed everything."
+  ],
+  [
+   40,
+   "Inquiry opened, no conclusion."
+  ],
+  [
+   65,
+   "A respected detective. The Supreme Court sends its regards."
+  ],
+  [
+   90,
+   "Plea approved: no tall tale got through."
+  ]
+ ],
+ "quips": {
+  "ok": [
+   "Right! Go ahead and publish.",
+   "Spot on. The source thanks you.",
+   "Correct. The family group chat will have to swallow it.",
+   "Nice! Old-school fact-checker."
+  ],
+  "no": [
+   "Wrong. But at least you did not share it.",
+   "Close. Read the explanation before forwarding it.",
+   "Not this time. It happens to journalists too.",
+   "Oops. The group-chat aunt won this one."
+  ]
+ },
+ "full": "index.html",
+ "updated": "Rotas · Rota Master"
+};
+</script>
+<script src="https://fcarvalhodev.github.io/rotas/jogos/jogo.js"></script>
+</body></html>

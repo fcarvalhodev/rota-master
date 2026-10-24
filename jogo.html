@@ -1,294 +1,224 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Delação ou Lorota?</title>
-<meta name="description" content="Você é o delegado. Chegou mais uma pilha de “delações” das redes sobre o caso Master. Algumas são fato, outras são lorota. Separe antes que vire manchete.">
+<title>Torre de CDB</title>
+<meta name="description" content="Jogo da Rota Master: empilhe CDBs a 140% do CDI e veja, com fatos reais e fontes, como a torre do Banco Master caiu.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/jogos/jogo.css">
+<style>
+:root{
+  --bg:#f3f1ea; --paper:#fbfaf6; --ink:#1c1b1f; --muted:#5b5a63; --line:#d9d5ca; --soft:#ebe7dc;
+  --doc:#1f6b45; --doc-soft:#dcefe3; --open:#5b4bb0; --open-soft:#e7e3f6; --alleg:#a3501a; --alleg-soft:#f8e6d7; --no:#a12a2a; --no-soft:#f6dede;
+  --display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --ui:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121216; --paper:#1a1a20; --ink:#ecebf0; --muted:#a3a2ad; --line:#2e2d36; --soft:#24232b;
+  --doc:#6fd39c; --doc-soft:#173326; --open:#ab9ff0; --open-soft:#29254a; --alleg:#f0a066; --alleg-soft:#3a2516; --no:#f19b9b; --no-soft:#3a1c1c;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121216; --paper:#1a1a20; --ink:#ecebf0; --muted:#a3a2ad; --line:#2e2d36; --soft:#24232b;
+  --doc:#6fd39c; --doc-soft:#173326; --open:#ab9ff0; --open-soft:#29254a; --alleg:#f0a066; --alleg-soft:#3a2516; --no:#f19b9b; --no-soft:#3a1c1c;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px}
+header.g{padding-block:26px 8px;display:grid;gap:10px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(52px,13vw,104px);line-height:.86;text-transform:uppercase;overflow-wrap:anywhere}
+h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(30px,6.5vw,44px);line-height:.95;text-transform:uppercase;margin:0 0 10px}
+h3{font-family:var(--ui);font-size:19px;line-height:1.25;margin:0 0 6px}
+.lede{margin:0;max-width:64ch;font-size:18px}
+.how{margin:0;font-family:var(--ui);font-size:15px;color:var(--muted)}
+.btn{font-family:var(--ui);font-weight:800;font-size:17px;border:0;border-radius:999px;padding:12px 20px;background:var(--accent);color:var(--paper);cursor:pointer;min-height:48px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.btn[disabled]{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tg{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;white-space:nowrap;vertical-align:2px}
+.tg.doc{background:var(--doc-soft);color:var(--doc);border:1px solid var(--doc)}
+.tg.open{background:var(--open-soft);color:var(--open);border:1px dashed var(--open)}
+.tg.alleg{background:var(--alleg-soft);color:var(--alleg);border:1px solid var(--alleg)}
+.tg.no{background:var(--no-soft);color:var(--no);border:1px solid var(--no)}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.facts li{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--c,var(--line));border-radius:8px;padding:12px 14px}
+.facts li b{font-family:var(--ui)}
+.facts li small{display:block;margin-top:4px;font-family:var(--ui);font-size:13px;color:var(--muted)}
+.facts li small a{color:var(--muted)}
+.facts .yr{font-family:var(--mono);font-size:12px;color:var(--muted);margin-right:6px}
+section.blk{margin-block:26px}
+.note{font-family:var(--ui);font-size:14px;color:var(--muted)}
+.end{border:2px solid var(--accent);border-radius:12px;background:var(--paper);padding:18px;display:grid;gap:12px}
+footer.g{margin-block:36px 28px;font-family:var(--ui);font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
 <style>
 :root{--accent:#8a6512;--hero:#6e500e}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#e0b552;--hero:#6e500e}}
 :root[data-theme="dark"]{--accent:#e0b552;--hero:#6e500e}
-.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+
+</style>
+<style>
+.game{display:grid;gap:12px;margin-top:8px}
+.hud{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;font-family:var(--ui)}
+.hud b{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:34px;line-height:1;color:var(--accent)}
+.hud span{font-size:14px;color:var(--muted)}
+.news{min-height:92px;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--doc);border-radius:10px;padding:10px 14px;font-family:var(--ui);font-size:15px;line-height:1.4}
+.news .yr{font-family:var(--mono);font-size:12px;color:var(--muted);margin-right:6px}
+.news b{display:inline}
+.news.flash{animation:fl .6s ease}
+@keyframes fl{from{background:var(--soft)}to{background:var(--paper)}}
+.stage{position:relative;height:min(62vh,470px);min-height:340px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,var(--soft),var(--bg));border:1px solid var(--line);touch-action:manipulation;cursor:pointer;user-select:none;-webkit-user-select:none}
+.world{position:absolute;inset:0;transition:transform .35s ease}
+.tb{position:absolute;height:30px;border-radius:4px;background:var(--accent);color:var(--paper);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;display:flex;align-items:center;justify-content:center;overflow:hidden;white-space:nowrap;box-shadow:inset 0 -4px 0 rgba(0,0,0,.18)}
+.tb.base{background:var(--ink);color:var(--paper)}
+.tb.brb{background:repeating-linear-gradient(45deg,var(--open) 0 8px,color-mix(in srgb,var(--open) 70%,var(--paper)) 8px 16px)}
+.tb.moving{box-shadow:0 6px 0 rgba(0,0,0,.15)}
+.tb.cut{animation:cut .9s ease-in forwards}
+@keyframes cut{to{transform:translateY(420px) rotate(25deg);opacity:0}}
+.tb.fall{transition:transform 1.4s cubic-bezier(.5,0,.9,.6),opacity 1.4s}
+.ground{position:absolute;left:0;right:0;height:14px;background:var(--line)}
+.fgc{position:absolute;right:10px;top:10px;font-family:var(--ui);font-weight:900;font-size:13px;background:var(--doc);color:var(--paper);border-radius:999px;padding:4px 10px;transform:rotate(6deg)}
+.toast{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font-family:var(--display);font-stretch:70%;font-weight:900;font-size:40px;text-transform:uppercase;color:var(--accent);pointer-events:none;white-space:nowrap;opacity:0;text-shadow:0 2px 0 var(--paper)}
+.toast.on{animation:pop 1s ease}
+@keyframes pop{0%{opacity:0;transform:translate(-50%,-30%) scale(.7)}25%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}100%{opacity:0;transform:translate(-50%,-70%)}}
+.stamp{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%) rotate(-8deg);border:5px solid var(--no);color:var(--no);background:var(--paper);font-family:var(--display);font-stretch:70%;font-weight:900;font-size:clamp(26px,7vw,40px);text-transform:uppercase;padding:6px 16px;border-radius:10px;text-align:center;line-height:1}
+.ctrl{display:flex;flex-wrap:wrap;gap:10px}
+.ctrl .btn.big{flex:1 1 220px;font-size:20px;min-height:58px}
+.start{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:12px;background:color-mix(in srgb,var(--bg) 82%,transparent);padding:16px;text-align:center;font-family:var(--ui)}
+.start p{margin:0;max-width:34ch}
+.end h2{margin:0}
 </style>
 </head><body>
 <style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><style>/* padrão das Rotas: formato detalhado */body{font-size:17px;line-height:1.6}h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(60px,15vw,140px);line-height:.86;text-transform:uppercase;overflow-wrap:anywhere}h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/" aria-current="page">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/">Algoritmo</a><a href="https://fcarvalhodev.github.io/rota-do-posto/">Posto</a><a href="https://fcarvalhodev.github.io/rota-das-queimadas/">Queimadas</a><a href="https://fcarvalhodev.github.io/rota-dos-games/">Games</a><a href="https://fcarvalhodev.github.io/rota-do-contracheque/">Contracheque</a><a href="https://fcarvalhodev.github.io/rota-palantir/">Palantir</a><a class="rb-lang" href="en/jogo.html" hreflang="en" lang="en">EN</a></div></nav>
-<main class="jg" id="jg" aria-live="polite"><noscript>Este jogo precisa de JavaScript. <a href="index.html">Ler a rota</a>.</noscript></main>
+<main class="wrap">
+<header class="g">
+  <span class="kicker">Rota Master · jogo</span>
+  <h1>Torre de CDB</h1>
+  <p class="lede">Você é o dono de um banco pequeno. Para crescer, vende CDB pagando muito mais que os outros. Cada CDB vira um andar da torre. Até onde ela aguenta?</p>
+  <p class="how">Como jogar: solte cada bloco em cima do anterior. O que sobrar para fora cai, e a torre fica mais estreita. Os fatos da história real aparecem conforme você sobe.</p>
+</header>
+
+<div class="game">
+  <div class="hud" aria-live="polite"><b id="andar">0</b><span>andares de CDB</span><b id="ano">2019</b><span>ano da torre</span></div>
+  <div class="news" id="news" aria-live="polite"></div>
+  <div class="stage" id="stage" role="application" aria-label="Torre de CDB. Toque ou use a barra de espaço para soltar o bloco.">
+    <div class="world" id="world"></div>
+    <span class="fgc" id="fgc" hidden>Tem FGC ✓</span>
+    <div class="toast" id="toast"></div>
+    <div class="start" id="start"><p><b>Você é o dono do banco.</b> O bloco de CDB vai e volta. Solte quando ele estiver em cima da torre. O que ficar para fora cai.</p><button class="btn big" type="button" id="go">Abrir o banco ▶</button></div>
+  </div>
+  <div class="ctrl">
+    <button class="btn big" type="button" id="drop" disabled>⬇ Vender CDB</button>
+    <button class="btn ghost" type="button" id="brb" hidden>🏦 Vender carteiras ao BRB</button>
+  </div>
+  <p class="note">Toque na torre, no botão ou aperte a barra de espaço. A torre é uma brincadeira; os fatos que aparecem em cima são reais e têm fonte.</p>
+</div>
+<section class="blk end" id="end" hidden aria-live="polite">
+  <h2 id="endT"></h2>
+  <p id="endB"></p>
+  <ul class="facts" id="endFacts"></ul>
+  <p class="note">A torre do jogo simplifica: na vida real, quem decide se houve crime é a Justiça. O que está nos selos é o que está documentado até agora.</p>
+  <div class="row"><button class="btn" type="button" id="again">Construir de novo</button><a class="btn ghost" href="index.html">Ler a Rota Master</a></div>
+</section>
+<section class="blk">
+  <h2>Extrato da torre</h2>
+  <ul class="facts" id="log"></ul>
+</section>
+
+<footer class="g">
+  <p>Fatos até 22 de outubro de 2026. Investigação não é condenação. Cada fato do jogo tem fonte; os selos seguem a <a href="https://fcarvalhodev.github.io/rotas/metodologia.html">metodologia das Rotas</a>.</p>
+  <p class="row"><a class="btn ghost" href="index.html">Ler a rota completa</a><a class="btn ghost" href="quiz.html">Fazer o quiz da rota</a></p>
+</footer>
+</main>
 <script>
-window.JG_DATA={
- "kicker": "Rota Master · jogo",
- "title": "Delação ou Lorota?",
- "host": [
-  "🕵️",
-  "Delegado de plantão"
- ],
- "emo": "💼",
- "intro": "Você é o delegado. Chegou mais uma pilha de “delações” das redes sobre o caso Master. Algumas são fato, outras são lorota. Separe antes que vire manchete.",
- "rounds": [
-  {
-   "type": "boato",
-   "title": "Pilha de delações",
-   "how": "leia a frase que circula e diga se é Verdade, Meia verdade, Falso ou Sem prova.",
-   "n": 7,
-   "items": [
-    {
-     "c": "Lulinha está envolvido no caso Master.",
-     "v": "u",
-     "e": "Lulinha é investigado em três inquéritos: tráfico de influência ligado ao \"Careca do INSS\" e à cannabis medicinal, contratos com a Dataprev e favorecimento a empresas. As reportagens citadas não identificam vínculo desses procedimentos com Vorcaro ou o Master. Um relatório da PF diz não haver indício de que ele tenha participado diretamente das fraudes do INSS.",
-     "s": [
-      [
-       "Revista Cenarium",
-       "https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/"
-      ],
-      [
-       "Midiamax",
-       "https://midiamax.com.br/brasil/2026/pf-aponta-imputacao-sem-lastro-contra-lulinha-relatorio-mendonca/"
-      ]
-     ],
-     "who": "Redes sociais"
-    },
-    {
-     "c": "A fraude do INSS faz parte do caso Master.",
-     "v": "f",
-     "e": "São casos diferentes. A fraude do INSS são descontos de associações nas aposentadorias, sem autorização, investigados pela Operação Sem Desconto desde abril de 2025. O Master entra na CPMI do INSS por outro motivo: 250 mil contratos de consignado suspensos por falta de prova de consentimento. Em outubro de 2026 surgiu um ponto de contato indireto: um jato usado por Flávio tem como sócias uma empresa de Willer Tomaz, investigado no caso INSS, e uma empresa ligada a Vorcaro. Isso não junta as duas investigações.",
-     "s": [
-      [
-       "Brasil de Fato: e-mails e jato",
-       "https://www.brasildefato.com.br/2026/10/10/flavio-bolsonaro-dividia-conta-com-investigado-por-desvios-no-inss-indicam-e-mails/"
-      ],
-      [
-       "Band",
-       "https://www.band.com.br/radio-bandeirantes/noticias/cpmi-do-inss-antecipa-depoimento-de-daniel-vorcaro-202602190836"
-      ],
-      [
-       "O Povo / BBC",
-       "https://www.opovo.com.br/agencia/bbc/2025/04/23/o-que-se-sabe-sobre-fraude-no-inss-que-levou-lula-a-demitir-presidente-do-orgao.html"
-      ]
-     ],
-     "who": "Redes sociais"
-    },
-    {
-     "c": "Lula nunca recebeu Vorcaro.",
-     "v": "f",
-     "e": "Recebeu. O encontro de 4 de dezembro de 2024 foi fora da agenda, intermediado por Guido Mantega, e o próprio Lula confirma. O GSI registra outras três entradas de Vorcaro no Planalto entre 2023 e 2024, sem dizer com quem.",
-     "s": [
-      [
-       "Gazeta do Povo",
-       "https://www.gazetadopovo.com.br/economia/vorcaro-planalto-4-vezes-falado-lula-venda-master/"
-      ],
-      [
-       "Midiamax",
-       "https://midiamax.com.br/brasil/2026/me-deu-whisky-eu-bebi-lula-pronuncia-encontro-vorcaro-2024/"
-      ]
-     ],
-     "who": "Redes sociais"
-    },
-    {
-     "c": "Lula é sócio do Master.",
-     "v": "u",
-     "e": "As fontes citadas não apresentam documento de sociedade ou pagamento ilegal a Lula. O relato sobre whisky deve ser lido junto da manifestação posterior de Lula, citada na cronologia; receber presente não comprova sociedade ou crime.",
-     "s": [
-      [
-       "O Liberal",
-       "https://www.oliberal.com/politica/flavio-bolsonaro-associa-lula-a-vorcaro-pergunta-se-era-amigo-conselheiro-ou-socio-do-master-1.1172107"
-      ],
-      [
-       "Revista Oeste",
-       "https://revistaoeste.com/politica/lula-recebeu-uisque-de-presente-de-vorcaro/"
-      ]
-     ],
-     "who": "Campanha de Flávio"
-    },
-    {
-     "c": "O escândalo é só da direita.",
-     "v": "m",
-     "e": "No recorte de cinco parlamentares desta página, com situações distintas de investigação ou contato documentado, quatro são do PP e do PL, e um é do PT, Jaques Wagner. Os 18 deputados na agenda de Vorcaro são todos de partidos de centro e de direita. No governo, Lula recebeu Vorcaro e Mantega trabalhava para ele. No Supremo, quatro ministros aparecem em relatórios da PF.",
-     "s": [
-      [
-       "Times Brasil",
-       "https://timesbrasil.com.br/brasil/jaques-wagner-admite-relacao-com-ex-socio-do-banco-master-e-chama-acao-da-pf-de-patacoada/"
-      ],
-      [
-       "Agência Pública",
-       "https://apublica.org/2026/01/a-bancada-do-master-e-de-direita/"
-      ],
-      [
-       "Ver o gráfico",
-       "#congresso"
-      ]
-     ],
-     "who": "Redes sociais"
-    },
-    {
-     "c": "A fraude do INSS começou no governo Lula.",
-     "v": "f",
-     "e": "Começou antes e explodiu depois. Os descontos existem desde uma lei de 1991 e já cresciam em 2017 e 2018. A CGU contou 4 situações de alto volume entre 2019 e 2022 e 39 entre 2023 e agosto de 2024.",
-     "s": [
-      [
-       "Congresso em Foco",
-       "https://www.congressoemfoco.com.br/noticia/108480/lula-ou-bolsonaro-descontos-no-inss-antecedem-dois-ultimos-governos"
-      ]
-     ],
-     "who": "Redes sociais"
-    },
-    {
-     "c": "A Lagoinha é investigada no caso Master.",
-     "v": "u",
-     "e": "Não identificamos investigação pública formal contra a igreja como instituição nas fontes citadas. O que está nos relatórios é a conta de uma unidade, presidida pelo cunhado de Vorcaro, e pessoas da família ligadas a ela.",
-     "s": [
-      [
-       "Portal de Prefeitura",
-       "https://portaldeprefeitura.com.br/cotidiano/lagoinha-afastou-cunhado-vorcaro-nega-vinculo-banco-master/616843/"
-      ],
-      [
-       "Diário do Comércio",
-       "https://diariodocomercio.com.br/legislacao/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro/"
-      ]
-     ],
-     "who": "Redes sociais"
-    },
-    {
-     "c": "Não tenho vínculo pessoal, comercial ou institucional com Vorcaro.",
-     "v": "m",
-     "e": "Não há prova de vínculo comercial nem de dinheiro. Mas houve contato direto: voou no jato ligado a Vorcaro em 2022, e em 2025 o chamava de \"Dani\" em áudios. Ele mesmo admite os contatos. Não identificamos investigação pública contra ele nas fontes citadas até a data desta revisão.",
-     "s": [
-      [
-       "Correio da Manhã",
-       "https://www.correiodamanha.com.br/politica/2026/09/316681-em-audios-nikolas-chama-vorcaro-de-dani-e-pede-ajuda-para-ex-assessor.html"
-      ],
-      [
-       "Poder360",
-       "https://www.poder360.com.br/poder-congresso/nao-recebi-um-tostao-de-vorcaro-e-nem-o-encontrei-diz-nikolas/"
-      ]
-     ],
-     "who": "Nikolas, em março de 2026"
-    },
-    {
-     "c": "Flávio só pediu patrocínio, não tem nada ilegal.",
-     "v": "o",
-     "e": "Flávio confirma o pedido. A legalidade é o que está em investigação: Mendonça abriu inquérito sobre os repasses ao filme e o possível envio de dinheiro para Eduardo Bolsonaro.",
-     "s": [
-      [
-       "Itatiaia",
-       "https://www.itatiaia.com.br/politica/a-reacao-de-nikolas-ao-audio-enviado-por-flavio-bolsonaro-a-vorcaro/"
-      ],
-      [
-       "Portal de Prefeitura",
-       "https://portaldeprefeitura.com.br/tags/andre-mendonca/"
-      ]
-     ],
-     "who": "Campanha de Flávio"
-    },
-    {
-     "c": "Vorcaro já delatou Lula, Moraes e Toffoli.",
-     "v": "f",
-     "e": "O vídeo foi gerado por IA. As duas propostas de delação foram rejeitadas, e nenhuma foi homologada.",
-     "s": [
-      [
-       "Aos Fatos",
-       "https://www.aosfatos.org/noticias/video-ia-engana-vorcaro-delatou-moraes-toffoli-lula/"
-      ]
-     ],
-     "who": "Vídeo viral"
-    },
-    {
-     "c": "Flávio Bolsonaro não é investigado.",
-     "v": "f",
-     "e": "É investigado em dois inquéritos no STF: o do filme \"Dark Horse\", com André Mendonça, e, desde outubro de 2026, um sobre suspeita de lavagem de dinheiro ligada ao advogado Willer Tomaz, com Alexandre de Moraes. Investigação não é condenação, e Flávio nega irregularidade nos dois casos.",
-     "s": [
-      [
-       "CartaCapital",
-       "https://www.cartacapital.com.br/politica/flavio-bolsonaro-e-alvo-de-segundo-inquerito-no-stf-por-suspeita-de-lavagem-de-dinheiro/"
-      ]
-     ],
-     "who": "Redes sociais"
-    },
-    {
-     "c": "O \"Dark Horse\" não teve dinheiro público.",
-     "v": "u",
-     "e": "Não dá para afirmar nem negar. O dinheiro de Vorcaro que chegou ao filme, pelo menos R$ 61 milhões, passou por empresas privadas, e não se sabe se saiu do caixa do Master, que é investigado por fraudar o BRB, um banco público. A PF também investiga emendas do deputado Mario Frias que foram para um instituto da dona da produtora, mas não provou que esse dinheiro chegou ao filme. Não encontramos registro de Lei Rouanet ou de dinheiro da Ancine na produção.",
-     "s": [
-      [
-       "CNN Brasil",
-       "https://www.cnnbrasil.com.br/eleicoes/flavio-diz-que-dinheiro-de-vorcaro-para-dark-horse-era-licito-e-privado/"
-      ],
-      [
-       "Piranot: Operação Make Up",
-       "https://www.piranot.com.br/2026/09/11/noticias/politica/pf-investiga-mario-frias-emendas/"
-      ],
-      [
-       "Correio Braziliense",
-       "https://www.correiobraziliense.com.br/politica/2026/06/7437756-documentos-indicam-caminho-de-rs-61-milhoes-de-vorcaro-a-filme.html"
-      ]
-     ],
-     "who": "Flávio Bolsonaro"
-    },
-    {
-     "c": "Vorcaro deu um uísque de R$ 500 mil para Lula.",
-     "v": "m",
-     "e": "Metade é documentada. Mensagens do celular de Vorcaro mostram que ele mandou comprar, em outubro de 2024, uma garrafa de Macallan 1945 de cerca de 80 mil euros, perto de R$ 500 mil, e escreveu \"Preciso dar pro Lula\". Não há prova de que a garrafa chegou a Lula: a única pista é um advogado dizendo que Lula \"agradeceu o whisky\". O Planalto nega o recebimento, e Lula diz não lembrar. Ganhar presente, mesmo se comprovado, não prova favor ao Master.",
-     "s": [
-      [
-       "Metrópoles, com Veja",
-       "https://www.metropoles.com/brasil/vorcaro-encomendou-uisque-de-r-500-mil-para-presentear-lula-diz-revista"
-      ],
-      [
-       "Poder360 · resposta de Lula",
-       "https://www.poder360.com.br/poder-governo/se-me-deu-whisky-ja-bebi-diz-lula-sobre-advogado-de-vorcaro/"
-      ]
-     ],
-     "who": "Redes sociais"
-    },
-    {
-     "c": "A PF achou dinheiro vivo na sala secreta ligada ao amigo de Flávio.",
-     "v": "f",
-     "e": "A PF achou a sala, com malas e uma máquina de contar cédulas, mas sem dinheiro. A suspeita de que ela guardava dinheiro vivo não está provada, e a defesa de Willer Tomaz diz que ela atende clientes de transporte de valores.",
-     "s": [
-      [
-       "Rádio Pampa, com Estadão e TV Globo",
-       "https://www.radiopampa.com.br/advogado-amigo-de-flavio-bolsonaro-tinha-sala-secreta-para-dinheiro-vivo-no-aeroporto-de-brasilia-diz-a-policia-federal/"
-      ]
-     ],
-     "who": "Redes sociais"
-    }
-   ]
-  }
- ],
- "ranks": [
-  [
-   0,
-   "Delação rejeitada: você acreditou em tudo."
-  ],
-  [
-   40,
-   "Inquérito aberto, conclusão nenhuma."
-  ],
-  [
-   65,
-   "Delegado de respeito. O STF manda lembranças."
-  ],
-  [
-   90,
-   "Delação homologada: nenhuma lorota passou."
-  ]
- ],
- "quips": {
-  "ok": [
-   "Isso! Pode publicar.",
-   "Na mosca. A fonte agradece.",
-   "Acertou. O grupo da família vai ter que engolir.",
-   "Boa! Checador raiz."
-  ],
-  "no": [
-   "Errou. Mas pelo menos você não compartilhou.",
-   "Quase. Leia a explicação antes de mandar no zap.",
-   "Não foi dessa vez. Acontece até com jornalista.",
-   "Ops. A tia do zap venceu essa."
-  ]
- },
- "full": "index.html",
- "updated": "Rotas · Rota Master"
-};
+
+const LBL={doc:"Documentado",open:"Em aberto",alleg:"Alegação",no:"Não demonstrado"};
+const $=id=>document.getElementById(id);
+function factLi(f,withYear){
+ const li=document.createElement("li");li.style.setProperty("--c","var(--"+f.ev+")");
+ const tg=document.createElement("span");tg.className="tg "+f.ev;tg.textContent=LBL[f.ev];
+ const b=document.createElement("b");b.textContent=" "+f.t+". ";
+ if(withYear&&f.y){const y=document.createElement("span");y.className="yr";y.textContent=f.y;li.append(y)}
+ li.append(tg,b,document.createTextNode(f.b+" "));
+ if(f.src){const sm=document.createElement("small");const a=document.createElement("a");a.href=f.src[1];a.target="_blank";a.rel="noopener";a.textContent="Fonte: "+f.src[0];sm.append(a);li.append(sm)}
+ return li;
+}
+const FACTS=[{"h": 0, "y": "2019", "ev": "doc", "t": "O banco pequeno que virou Master", "b": "O Banco Central autorizou Daniel Vorcaro a assumir o Banco Máxima, que depois virou Banco Master. É o chão da sua torre.", "src": ["Money Times", "https://www.moneytimes.com.br/caso-master-como-o-colapso-do-banco-abalou-o-sistema-financeiro-e-sacudiu-brasilia-jals/"]}, {"h": 1, "y": "2020", "ev": "doc", "t": "CDB pagando até 140% do CDI", "b": "O Master vendia CDBs com juros de 120% a 140% do CDI, bem acima do que pagavam os grandes bancos.", "src": ["Renova Invest", "https://renovainvest.com.br/blog/liquidacao-banco-master/"]}, {"h": 2, "y": "2020", "ev": "doc", "t": "4% para quem vendia", "b": "O banco pagava comissão de 4% a quem vendia os CDBs dele.", "src": ["Renova Invest", "https://renovainvest.com.br/blog/liquidacao-banco-master/"]}, {"h": 3, "y": "2021", "ev": "doc", "t": "“Tem FGC, relaxa”", "b": "O FGC, fundo mantido pelos bancos, garante até R$ 250 mil por pessoa em cada banco que quebra. Com essa garantia, CDB de banco pequeno com juro alto parecia seguro.", "src": ["Renova Invest", "https://renovainvest.com.br/blog/liquidacao-banco-master/"]}, {"h": 5, "y": "2023", "ev": "doc", "t": "De R$ 219 milhões a quase R$ 5 bilhões", "b": "Em cinco anos, o patrimônio do banco cresceu mais de 20 vezes, puxado pela venda de CDBs.", "src": ["Renova Invest", "https://renovainvest.com.br/blog/liquidacao-banco-master/"]}, {"h": 6, "y": "jul 2024", "ev": "doc", "t": "O BRB entra na obra", "b": "O BRB, banco público do Distrito Federal, começa a comprar carteiras de crédito do Master. Use o botão do BRB para alargar a torre uma vez.", "src": ["Diário do Comércio", "https://diariodocomercio.com.br/?p=570011"]}, {"h": 8, "y": "fim de 2024", "ev": "doc", "t": "R$ 50 bilhões em CDBs", "b": "O Banco Central achou cerca de R$ 50 bilhões em CDBs emitidos, com R$ 12 bilhões vencendo em 2025.", "src": ["Renova Invest", "https://renovainvest.com.br/blog/liquidacao-banco-master/"]}, {"h": 9, "y": "mar 2025", "ev": "doc", "t": "O BRB quer comprar o banco", "b": "O BRB anuncia a compra de 58% do Master.", "src": ["Diário do Comércio", "https://diariodocomercio.com.br/?p=570011"]}, {"h": 10, "y": "set 2025", "ev": "doc", "t": "O Banco Central barra", "b": "O BC encontra carteiras sem valor vendidas ao BRB e não aprova a compra.", "src": ["Diário do Comércio", "https://diariodocomercio.com.br/?p=570011"]}, {"h": 11, "y": "out–nov 2025", "ev": "doc", "t": "Faltou dinheiro para pagar", "b": "O banco não conseguiu pagar vencimentos grandes: R$ 1 bilhão em CDBs em outubro e R$ 4 bilhões ao FGC em novembro.", "src": ["Renova Invest", "https://renovainvest.com.br/blog/liquidacao-banco-master/"]}, {"h": 12, "y": "17–18 nov 2025", "ev": "doc", "t": "Prisão e liquidação", "b": "Vorcaro é preso no aeroporto de Guarulhos. No dia seguinte, o Banco Central liquida o Master.", "src": ["CNN Brasil", "https://www.cnnbrasil.com.br/economia/negocios/vorcaro-deixa-pf-e-e-transferido-para-presidio-em-guarulhos/"]}];
+const AFTER=[{"ev": "open", "t": "A fraude de R$ 12 bilhões", "b": "A PF diz que o Master vendeu ao BRB carteiras de crédito falsas, numa fraude estimada em R$ 12 bilhões. A defesa chama de “fato inexistente”. Ainda não houve julgamento.", "src": ["CNN Brasil", "https://www.cnnbrasil.com.br/economia/negocios/vorcaro-deixa-pf-e-e-transferido-para-presidio-em-guarulhos/"]}, {"ev": "doc", "t": "Quem pagou a conta", "b": "O FGC calcula pagar cerca de R$ 41 bilhões a 1,6 milhão de pessoas, o maior pagamento da história do fundo.", "src": ["CNN Brasil", "https://www.cnnbrasil.com.br/economia/negocios/vorcaro-deixa-pf-e-e-transferido-para-presidio-em-guarulhos/"]}];
+
+const stage=$("stage"),world=$("world");
+const BH=30,MAXH=12;
+let W,H,blocks,mov,speed,run=false,raf=null,last=0,brbUsed=false,shown,ended=false,perfect=0;
+function el(cls,txt){const d=document.createElement("div");d.className="tb "+cls;if(txt)d.textContent=txt;world.append(d);return d}
+function place(d,x,w,i){d.style.left=x+"px";d.style.width=w+"px";d.style.bottom=(14+i*BH)+"px"}
+function cam(){const top=14+(blocks.length+1)*BH;const off=Math.max(0,top-H*.62);world.style.transform="translateY("+off+"px)"}
+function yearOf(n){let y="2019";FACTS.forEach(f=>{if(f.h<=n)y=f.y});return y}
+function news(f){const n=$("news");n.style.borderLeftColor="var(--"+f.ev+")";n.textContent="";
+ const y=document.createElement("span");y.className="yr";y.textContent=f.y;
+ const tg=document.createElement("span");tg.className="tg "+f.ev;tg.textContent=LBL[f.ev];
+ const b=document.createElement("b");b.textContent=" "+f.t+". ";
+ n.append(y,tg,b,document.createTextNode(f.b));n.classList.remove("flash");void n.offsetWidth;n.classList.add("flash");
+ $("log").prepend(factLi(f,true))}
+function reveal(n){FACTS.forEach((f,i)=>{if(f.h<=n&&!shown.has(i)){shown.add(i);news(f);
+ if(f.h===3)$("fgc").hidden=false;
+ if(f.h===6&&!brbUsed)$("brb").hidden=false}})}
+function toast(t){const o=$("toast");o.textContent=t;o.classList.remove("on");void o.offsetWidth;o.classList.add("on")}
+function hud(){$("andar").textContent=blocks.length-1;$("ano").textContent=yearOf(blocks.length-1)}
+function newMoving(){const top=blocks[blocks.length-1];const w=top.w;
+ mov={x:(Math.random()<.5)?0:W-w,w:w,dir:1,d:el("moving","CDB 140%"),brb:false};
+ if(mov.x>0)mov.dir=-1;
+ if(nextBRB){mov.brb=true;mov.w=W*.6;mov.x=mov.dir>0?0:W-mov.w;mov.d.className="tb moving brb";mov.d.textContent="Carteiras BRB";nextBRB=false}
+ place(mov.d,mov.x,mov.w,blocks.length);cam()}
+let nextBRB=false;
+function init(){world.textContent="";W=stage.clientWidth;H=stage.clientHeight;
+ const g=document.createElement("div");g.className="ground";g.style.bottom="0";world.append(g);
+ const bw=Math.round(W*.6),bx=Math.round((W-bw)/2);
+ blocks=[{x:bx,w:bw,d:el("base","Banco Máxima")}];place(blocks[0].d,bx,bw,0);
+ speed=Math.max(150,W*.5);brbUsed=false;nextBRB=false;shown=new Set();ended=false;perfect=0;
+ $("log").textContent="";$("fgc").hidden=true;$("brb").hidden=true;$("brb").disabled=false;$("end").hidden=true;
+ const st=stage.querySelector(".stamp");if(st)st.remove();
+ reveal(0);hud();newMoving()}
+function tick(t){if(!run)return;const dt=Math.min(.05,(t-last)/1000);last=t;
+ mov.x+=mov.dir*speed*dt;if(mov.x<=0){mov.x=0;mov.dir=1}if(mov.x+mov.w>=W){mov.x=W-mov.w;mov.dir=-1}
+ mov.d.style.left=mov.x+"px";raf=requestAnimationFrame(tick)}
+function start(){$("start").hidden=true;$("news").scrollIntoView({behavior:"smooth",block:"start"});$("drop").disabled=false;run=true;last=performance.now();raf=requestAnimationFrame(tick);$("drop").focus({preventScroll:true})}
+function drop(){if(!run||ended)return;const top=blocks[blocks.length-1];
+ let l=Math.max(mov.x,top.x),r=Math.min(mov.x+mov.w,top.x+top.w),ov=r-l;
+ if(mov.brb){ov=mov.w;l=Math.max(0,Math.min(W-mov.w,top.x+top.w/2-mov.w/2))}
+ if(ov<=2){mov.d.classList.add("cut");return finish(false)}
+ if(!mov.brb&&Math.abs(mov.x-top.x)<8){l=top.x;ov=top.w;perfect++;toast("Na mosca!")}
+ else if(!mov.brb){const cx=mov.x<top.x?mov.x:r,cw=mov.w-ov;if(cw>1){const c=el("cut","");place(c,cx,cw,blocks.length);c.className="tb cut"}}
+ mov.d.className="tb"+(mov.brb?" brb":"");if(mov.brb)mov.d.textContent="Carteiras BRB";
+ place(mov.d,l,ov,blocks.length);blocks.push({x:l,w:ov,d:mov.d,brb:mov.brb});
+ const n=blocks.length-1;speed*=1.07;reveal(n);hud();
+ if(n>=MAXH)return finish(true);
+ newMoving()}
+function collapse(){blocks.forEach((b,i)=>{b.d.classList.add("fall");const dir=(i%2?1:-1);
+ setTimeout(()=>{b.d.style.transform="translate("+(dir*(40+i*6))+"px,"+(H+200)+"px) rotate("+(dir*(30+i*7))+"deg)";b.d.style.opacity="0"},60*i)})}
+function finish(reached){ended=true;run=false;cancelAnimationFrame(raf);$("drop").disabled=true;$("brb").hidden=true;
+ if(mov&&reached)mov.d.remove();
+ const n=blocks.length-1;
+ setTimeout(()=>{collapse();const s=document.createElement("div");s.className="stamp";s.textContent=reached?"Liquidado":"Desabou";stage.append(s)},reached?400:200);
+ FACTS.forEach((f,i)=>{if(!shown.has(i)){shown.add(i);$("log").prepend(factLi(f,true))}});
+ $("endT").textContent=reached?"Você chegou até novembro de 2025":"Sua torre caiu em "+yearOf(n);
+ $("endB").textContent=(reached?"Parabéns: sua torre durou tanto quanto a do Master. E acabou do mesmo jeito: o Banco Central liquidou o banco.":"O Master foi mais longe: segurou até novembro de 2025, captando dinheiro novo enquanto os CDBs venciam.")+" Quando entra menos dinheiro do que vence, a torre cai."+(brbUsed?" E as carteiras do BRB que alargaram sua torre? O Banco Central disse que parte delas não tinha valor.":"")+" Veja quem ficou com a conta:";
+ const ul=$("endFacts");ul.textContent="";AFTER.forEach(f=>ul.append(factLi(f,false)));
+ setTimeout(()=>{$("end").hidden=false;$("end").scrollIntoView({behavior:"smooth",block:"start"})},1600)}
+$("go").addEventListener("click",e=>{e.stopPropagation();start()});
+$("drop").addEventListener("click",drop);
+stage.addEventListener("pointerdown",e=>{if(e.target.closest("button"))return;if(run)drop()});
+document.addEventListener("keydown",e=>{if(e.code==="Space"&&run&&!e.target.closest("a,button:not(#drop)")){e.preventDefault();drop()}});
+$("brb").addEventListener("click",()=>{if(brbUsed||!run)return;brbUsed=true;$("brb").disabled=true;nextBRB=true;
+ mov.d.remove();newMoving();toast("BRB ao resgate!")});
+$("again").addEventListener("click",()=>{init();$("start").hidden=false;$("drop").disabled=true;stage.scrollIntoView({behavior:"smooth",block:"center"})});
+addEventListener("resize",()=>{if(!run&&!ended){init()}});
+init();
+
 </script>
-<script src="https://fcarvalhodev.github.io/rotas/jogos/jogo.js"></script>
 </body></html>

@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Delação ou Lorota?</title>
+<meta name="description" content="Você é o delegado. Chegou mais uma pilha de “delações” das redes sobre o caso Master. Algumas são fato, outras são lorota. Separe antes que vire manchete.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/jogos/jogo.css">
+<style>
+:root{--accent:#8a6512;--hero:#6e500e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#e0b552;--hero:#6e500e}}
+:root[data-theme="dark"]{--accent:#e0b552;--hero:#6e500e}
+.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><style>/* padrão das Rotas: formato detalhado */body{font-size:17px;line-height:1.6}h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(60px,15vw,140px);line-height:.86;text-transform:uppercase;overflow-wrap:anywhere}h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/" aria-current="page">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/">Algoritmo</a><a href="https://fcarvalhodev.github.io/rota-do-posto/">Posto</a><a href="https://fcarvalhodev.github.io/rota-das-queimadas/">Queimadas</a><a href="https://fcarvalhodev.github.io/rota-dos-games/">Games</a><a href="https://fcarvalhodev.github.io/rota-do-contracheque/">Contracheque</a><a href="https://fcarvalhodev.github.io/rota-palantir/">Palantir</a><a class="rb-lang" href="en/quiz.html" hreflang="en" lang="en">EN</a></div></nav>
+<main class="jg" id="jg" aria-live="polite"><noscript>Este jogo precisa de JavaScript. <a href="index.html">Ler a rota</a>.</noscript></main>
+<script>
+window.JG_DATA={
+ "kicker": "Rota Master · jogo",
+ "title": "Delação ou Lorota?",
+ "host": [
+  "🕵️",
+  "Delegado de plantão"
+ ],
+ "emo": "💼",
+ "intro": "Você é o delegado. Chegou mais uma pilha de “delações” das redes sobre o caso Master. Algumas são fato, outras são lorota. Separe antes que vire manchete.",
+ "rounds": [
+  {
+   "type": "boato",
+   "title": "Pilha de delações",
+   "how": "leia a frase que circula e diga se é Verdade, Meia verdade, Falso ou Sem prova.",
+   "n": 7,
+   "items": [
+    {
+     "c": "Lulinha está envolvido no caso Master.",
+     "v": "u",
+     "e": "Lulinha é investigado em três inquéritos: tráfico de influência ligado ao \"Careca do INSS\" e à cannabis medicinal, contratos com a Dataprev e favorecimento a empresas. As reportagens citadas não identificam vínculo desses procedimentos com Vorcaro ou o Master. Um relatório da PF diz não haver indício de que ele tenha participado diretamente das fraudes do INSS.",
+     "s": [
+      [
+       "Revista Cenarium",
+       "https://revistacenarium.com.br/understanding-the-investigations-authorized-by-the-stf-against-lulinha/"
+      ],
+      [
+       "Midiamax",
+       "https://midiamax.com.br/brasil/2026/pf-aponta-imputacao-sem-lastro-contra-lulinha-relatorio-mendonca/"
+      ]
+     ],
+     "who": "Redes sociais"
+    },
+    {
+     "c": "A fraude do INSS faz parte do caso Master.",
+     "v": "f",
+     "e": "São casos diferentes. A fraude do INSS são descontos de associações nas aposentadorias, sem autorização, investigados pela Operação Sem Desconto desde abril de 2025. O Master entra na CPMI do INSS por outro motivo: 250 mil contratos de consignado suspensos por falta de prova de consentimento. Em outubro de 2026 surgiu um ponto de contato indireto: um jato usado por Flávio tem como sócias uma empresa de Willer Tomaz, investigado no caso INSS, e uma empresa ligada a Vorcaro. Isso não junta as duas investigações.",
+     "s": [
+      [
+       "Brasil de Fato: e-mails e jato",
+       "https://www.brasildefato.com.br/2026/10/10/flavio-bolsonaro-dividia-conta-com-investigado-por-desvios-no-inss-indicam-e-mails/"
+      ],
+      [
+       "Band",
+       "https://www.band.com.br/radio-bandeirantes/noticias/cpmi-do-inss-antecipa-depoimento-de-daniel-vorcaro-202602190836"
+      ],
+      [
+       "O Povo / BBC",
+       "https://www.opovo.com.br/agencia/bbc/2025/04/23/o-que-se-sabe-sobre-fraude-no-inss-que-levou-lula-a-demitir-presidente-do-orgao.html"
+      ]
+     ],
+     "who": "Redes sociais"
+    },
+    {
+     "c": "Lula nunca recebeu Vorcaro.",
+     "v": "f",
+     "e": "Recebeu. O encontro de 4 de dezembro de 2024 foi fora da agenda, intermediado por Guido Mantega, e o próprio Lula confirma. O GSI registra outras três entradas de Vorcaro no Planalto entre 2023 e 2024, sem dizer com quem.",
+     "s": [
+      [
+       "Gazeta do Povo",
+       "https://www.gazetadopovo.com.br/economia/vorcaro-planalto-4-vezes-falado-lula-venda-master/"
+      ],
+      [
+       "Midiamax",
+       "https://midiamax.com.br/brasil/2026/me-deu-whisky-eu-bebi-lula-pronuncia-encontro-vorcaro-2024/"
+      ]
+     ],
+     "who": "Redes sociais"
+    },
+    {
+     "c": "Lula é sócio do Master.",
+     "v": "u",
+     "e": "As fontes citadas não apresentam documento de sociedade ou pagamento ilegal a Lula. O relato sobre whisky deve ser lido junto da manifestação posterior de Lula, citada na cronologia; receber presente não comprova sociedade ou crime.",
+     "s": [
+      [
+       "O Liberal",
+       "https://www.oliberal.com/politica/flavio-bolsonaro-associa-lula-a-vorcaro-pergunta-se-era-amigo-conselheiro-ou-socio-do-master-1.1172107"
+      ],
+      [
+       "Revista Oeste",
+       "https://revistaoeste.com/politica/lula-recebeu-uisque-de-presente-de-vorcaro/"
+      ]
+     ],
+     "who": "Campanha de Flávio"
+    },
+    {
+     "c": "O escândalo é só da direita.",
+     "v": "m",
+     "e": "No recorte de cinco parlamentares desta página, com situações distintas de investigação ou contato documentado, quatro são do PP e do PL, e um é do PT, Jaques Wagner. Os 18 deputados na agenda de Vorcaro são todos de partidos de centro e de direita. No governo, Lula recebeu Vorcaro e Mantega trabalhava para ele. No Supremo, quatro ministros aparecem em relatórios da PF.",
+     "s": [
+      [
+       "Times Brasil",
+       "https://timesbrasil.com.br/brasil/jaques-wagner-admite-relacao-com-ex-socio-do-banco-master-e-chama-acao-da-pf-de-patacoada/"
+      ],
+      [
+       "Agência Pública",
+       "https://apublica.org/2026/01/a-bancada-do-master-e-de-direita/"
+      ],
+      [
+       "Ver o gráfico",
+       "#congresso"
+      ]
+     ],
+     "who": "Redes sociais"
+    },
+    {
+     "c": "A fraude do INSS começou no governo Lula.",
+     "v": "f",
+     "e": "Começou antes e explodiu depois. Os descontos existem desde uma lei de 1991 e já cresciam em 2017 e 2018. A CGU contou 4 situações de alto volume entre 2019 e 2022 e 39 entre 2023 e agosto de 2024.",
+     "s": [
+      [
+       "Congresso em Foco",
+       "https://www.congressoemfoco.com.br/noticia/108480/lula-ou-bolsonaro-descontos-no-inss-antecedem-dois-ultimos-governos"
+      ]
+     ],
+     "who": "Redes sociais"
+    },
+    {
+     "c": "A Lagoinha é investigada no caso Master.",
+     "v": "u",
+     "e": "Não identificamos investigação pública formal contra a igreja como instituição nas fontes citadas. O que está nos relatórios é a conta de uma unidade, presidida pelo cunhado de Vorcaro, e pessoas da família ligadas a ela.",
+     "s": [
+      [
+       "Portal de Prefeitura",
+       "https://portaldeprefeitura.com.br/cotidiano/lagoinha-afastou-cunhado-vorcaro-nega-vinculo-banco-master/616843/"
+      ],
+      [
+       "Diário do Comércio",
+       "https://diariodocomercio.com.br/legislacao/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro/"
+      ]
+     ],
+     "who": "Redes sociais"
+    },
+    {
+     "c": "Não tenho vínculo pessoal, comercial ou institucional com Vorcaro.",
+     "v": "m",
+     "e": "Não há prova de vínculo comercial nem de dinheiro. Mas houve contato direto: voou no jato ligado a Vorcaro em 2022, e em 2025 o chamava de \"Dani\" em áudios. Ele mesmo admite os contatos. Não identificamos investigação pública contra ele nas fontes citadas até a data desta revisão.",
+     "s": [
+      [
+       "Correio da Manhã",
+       "https://www.correiodamanha.com.br/politica/2026/09/316681-em-audios-nikolas-chama-vorcaro-de-dani-e-pede-ajuda-para-ex-assessor.html"
+      ],
+      [
+       "Poder360",
+       "https://www.poder360.com.br/poder-congresso/nao-recebi-um-tostao-de-vorcaro-e-nem-o-encontrei-diz-nikolas/"
+      ]
+     ],
+     "who": "Nikolas, em março de 2026"
+    },
+    {
+     "c": "Flávio só pediu patrocínio, não tem nada ilegal.",
+     "v": "o",
+     "e": "Flávio confirma o pedido. A legalidade é o que está em investigação: Mendonça abriu inquérito sobre os repasses ao filme e o possível envio de dinheiro para Eduardo Bolsonaro.",
+     "s": [
+      [
+       "Itatiaia",
+       "https://www.itatiaia.com.br/politica/a-reacao-de-nikolas-ao-audio-enviado-por-flavio-bolsonaro-a-vorcaro/"
+      ],
+      [
+       "Portal de Prefeitura",
+       "https://portaldeprefeitura.com.br/tags/andre-mendonca/"
+      ]
+     ],
+     "who": "Campanha de Flávio"
+    },
+    {
+     "c": "Vorcaro já delatou Lula, Moraes e Toffoli.",
+     "v": "f",
+     "e": "O vídeo foi gerado por IA. As duas propostas de delação foram rejeitadas, e nenhuma foi homologada.",
+     "s": [
+      [
+       "Aos Fatos",
+       "https://www.aosfatos.org/noticias/video-ia-engana-vorcaro-delatou-moraes-toffoli-lula/"
+      ]
+     ],
+     "who": "Vídeo viral"
+    },
+    {
+     "c": "Flávio Bolsonaro não é investigado.",
+     "v": "f",
+     "e": "É investigado em dois inquéritos no STF: o do filme \"Dark Horse\", com André Mendonça, e, desde outubro de 2026, um sobre suspeita de lavagem de dinheiro ligada ao advogado Willer Tomaz, com Alexandre de Moraes. Investigação não é condenação, e Flávio nega irregularidade nos dois casos.",
+     "s": [
+      [
+       "CartaCapital",
+       "https://www.cartacapital.com.br/politica/flavio-bolsonaro-e-alvo-de-segundo-inquerito-no-stf-por-suspeita-de-lavagem-de-dinheiro/"
+      ]
+     ],
+     "who": "Redes sociais"
+    },
+    {
+     "c": "O \"Dark Horse\" não teve dinheiro público.",
+     "v": "u",
+     "e": "Não dá para afirmar nem negar. O dinheiro de Vorcaro que chegou ao filme, pelo menos R$ 61 milhões, passou por empresas privadas, e não se sabe se saiu do caixa do Master, que é investigado por fraudar o BRB, um banco público. A PF também investiga emendas do deputado Mario Frias que foram para um instituto da dona da produtora, mas não provou que esse dinheiro chegou ao filme. Não encontramos registro de Lei Rouanet ou de dinheiro da Ancine na produção.",
+     "s": [
+      [
+       "CNN Brasil",
+       "https://www.cnnbrasil.com.br/eleicoes/flavio-diz-que-dinheiro-de-vorcaro-para-dark-horse-era-licito-e-privado/"
+      ],
+      [
+       "Piranot: Operação Make Up",
+       "https://www.piranot.com.br/2026/09/11/noticias/politica/pf-investiga-mario-frias-emendas/"
+      ],
+      [
+       "Correio Braziliense",
+       "https://www.correiobraziliense.com.br/politica/2026/06/7437756-documentos-indicam-caminho-de-rs-61-milhoes-de-vorcaro-a-filme.html"
+      ]
+     ],
+     "who": "Flávio Bolsonaro"
+    },
+    {
+     "c": "Vorcaro deu um uísque de R$ 500 mil para Lula.",
+     "v": "m",
+     "e": "Metade é documentada. Mensagens do celular de Vorcaro mostram que ele mandou comprar, em outubro de 2024, uma garrafa de Macallan 1945 de cerca de 80 mil euros, perto de R$ 500 mil, e escreveu \"Preciso dar pro Lula\". Não há prova de que a garrafa chegou a Lula: a única pista é um advogado dizendo que Lula \"agradeceu o whisky\". O Planalto nega o recebimento, e Lula diz não lembrar. Ganhar presente, mesmo se comprovado, não prova favor ao Master.",
+     "s": [
+      [
+       "Metrópoles, com Veja",
+       "https://www.metropoles.com/brasil/vorcaro-encomendou-uisque-de-r-500-mil-para-presentear-lula-diz-revista"
+      ],
+      [
+       "Poder360 · resposta de Lula",
+       "https://www.poder360.com.br/poder-governo/se-me-deu-whisky-ja-bebi-diz-lula-sobre-advogado-de-vorcaro/"
+      ]
+     ],
+     "who": "Redes sociais"
+    },
+    {
+     "c": "A PF achou dinheiro vivo na sala secreta ligada ao amigo de Flávio.",
+     "v": "f",
+     "e": "A PF achou a sala, com malas e uma máquina de contar cédulas, mas sem dinheiro. A suspeita de que ela guardava dinheiro vivo não está provada, e a defesa de Willer Tomaz diz que ela atende clientes de transporte de valores.",
+     "s": [
+      [
+       "Rádio Pampa, com Estadão e TV Globo",
+       "https://www.radiopampa.com.br/advogado-amigo-de-flavio-bolsonaro-tinha-sala-secreta-para-dinheiro-vivo-no-aeroporto-de-brasilia-diz-a-policia-federal/"
+      ]
+     ],
+     "who": "Redes sociais"
+    }
+   ]
+  }
+ ],
+ "ranks": [
+  [
+   0,
+   "Delação rejeitada: você acreditou em tudo."
+  ],
+  [
+   40,
+   "Inquérito aberto, conclusão nenhuma."
+  ],
+  [
+   65,
+   "Delegado de respeito. O STF manda lembranças."
+  ],
+  [
+   90,
+   "Delação homologada: nenhuma lorota passou."
+  ]
+ ],
+ "quips": {
+  "ok": [
+   "Isso! Pode publicar.",
+   "Na mosca. A fonte agradece.",
+   "Acertou. O grupo da família vai ter que engolir.",
+   "Boa! Checador raiz."
+  ],
+  "no": [
+   "Errou. Mas pelo menos você não compartilhou.",
+   "Quase. Leia a explicação antes de mandar no zap.",
+   "Não foi dessa vez. Acontece até com jornalista.",
+   "Ops. A tia do zap venceu essa."
+  ]
+ },
+ "full": "index.html",
+ "updated": "Rotas · Rota Master"
+};
+</script>
+<script src="https://fcarvalhodev.github.io/rotas/jogos/jogo.js"></script>
+</body></html>
