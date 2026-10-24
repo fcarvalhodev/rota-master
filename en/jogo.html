@@ -143,7 +143,7 @@ const $=id=>document.getElementById(id);
 function factLi(f,withYear){
  const li=document.createElement("li");li.style.setProperty("--c","var(--"+f.ev+")");
  const tg=document.createElement("span");tg.className="tg "+f.ev;tg.textContent=LBL[f.ev];
- const b=document.createElement("b");b.textContent=" "+f.t+". ";
+ const b=document.createElement("b");b.textContent=" "+f.t+(/[?!.…]$/.test(f.t)?" ":". ");
  if(withYear&&f.y){const y=document.createElement("span");y.className="yr";y.textContent=f.y;li.append(y)}
  li.append(tg,b,document.createTextNode(f.b+" "));
  if(f.src){const sm=document.createElement("small");const a=document.createElement("a");a.href=f.src[1];a.target="_blank";a.rel="noopener";a.textContent="Source: "+f.src[0];sm.append(a);li.append(sm)}
@@ -162,7 +162,7 @@ function yearOf(n){let y="2019";FACTS.forEach(f=>{if(f.h<=n)y=f.y});return y}
 function news(f){const n=$("news");n.style.borderLeftColor="var(--"+f.ev+")";n.textContent="";
  const y=document.createElement("span");y.className="yr";y.textContent=f.y;
  const tg=document.createElement("span");tg.className="tg "+f.ev;tg.textContent=LBL[f.ev];
- const b=document.createElement("b");b.textContent=" "+f.t+". ";
+ const b=document.createElement("b");b.textContent=" "+f.t+(/[?!.…]$/.test(f.t)?" ":". ");
  n.append(y,tg,b,document.createTextNode(f.b));n.classList.remove("flash");void n.offsetWidth;n.classList.add("flash");
  $("log").prepend(factLi(f,true))}
 function reveal(n){FACTS.forEach((f,i)=>{if(f.h<=n&&!shown.has(i)){shown.add(i);news(f);
@@ -207,7 +207,7 @@ function finish(reached){ended=true;run=false;cancelAnimationFrame(raf);$("drop"
  setTimeout(()=>{collapse();const s=document.createElement("div");s.className="stamp";s.textContent=reached?"Liquidated":"Collapsed";stage.append(s)},reached?400:200);
  FACTS.forEach((f,i)=>{if(!shown.has(i)){shown.add(i);$("log").prepend(factLi(f,true))}});
  $("endT").textContent=reached?"You made it to November 2025":"Your tower fell in "+yearOf(n);
- $("endB").textContent=(reached?"Congratulations: your tower lasted as long as Master's. And it ended the same way: the Central Bank liquidated the bank.":"Master went further: it held on until November 2025, raising new money while the CDBs matured.")+"When less money comes in than falls due, the tower falls."+(brbUsed?"And the BRB portfolios that widened your tower? The Central Bank said part of them was worthless.":"")+"See who was left with the bill:";
+ $("endB").textContent=(reached?"Congratulations: your tower lasted as long as Master's. And it ended the same way: the Central Bank liquidated the bank.":"Master went further: it held on until November 2025, raising new money while the CDBs matured.")+" When less money comes in than falls due, the tower falls."+(brbUsed?" And the BRB portfolios that widened your tower? The Central Bank said part of them was worthless.":"")+" See who was left with the bill:";
  const ul=$("endFacts");ul.textContent="";AFTER.forEach(f=>ul.append(factLi(f,false)));
  setTimeout(()=>{$("end").hidden=false;$("end").scrollIntoView({behavior:"smooth",block:"start"})},1600)}
 $("go").addEventListener("click",e=>{e.stopPropagation();start()});
